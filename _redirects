@@ -1,0 +1,4 @@
+# Netlify SPA redirect rule.
+# All routes → index.html so the client-side router handles navigation.
+# Static assets (css/, js/, views/) are served directly by Netlify before this rule fires.
+/*    /index.html   200

@@ -1,0 +1,498 @@
+/* ═══════════════════════════════════════════════════════════════════
+   VIKTORIA — Session Flow Overlay CSS
+   Paste at the bottom of styles.css
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ─── Overlay backdrop ─────────────────────────────────────────────── */
+.session-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(10, 8, 6, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.session-overlay.open {
+  display: flex;
+}
+
+/* ─── Session step wrapper ─────────────────────────────────────────── */
+.session-step {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Card ─────────────────────────────────────────────────────────── */
+.sess-card {
+  background: #1a1612;
+  border: 1px solid rgba(200, 184, 154, 0.15);
+  border-radius: 16px;
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+}
+
+.sess-card-wide {
+  max-width: 720px;
+}
+
+.sess-card-end {
+  max-width: 400px;
+  text-align: center;
+}
+
+/* ─── Typography ───────────────────────────────────────────────────── */
+.sess-eyebrow {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(200, 184, 154, 0.45);
+}
+
+.sess-title {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: 26px;
+  font-weight: 400;
+  font-style: italic;
+  color: #e8dcc8;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.sess-sub {
+  font-size: 12px;
+  color: rgba(200, 184, 154, 0.55);
+  text-align: center;
+  line-height: 1.7;
+  max-width: 360px;
+}
+
+/* ─── Declaration textarea ─────────────────────────────────────────── */
+.sess-decl-area {
+  width: 100%;
+  min-height: 100px;
+  background: rgba(200, 184, 154, 0.05);
+  border: 1px solid rgba(200, 184, 154, 0.18);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: 16px;
+  font-style: italic;
+  color: #e8dcc8;
+  resize: vertical;
+  line-height: 1.7;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.sess-decl-area:focus {
+  border-color: rgba(200, 184, 154, 0.4);
+}
+
+.sess-decl-hint {
+  font-family: var(--font-mono, monospace);
+  font-size: 9px;
+  color: rgba(200, 184, 154, 0.25);
+  letter-spacing: 0.06em;
+  align-self: flex-end;
+}
+
+.sess-decl-echo {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: 18px;
+  font-style: italic;
+  color: rgba(200, 184, 154, 0.75);
+  text-align: center;
+  line-height: 1.7;
+  padding: 16px 20px;
+  border-left: 2px solid rgba(200, 184, 154, 0.25);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ─── Buttons ──────────────────────────────────────────────────────── */
+.sess-btn-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.sess-btn-primary {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #1a1612;
+  background: #c8b89a;
+  border: none;
+  border-radius: 99px;
+  padding: 11px 28px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+.sess-btn-primary:hover { background: #ddd0b8; }
+.sess-btn-primary:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.sess-btn-ghost {
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(200, 184, 154, 0.45);
+  background: none;
+  border: 1px solid rgba(200, 184, 154, 0.18);
+  border-radius: 99px;
+  padding: 9px 20px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.sess-btn-ghost:hover {
+  color: rgba(200, 184, 154, 0.7);
+  border-color: rgba(200, 184, 154, 0.3);
+}
+
+.sess-cost {
+  color: var(--accent, #B84E2C);
+  margin-left: 4px;
+}
+
+/* ─── Disciple grid ────────────────────────────────────────────────── */
+.sess-disciple-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+  width: 100%;
+}
+
+.sess-disciple-card {
+  background: rgba(200, 184, 154, 0.04);
+  border: 1px solid rgba(200, 184, 154, 0.12);
+  border-radius: 10px;
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, transform 0.1s;
+  position: relative;
+  text-align: center;
+}
+
+.sess-disciple-card:hover:not(.disciple-locked) {
+  border-color: rgba(var(--disc-color, 200, 184, 154), 0.4);
+  background: rgba(200, 184, 154, 0.08);
+  transform: translateY(-1px);
+}
+
+.sess-disciple-card.disc-primary {
+  border-color: var(--disc-color, #c8b89a);
+  background: color-mix(in srgb, var(--disc-color, #c8b89a) 15%, transparent);
+  box-shadow: 0 0 16px -4px var(--disc-color, #c8b89a);
+}
+
+.sess-disciple-card.disc-secondary {
+  border-color: color-mix(in srgb, var(--disc-color, #c8b89a) 55%, transparent);
+  background: color-mix(in srgb, var(--disc-color, #c8b89a) 8%, transparent);
+}
+
+.sess-disciple-card.disciple-locked {
+  opacity: 0.35;
+  cursor: not-allowed;
+  filter: grayscale(0.6);
+}
+
+.sdc-glyph {
+  font-size: 22px;
+  line-height: 1;
+  transition: transform 0.15s;
+}
+
+.sess-disciple-card.disc-primary .sdc-glyph {
+  transform: scale(1.2);
+}
+
+.sdc-name {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: 13px;
+  font-style: italic;
+  color: #e8dcc8;
+  line-height: 1.2;
+}
+
+.sdc-course {
+  font-family: var(--font-mono, monospace);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(200, 184, 154, 0.4);
+}
+
+.sdc-tarot {
+  font-size: 9px;
+  color: rgba(200, 184, 154, 0.28);
+  font-style: italic;
+}
+
+.sdc-lock {
+  font-family: var(--font-mono, monospace);
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(200, 184, 154, 0.3);
+  margin-top: 2px;
+}
+
+/* ─── Disciple summary + legend ────────────────────────────────────── */
+.sess-disciple-summary {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: 14px;
+  font-style: italic;
+  color: rgba(200, 184, 154, 0.6);
+  text-align: center;
+  min-height: 20px;
+  transition: opacity 0.2s;
+}
+
+.sess-disciple-legend {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-mono, monospace);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(200, 184, 154, 0.35);
+}
+
+.sess-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.sess-legend-primary   { background: #c8b89a; }
+.sess-legend-secondary { background: rgba(200, 184, 154, 0.35); border: 1px solid rgba(200,184,154,0.5); }
+
+/* ─── Strike step ──────────────────────────────────────────────────── */
+.sess-strike-glyph {
+  font-size: 48px;
+  line-height: 1;
+  transition: color 0.3s;
+}
+
+.sess-strike-disciple {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: 14px;
+  font-style: italic;
+  color: rgba(200, 184, 154, 0.5);
+}
+
+.sess-duration-wrap {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  justify-content: center;
+}
+
+.sess-duration-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.sess-dur-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(200, 184, 154, 0.4);
+}
+
+.sess-dur-btns {
+  display: flex;
+  gap: 4px;
+}
+
+.sess-dur-btn {
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: rgba(200, 184, 154, 0.5);
+  background: rgba(200, 184, 154, 0.06);
+  border: 1px solid rgba(200, 184, 154, 0.15);
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.sess-dur-btn:hover:not(:disabled) {
+  color: rgba(200, 184, 154, 0.8);
+  border-color: rgba(200, 184, 154, 0.3);
+}
+
+.sess-dur-btn.active {
+  color: #1a1612;
+  background: #c8b89a;
+  border-color: #c8b89a;
+}
+
+.sess-dur-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.sess-lightday-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.sess-lightday-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: rgba(200, 184, 154, 0.45);
+}
+
+.sess-btn-strike {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: #1a1612;
+  background: #c8b89a;
+  border: none;
+  border-radius: 99px;
+  padding: 14px 48px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px -4px rgba(200, 184, 154, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sess-btn-strike:hover {
+  background: #ddd0b8;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px -4px rgba(200, 184, 154, 0.35);
+}
+
+.sess-btn-strike:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ─── Session end ───────────────────────────────────────────────────── */
+.sess-end-glyph {
+  font-size: 36px;
+  color: rgba(200, 184, 154, 0.5);
+}
+
+.sess-end-vt {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: 42px;
+  font-weight: 300;
+  font-style: italic;
+  color: #2A7A5A;
+  line-height: 1;
+}
+
+.sess-end-msg {
+  font-size: 12px;
+  color: rgba(200, 184, 154, 0.45);
+  text-align: center;
+  line-height: 1.7;
+  max-width: 300px;
+}
+
+/* ─── VT flash toast ────────────────────────────────────────────────── */
+.sess-vt-flash {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  font-family: var(--font-mono, monospace);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: #e8dcc8;
+  background: rgba(26, 22, 18, 0.92);
+  border: 1px solid rgba(200, 184, 154, 0.2);
+  border-radius: 99px;
+  padding: 8px 20px;
+  pointer-events: none;
+}
+
+.sess-vt-flash.vf-visible { display: block; }
+.sess-vt-flash.vf-fade    { opacity: 0; transition: opacity 0.4s; }
+
+/* ─── Shake animation ───────────────────────────────────────────────── */
+@keyframes sess-shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  40%       { transform: translateX(6px); }
+  60%       { transform: translateX(-4px); }
+  80%       { transform: translateX(4px); }
+}
+
+.sess-shake { animation: sess-shake 0.4s ease; }
+
+/* ─── Header session buttons ────────────────────────────────────────── */
+.sess-header-btn {
+  font-family: var(--font-mono, monospace);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 99px;
+  border: 1px solid rgba(200, 184, 154, 0.25);
+  background: transparent;
+  color: rgba(200, 184, 154, 0.6);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.sess-header-btn:hover {
+  border-color: rgba(200, 184, 154, 0.5);
+  color: rgba(200, 184, 154, 0.9);
+}
+
+.sess-end-btn {
+  border-color: rgba(180, 78, 44, 0.3);
+  color: rgba(180, 78, 44, 0.6);
+}
+
+.sess-end-btn:hover {
+  border-color: rgba(180, 78, 44, 0.6);
+  color: rgba(180, 78, 44, 0.9);
+}

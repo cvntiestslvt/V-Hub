@@ -1,0 +1,1109 @@
+<!-- ═══════════════════════════════════════════════════════
+     VIEW: survival
+     This file contains only the HTML for this view/tab.
+     It is injected into index.html at runtime by core.js.
+     Edit content here; don't touch the id="view-survival" attribute.
+     ═══════════════════════════════════════════════════════ -->
+
+<div class="view" id="view-survival">
+  <div class="pv-wrap">
+    <div class="page-header">
+      <div class="eyebrow">† Survival Guide</div>
+      <h1>Nursing School <em>Survival</em></h1>
+      <p>Professors, groupmates, clinicals, research, exams, and everything they skip in orientation.</p>
+    </div>
+    <!-- Survival: topic card grid -->
+    <div class="sg-grid">
+      <div class="sg-card sg-card-gold" onclick="sgGoTo(0)">
+        <div class="sg-card-icon" style="font-size:16px;color:var(--gold)">✦</div>
+        <div class="sg-card-body">
+          <div class="sg-card-title">Professors</div>
+          <div class="sg-card-desc">Archetypes · Strategy · Communication</div>
+        </div>
+        <div class="sg-card-arrow">→</div>
+      </div>
+      <div class="sg-card sg-card-red" onclick="sgGoTo(1)">
+        <div class="sg-card-icon" style="font-size:16px;color:var(--accent)">✝</div>
+        <div class="sg-card-body">
+          <div class="sg-card-title">Clinical Instructor</div>
+          <div class="sg-card-desc">What CIs actually grade · Archetypes</div>
+        </div>
+        <div class="sg-card-arrow">→</div>
+      </div>
+      <div class="sg-card sg-card-ink" onclick="sgGoTo(2)">
+        <div class="sg-card-icon" style="font-size:16px;color:var(--ink-soft)">✧</div>
+        <div class="sg-card-body">
+          <div class="sg-card-title">Groupmates</div>
+          <div class="sg-card-desc">Study alliance · Group dynamics</div>
+        </div>
+        <div class="sg-card-arrow">→</div>
+      </div>
+      <div class="sg-card sg-card-teal" onclick="sgGoTo(3)">
+        <div class="sg-card-icon" style="font-size:16px;color:var(--teal)">❧</div>
+        <div class="sg-card-body">
+          <div class="sg-card-title">Clinicals</div>
+          <div class="sg-card-desc">Hospital hierarchy · RLE survival</div>
+        </div>
+        <div class="sg-card-arrow">→</div>
+      </div>
+      <div class="sg-card sg-card-slate" onclick="sgGoTo(4)">
+        <div class="sg-card-icon" style="font-size:16px;color:var(--blue)">⁂</div>
+        <div class="sg-card-body">
+          <div class="sg-card-title">Research</div>
+          <div class="sg-card-desc">Papers · APA · Game the game</div>
+        </div>
+        <div class="sg-card-arrow">→</div>
+      </div>
+      <div class="sg-card sg-card-red" onclick="sgGoTo(5)">
+        <div class="sg-card-icon" style="font-size:16px;color:var(--accent)">✶</div>
+        <div class="sg-card-body">
+          <div class="sg-card-title">Exams</div>
+          <div class="sg-card-desc">NCLEX thinking · Board prep</div>
+        </div>
+        <div class="sg-card-arrow">→</div>
+      </div>
+      <div class="sg-card sg-card-warm" onclick="sgGoTo(6)">
+        <div class="sg-card-icon">☕</div>
+        <div class="sg-card-body">
+          <div class="sg-card-title">College Life</div>
+          <div class="sg-card-desc">Social · Identity · Reading habit</div>
+        </div>
+        <div class="sg-card-arrow">→</div>
+      </div>
+      <div class="sg-card sg-card-warm" onclick="sgGoTo(7)">
+        <div class="sg-card-icon" style="font-size:16px;color:var(--teal)">✿</div>
+        <div class="sg-card-body">
+          <div class="sg-card-title">Mental Health</div>
+          <div class="sg-card-desc">Burnout · Distress · Crisis support</div>
+        </div>
+        <div class="sg-card-arrow">→</div>
+      </div>
+      <div class="sg-card sg-card-gold" onclick="sgGoTo(8)">
+        <div class="sg-card-icon" style="font-size:16px;color:var(--gold)">❀</div>
+        <div class="sg-card-body">
+          <div class="sg-card-title">PH Culture</div>
+          <div class="sg-card-desc">Unwritten rules · Politics · LMS</div>
+        </div>
+        <div class="sg-card-arrow">→</div>
+      </div>
+      <div class="sg-card sg-card-teal" onclick="sgGoTo(9)">
+        <div class="sg-card-icon">💻</div>
+        <div class="sg-card-body">
+          <div class="sg-card-title">Technology</div>
+          <div class="sg-card-desc">Tools you'll actually use · AI</div>
+        </div>
+        <div class="sg-card-arrow">→</div>
+      </div>
+      <div class="sg-card sg-card-teal" onclick="sgGoTo(10)">
+        <div class="sg-card-icon">✈️</div>
+        <div class="sg-card-body">
+          <div class="sg-card-title">Career Path</div>
+          <div class="sg-card-desc">Germany · Anerkennung · Timeline</div>
+        </div>
+        <div class="sg-card-arrow">→</div>
+      </div>
+    </div>
+
+    <!-- detail panels — shown when a card is clicked -->
+    <div id="sg-detail-area" style="display:none;margin-top:4px">
+      <button class="sg-back-to-grid" onclick="sgBackToGrid()">← all topics</button>
+
+    <!-- PROFESSORS -->
+    <div id="sg-0" class="pv-panel active">
+      <div class="sg-tab-header sg-gold" data-glyph="👩‍🏫">
+        <div class="sg-tab-eyebrow">Survival · Professors</div>
+        <div class="sg-tab-title">Know your professor before they know your grade.</div>
+        <div class="sg-tab-sub">Not all the same. Approach each type differently. First three weeks are when impressions solidify — invest disproportionately early.</div>
+      </div>
+      <div class="pv-alert gold">Being known as engaged and prepared before your first exam is insurance you cannot buy after the fact.</div>
+      <div class="archetype-grid">
+        <div class="archetype-card arch-danger">
+          <div class="archetype-roman">I</div>
+          <div class="archetype-tag">Danger · High Stakes</div>
+          <div class="archetype-name">The Old-School Terror</div>
+          <div class="archetype-strategy">Strict, cold, humiliates publicly. Strategy: prepare before every class, volunteer answers even when uncertain. Never argue publicly — office hours only. Converts a performance into a conversation.</div>
+        </div>
+        <div class="archetype-card arch-useful">
+          <div class="archetype-roman">II</div>
+          <div class="archetype-tag">Useful · Invest Here</div>
+          <div class="archetype-name">The Warm Mentor</div>
+          <div class="archetype-strategy">Approachable, shares clinical stories freely. Go to office hours when curious, not just desperate. Writes the best recommendation letters. Knows which rotations are brutal — ask directly in Week 2.</div>
+        </div>
+        <div class="archetype-card arch-neutral">
+          <div class="archetype-roman">III</div>
+          <div class="archetype-tag">Neutral · Researcher</div>
+          <div class="archetype-name">The Indifferent Researcher</div>
+          <div class="archetype-strategy">Heart is in publications, not in you. One prepared question per lecture. Email a thoughtful follow-up on a topic they visibly lit up about. Academic curiosity reminds them teaching isn't pointless.</div>
+        </div>
+        <div class="archetype-card arch-neutral">
+          <div class="archetype-roman">IV</div>
+          <div class="archetype-tag">Neutral · Navigate</div>
+          <div class="archetype-name">The Favorite-Picker</div>
+          <div class="archetype-strategy">Pets are: engaged, articulate, visible. Don't resent it — replicate it. You don't need to be liked. You need to be respected. Those are completely different and the second one is learnable.</div>
+        </div>
+        <div class="archetype-card arch-danger">
+          <div class="archetype-roman">V</div>
+          <div class="archetype-tag">Danger · Inconsistent</div>
+          <div class="archetype-name">The Mood-Dependent Grader</div>
+          <div class="archetype-strategy">Feedback varies by their day, not your work. Document everything — keep dated copies of returned exams and written feedback. Never rely on verbal feedback only. Ask for written rubric criteria early in the semester.</div>
+        </div>
+        <div class="archetype-card arch-neutral">
+          <div class="archetype-roman">VI</div>
+          <div class="archetype-tag">Neutral · Intelligence</div>
+          <div class="archetype-name">The Gossip Professor</div>
+          <div class="archetype-strategy">Shares departmental tea, discusses other faculty, reveals CI personalities. Never participate in the gossip — but listen. Information asymmetry is a clinical skill. Everything they say is data.</div>
+        </div>
+        <div class="archetype-card arch-useful">
+          <div class="archetype-roman">VII</div>
+          <div class="archetype-tag">Useful · Clinician Type</div>
+          <div class="archetype-name">The Practicing Nurse-Professor</div>
+          <div class="archetype-strategy">Still actively works in hospitals. Their examples are real and current. Ask about real clinical scenarios after class. Their clinical contacts often know the best rotations. This is the person who can tell you how German hospitals actually work.</div>
+        </div>
+        <div class="archetype-card arch-danger">
+          <div class="archetype-roman">VIII</div>
+          <div class="archetype-tag">Danger · Grade Risk</div>
+          <div class="archetype-name">The Subjective Rater</div>
+          <div class="archetype-strategy">Grades personality and presentation more than content. Appearance, confidence, and articulation matter disproportionately. Accept this. Adapt your delivery — cleaner uniform, more direct eye contact, deliberate vocal pace. Not unfair — just a different exam.</div>
+        </div>
+        <div class="archetype-card arch-neutral">
+          <div class="archetype-roman">IX</div>
+          <div class="archetype-tag">Neutral · Manage</div>
+          <div class="archetype-name">The Burnt-Out Lecturer</div>
+          <div class="archetype-strategy">Going through the motions. Slide decks unchanged since 2015. Learn the exact board exam topics they've recycled for years — that pattern is your exam blueprint. Don't expect inspiration. Extract the map.</div>
+        </div>
+        <div class="archetype-card arch-useful">
+          <div class="archetype-roman">X</div>
+          <div class="archetype-tag">Useful · Rare Find</div>
+          <div class="archetype-name">The Transparent Grader</div>
+          <div class="archetype-strategy">Explains exactly how they grade, responds to grade appeals rationally, and means it when they say "see me if you have questions." Invest fully — these professors respect effort, reward clarity, and advocate for students they believe in.</div>
+        </div>
+      </div>
+      <div class="pv-card teal"><div class="pv-card-label">Office hours strategy</div><div class="pv-card-body">Go in weeks 1–3 with a genuine specific question — not "I'm confused about everything" but "I understand the nursing process, but I can't distinguish nursing diagnosis from medical diagnosis — walk me through that?" This establishes you as serious before borderline grading decisions happen.</div></div>
+      <div class="pv-card red"><div class="pv-card-label">What never to do</div><div class="pv-card-body">Argue grades via group chat. Email with emotional language. Ask "is this on the exam?" about something they're passionate about. Submit late work without prior communication. One-hour-early "I need an extension" email lands completely differently than a post-deadline apology.</div></div>
+    </div>
+
+    <!-- CLINICAL INSTRUCTOR -->
+    <div id="sg-10" class="pv-panel">
+      <div class="sg-tab-header sg-red" data-glyph="📋">
+        <div class="sg-tab-eyebrow">Survival · Clinical Instructor</div>
+        <div class="sg-tab-title">A third category of relationship. Completely different from professors.</div>
+        <div class="sg-tab-sub">The CI holds your clinical grade, evaluates on observed behavior rather than exams, and the power dynamic is immediate and physical in a way classroom professors aren't.</div>
+      </div>
+      <div class="pv-alert red">CIs are often staff nurses with limited formal teaching training. They evaluate you on what they see — not what you know. Those are completely different things. Bridge the gap deliberately.</div>
+      <div class="ci-grade-block">
+        <div class="ci-grade-label">What CIs actually evaluate</div>
+        <div class="pv-card-body" style="font-size:13px">Technical performance is only one component. CIs evaluate: <strong>attitude</strong> (are you eager to learn or just going through motions?), <strong>initiative</strong> (do you volunteer or wait to be told everything?), <strong>professionalism</strong> (uniform, punctuality, patient communication), <strong>safety behavior</strong> (do you ask before doing, or do, then ask?), and <strong>recovery from mistakes</strong> (how you handle being wrong is more diagnostic than whether you were right).</div>
+      </div>
+      <div class="archetype-grid">
+        <div class="archetype-card arch-useful">
+          <div class="archetype-roman">I</div>
+          <div class="archetype-tag">Useful · Clinician First</div>
+          <div class="archetype-name">The Experienced Bedside Nurse</div>
+          <div class="archetype-strategy">Knows exactly how things work in the real hospital. Shares actual clinical reasoning, not textbook reasoning. Ask questions about why — not just what. These CIs produce the strongest clinical nurses because they teach reality, not theory.</div>
+        </div>
+        <div class="archetype-card arch-danger">
+          <div class="archetype-roman">II</div>
+          <div class="archetype-tag">Danger · Subjective Grader</div>
+          <div class="archetype-name">The Impression Grader</div>
+          <div class="archetype-strategy">Grades on perceived confidence, demeanor, and how much they like you. Technical accuracy matters less than projected confidence. Appearance, direct eye contact, deliberate pace, and a calm voice are your exam. Look like you know what you're doing even when you don't.</div>
+        </div>
+        <div class="archetype-card arch-neutral">
+          <div class="archetype-roman">III</div>
+          <div class="archetype-tag">Neutral · Overworked</div>
+          <div class="archetype-name">The Understaffed Staff Nurse</div>
+          <div class="archetype-strategy">Stretched thin, resents the student supervision obligation. Never be a burden — be an asset. Ask "what can I help with right now?" at the start of every shift. Do tasks they hate without being asked. If you reduce their load, they see you differently.</div>
+        </div>
+        <div class="archetype-card arch-danger">
+          <div class="archetype-roman">IV</div>
+          <div class="archetype-tag">Danger · Unpredictable</div>
+          <div class="archetype-name">The Public Humiliator</div>
+          <div class="archetype-strategy">Corrects loudly in front of patients and colleagues. Never argue publicly — ever. Say "Thank you, I'll note that." Process it later. If the humiliation becomes systematic or affects patient care, document dates and report to your clinical coordinator. That's not snitching — it's professional self-protection.</div>
+        </div>
+        <div class="archetype-card arch-rare">
+          <div class="archetype-roman">V</div>
+          <div class="archetype-tag">Rare · Best Case</div>
+          <div class="archetype-name">The Teaching CI</div>
+          <div class="archetype-strategy">Explains the why behind every intervention, invites questions, gives formative feedback you can actually use, and wants you to succeed visibly. These are rare. When you find one, stay near them. Ask to observe everything. Write down what they say after the shift. These conversations are worth more than any textbook.</div>
+        </div>
+        <div class="archetype-card arch-neutral">
+          <div class="archetype-roman">VI</div>
+          <div class="archetype-tag">Neutral · By the Book</div>
+          <div class="archetype-name">The Protocol Enforcer</div>
+          <div class="archetype-strategy">Follows every procedure exactly as written — no shortcuts, no informal techniques. Frustrating when clinical reality is messier, but actually safest for your learning. Practice exactly as they demonstrate. The protocols exist for reasons you'll understand more deeply in Year 3.</div>
+        </div>
+      </div>
+      <div class="pv-card teal"><div class="pv-card-label">The CI relationship — what actually moves your grade</div>
+        <div class="pv-entry"><div class="pv-entry-num teal">1</div><div><div class="pv-entry-main">Be early, prepared, and in full uniform from the first shift — impressions set in 72 hours</div><div class="pv-entry-note">What they see on Day 1 becomes the lens through which they interpret everything after. Be the student they expect to be competent, not the one they're watching for mistakes.</div></div></div>
+        <div class="pv-entry"><div class="pv-entry-num teal">2</div><div><div class="pv-entry-main">Ask permission before every procedure, every time — even procedures you've done before</div><div class="pv-entry-note">"May I proceed with the IV insertion?" protects both of you. CIs who see students act without checking view that as a safety problem, not confidence.</div></div></div>
+        <div class="pv-entry"><div class="pv-entry-num teal">3</div><div><div class="pv-entry-main">Verbalize your clinical reasoning out loud during observed care</div><div class="pv-entry-note">"I'm checking the IV site first because I want to confirm no infiltration before I administer." Speaking your thinking shows you understand what you're doing — not just that you can execute the motion.</div></div></div>
+        <div class="pv-entry"><div class="pv-entry-num teal">4</div><div><div class="pv-entry-main">Give a brief end-of-shift summary to your CI before leaving</div><div class="pv-entry-note">One sentence on each patient: what you observed, what you did, what changed. This cements your presence as a student who sees the whole patient, not just the assigned task.</div></div></div>
+      </div>
+      <div class="pv-card red"><div class="pv-card-label">What permanently damages your standing with a CI</div><div class="pv-card-body">Using your phone on the unit floor. Sitting when patients need care. Being found doing nothing. Complaining about the hospital, the schedule, or the patients within earshot of staff. Performing a procedure without explicit permission. These aren't minor — they communicate that you don't understand what clinical environment you're in. Recovery is possible but slow. Avoid them entirely.</div></div>
+    </div>
+
+    <!-- GROUPMATES -->
+    <div id="sg-1" class="pv-panel">
+      <div class="sg-tab-header sg-ink" data-glyph="🤝">
+        <div class="sg-tab-eyebrow">Survival · Groupmates</div>
+        <div class="sg-tab-title">Study alliance first. Friendship can follow.</div>
+        <div class="sg-tab-sub">Function has to work regardless of how you feel about each other. Most groups fail because they prioritize harmony over output.</div>
+      </div>
+      <div class="pv-alert ink">Harmony is nice. A passing grade is better. These are not the same thing.</div>
+      <div class="archetype-grid">
+        <div class="archetype-card arch-danger">
+          <div class="archetype-roman">I</div>
+          <div class="archetype-tag">Drain · Remove Quietly</div>
+          <div class="archetype-name">The Leech</div>
+          <div class="archetype-strategy">Takes notes, summaries, copies — contributes nothing in return. Stop sending preemptively. "I'll share after we each write a section" reframes the dynamic without confrontation and without burning the bridge.</div>
+        </div>
+        <div class="archetype-card arch-danger">
+          <div class="archetype-roman">II</div>
+          <div class="archetype-tag">Threat · Competitive</div>
+          <div class="archetype-name">The Overachiever Who Won't Share</div>
+          <div class="archetype-strategy">Studies alone, terrified of competition. Be consistently generous yourself — sometimes softens them over a semester. If not, accept it and build alliances elsewhere. Don't waste energy on the closed door.</div>
+        </div>
+        <div class="archetype-card arch-neutral">
+          <div class="archetype-roman">III</div>
+          <div class="archetype-tag">Drain · Manage or Distance</div>
+          <div class="archetype-name">The Anxious One</div>
+          <div class="archetype-strategy">Catastrophizes before every exam, absorbs and radiates panic. Set session norms explicitly: "90 minutes of study, then zero exam feelings discussion." If they can't hold the norm, study separately.</div>
+        </div>
+        <div class="archetype-card arch-rare">
+          <div class="archetype-roman">IV</div>
+          <div class="archetype-tag">Rare · Protect This</div>
+          <div class="archetype-name">The One Who Actually Studies</div>
+          <div class="archetype-strategy">Identifies in Week 2. Can explain (not just recite), shows up prepared, gives honest feedback. Worth more than anyone in your cohort's social hierarchy. Build the Study Mafia around this person.</div>
+        </div>
+        <div class="archetype-card arch-useful">
+          <div class="archetype-roman">V</div>
+          <div class="archetype-tag">Intel · Keep Reciprocal</div>
+          <div class="archetype-name">The Connector</div>
+          <div class="archetype-strategy">Knows everyone, hears everything — professor reputations, CI personalities, which rotations are survivable, who's about to fail. Keep it friendly, reciprocal, and never gossipy. Information asymmetry is a clinical skill.</div>
+        </div>
+        <div class="archetype-card arch-danger">
+          <div class="archetype-roman">VI</div>
+          <div class="archetype-tag">Danger · Anchor Risk</div>
+          <div class="archetype-name">The Drama Generator</div>
+          <div class="archetype-strategy">Turns every group assignment into a conflict, escalates minor disagreements to personal attacks, involves professors unnecessarily. Never engage on their terms. Neutral, brief, documented communication only. Exit the group project if possible.</div>
+        </div>
+        <div class="archetype-card arch-neutral">
+          <div class="archetype-roman">VII</div>
+          <div class="archetype-tag">Neutral · Surface Only</div>
+          <div class="archetype-name">The Social Butterfly</div>
+          <div class="archetype-strategy">Friend to everyone, focused on no one. Charming, warm, useless for actual study sessions — always "busy" when work is due. Maintain the friendship for morale and social balance. Never count on them for deliverables.</div>
+        </div>
+        <div class="archetype-card arch-neutral">
+          <div class="archetype-roman">VIII</div>
+          <div class="archetype-tag">Neutral · Dead Weight</div>
+          <div class="archetype-name">The Ghost</div>
+          <div class="archetype-strategy">Disappears during the actual work, reappears for the grade submission. Address it once, directly, with specific tasks and deadlines assigned in writing. If it continues, document their absence from group chats and meetings. This protects you for appeals.</div>
+        </div>
+        <div class="archetype-card arch-useful">
+          <div class="archetype-roman">IX</div>
+          <div class="archetype-tag">Useful · Return Demo Partner</div>
+          <div class="archetype-name">The Honest Critic</div>
+          <div class="archetype-strategy">Tells you when your technique is wrong, corrects your nursing care plans without softening it, and gives feedback that is true rather than kind. This person is your most valuable clinical partner. Comfort is the enemy of accuracy in return demos.</div>
+        </div>
+        <div class="archetype-card arch-neutral">
+          <div class="archetype-roman">X</div>
+          <div class="archetype-tag">Neutral · NCP Specific</div>
+          <div class="archetype-name">The Perfectionist Formatter</div>
+          <div class="archetype-strategy">Spends 4 hours on font consistency in the NCP instead of the actual interventions. Good for final formatting passes — genuinely valuable for submission aesthetics. Keep them away from content decisions. Assign them "polishing" and let the actual thinkers handle structure.</div>
+        </div>
+      </div>
+      <div class="pv-card teal"><div class="pv-card-label">The Study Mafia — how to build it</div><div class="pv-card-body">3 people maximum. Any more is a social event. Selection criteria: shows up, does the work, can explain (not just recite), doesn't need emotional management mid-session.<br><br>Sessions: 90-minute defined topics. Everyone arrives with notes already done — the session tests and fills gaps, not first encounter with material.<br><br>Return demo partner: choose someone who corrects you when you're wrong. Comfort is the enemy of accuracy.</div></div>
+      <div class="pv-card red"><div class="pv-card-label">Group chat hygiene</div><div class="pv-card-body">Never complain about professors (screenshots travel), spread exam rumors, or process feelings publicly. Use chats for logistics and resources only. Group chats become anxiety spirals in pre-exam weeks — mute on schedule.</div></div>
+    </div>
+
+    <!-- CLINICALS -->
+    <div id="sg-2" class="pv-panel">
+      <div class="cl2-wrap">
+        <!-- HERO -->
+        <div class="cl2-hero">
+          <div class="cl2-hero-eye">Survival · Clinicals</div>
+          <div class="cl2-hero-title">The floor has a hierarchy. Know it before Day 1.</div>
+          <div class="cl2-hero-sub">CI holds your grade. Staff nurses hold your experience. Patients hold your future. Three relationships, three completely different rules.</div>
+          <div style="margin-top:14px;display:flex;align-items:center;flex-wrap:wrap;gap:0">
+            <div class="cl2-hier">
+              <div class="cl2-hier-node top">CI</div><div class="cl2-hier-arr">→</div>
+              <div class="cl2-hier-node mid">Head Nurse</div><div class="cl2-hier-arr">→</div>
+              <div class="cl2-hier-node mid">Staff Nurses</div><div class="cl2-hier-arr">→</div>
+              <div class="cl2-hier-node mid">Aides</div><div class="cl2-hier-arr">→</div>
+              <div class="cl2-hier-node you">You</div>
+            </div>
+          </div>
+        </div>
+        <!-- BODY -->
+        <div class="cl2-body">
+          <div style="font-size:12px;color:var(--ink-muted);line-height:1.7;margin-bottom:16px;padding:10px 14px;background:rgba(30,100,73,.06);border-radius:var(--radius);border-left:2px solid var(--teal)">Never position yourself above a staff nurse in tone or action — even if you've technically learned a procedure they're doing incorrectly. Watch. Note. Ask CI privately. You are a student. Act exactly like one.</div>
+        </div>
+
+        <!-- DAY 1 PROTOCOL -->
+        <div class="cl2-proto">
+          <div class="cl2-proto-head">
+            <div class="cl2-proto-glyph">◉</div>
+            <div class="cl2-proto-label">Day 1 Protocol — do these before anything else</div>
+            <div class="cl2-proto-tag" style="color:var(--teal);border-color:rgba(30,100,73,.3);background:rgba(30,100,73,.07)">First shift</div>
+          </div>
+          <div class="cl2-steps">
+            <div class="cl2-step">
+              <div class="cl2-step-num">01</div>
+              <div><div class="cl2-step-main">Introduce yourself to every staff nurse on the floor by name</div><div class="cl2-step-note">Not just those assigned to your patient. Staff nurses remember students who introduced themselves. This takes 3 minutes and pays for the entire rotation.</div></div>
+            </div>
+            <div class="cl2-step">
+              <div class="cl2-step-num">02</div>
+              <div><div class="cl2-step-main">Ask CI directly: "What's the one thing most students get wrong on Day 1?"</div><div class="cl2-step-note">They will tell you. This question signals seriousness and opens the relationship differently than silence does.</div></div>
+            </div>
+            <div class="cl2-step">
+              <div class="cl2-step-num">03</div>
+              <div><div class="cl2-step-main">Map the physical unit before you urgently need anything in it</div><div class="cl2-step-note">Crash cart, medication room, supply room, clean utility, soiled utility, nurses' station, doctor's station. Knowing this under pressure is the difference between competent and panicked.</div></div>
+            </div>
+            <div class="cl2-step">
+              <div class="cl2-step-num">04</div>
+              <div><div class="cl2-step-main">Always carry: watch with second hand, two pens, small notebook, stethoscope, penlight</div><div class="cl2-step-note">Don't borrow equipment from staff. Being prepared is visible and communicates readiness before you say a word.</div></div>
+            </div>
+            <div class="cl2-step">
+              <div class="cl2-step-num">05</div>
+              <div><div class="cl2-step-main">Read the assignment sheet before touching your patient — know who they are first</div><div class="cl2-step-note">Name, diagnosis, diet, allergies, IV access, current meds, code status. Walking in uninformed is a patient safety issue even on Day 1.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TWO COL: Return Demo + "I don't know" -->
+        <div class="cl2-two-col">
+          <div class="cl2-mini">
+            <div class="cl2-mini-label">Return demos — how to actually pass</div>
+            <div class="cl2-mini-body">The gap is <em>automaticity</em>, not familiarity. Familiarity comes from watching once. Automaticity comes from repeating until the sequence runs without conscious effort.<br><br>Solo → solo with interruptions → partner watching silently → partner asking questions mid-procedure.<br><br>Forget a step? Say <em>"I'm going to pause here"</em> and restart. CIs fail students who handle mistakes badly — not students who make them.</div>
+          </div>
+          <div class="cl2-mini">
+            <div class="cl2-mini-label">"I don't know" is always correct</div>
+            <div class="cl2-mini-body">"I don't know, but I'll find out right now" is what a safe nurse says. "I know" followed by wrong action is a patient safety incident — even in clinicals.<br><br>Students who pretend and are wrong: failed.<br>Students who admit and find out: respected.<br><br>The hierarchy rewards honesty precisely because healthcare cannot afford the alternative.</div>
+          </div>
+        </div>
+
+        <!-- BEDSIDE PHRASE CARD -->
+        <div class="cl2-phrase-card">
+          <div class="cl2-phrase-head">◈ Clinical Filipino — bedside reference</div>
+          <div class="cl2-phrase-row"><div class="cl2-phrase-fil">Masakit ba?</div><div class="cl2-phrase-eng">Does it hurt?</div></div>
+          <div class="cl2-phrase-row"><div class="cl2-phrase-fil">Saan ang sakit?</div><div class="cl2-phrase-eng">Where does it hurt?</div></div>
+          <div class="cl2-phrase-row"><div class="cl2-phrase-fil">Gaano kasakit, 0–10?</div><div class="cl2-phrase-eng">How much pain, 0 to 10?</div></div>
+          <div class="cl2-phrase-row"><div class="cl2-phrase-fil">Huwag matakot.</div><div class="cl2-phrase-eng">Don't be afraid.</div></div>
+          <div class="cl2-phrase-row"><div class="cl2-phrase-fil">Tapos na.</div><div class="cl2-phrase-eng">It's done.</div></div>
+          <div class="cl2-phrase-row"><div class="cl2-phrase-fil">Tatawagin ko ang nurse.</div><div class="cl2-phrase-eng">I'll call the nurse.</div></div>
+          <div class="cl2-phrase-row"><div class="cl2-phrase-fil">Hindi ko sagot 'yan — ikukuha ko ang doktor.</div><div class="cl2-phrase-eng">That's beyond my scope — I'll get the doctor.</div></div>
+        </div>
+
+        <!-- MISTAKE PROTOCOL -->
+        <div class="cl2-alert-mistake">
+          <div class="cl2-alert-head">⊗ After a clinical mistake — even a small one</div>
+          <div class="cl2-alert-seq">
+            <div class="cl2-alert-seq-step">Stop</div><div class="cl2-alert-seq-arr">→</div>
+            <div class="cl2-alert-seq-step">Acknowledge</div><div class="cl2-alert-seq-arr">→</div>
+            <div class="cl2-alert-seq-step">Assess patient impact</div><div class="cl2-alert-seq-arr">→</div>
+            <div class="cl2-alert-seq-step">Report to CI immediately</div><div class="cl2-alert-seq-arr">→</div>
+            <div class="cl2-alert-seq-step">Document accurately</div>
+          </div>
+          <div class="cl2-alert-body">Every student makes clinical mistakes. What ends clinicals is the response, not the mistake itself. Don't catastrophize internally — but don't minimize externally either.<br><br>The psychological aftermath is real: you may replay the moment for days. Name it. Write down exactly what happened privately. Tell one person not present. Then stop replaying it — the event is over. The memory is not the event.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESEARCH -->
+    <div id="sg-3" class="pv-panel">
+      <div class="rs2-wrap">
+        <!-- HERO -->
+        <div class="rs2-hero">
+          <div class="rs2-hero-eye">Survival · Research</div>
+          <div class="rs2-hero-title">Research in PH nursing school is a genre. Learn the genre.</div>
+          <div class="rs2-hero-sub">Your research group will stress you more than your subject load. Address the dynamics in Week 1 or they will metastasize by Week 6.</div>
+        </div>
+        <!-- BODY: stats + rule -->
+        <div class="rs2-body">
+          <!-- RREB timeline -->
+          <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px">◈ Thesis timeline — PH nursing school</div>
+          <div class="rs2-timeline">
+            <div class="rs2-tl-node">
+              <div class="rs2-tl-dot" style="background:rgba(140,165,255,.15);border:1.5px solid rgba(140,165,255,.4);color:#8ca5ff">Ch1</div>
+              <div class="rs2-tl-label" style="color:#8ca5ff">Introduction &amp; Background</div>
+            </div>
+            <div class="rs2-tl-line" style="background:rgba(140,165,255,.2)"></div>
+            <div class="rs2-tl-node">
+              <div class="rs2-tl-dot" style="background:rgba(140,165,255,.15);border:1.5px solid rgba(140,165,255,.4);color:#8ca5ff">Ch2</div>
+              <div class="rs2-tl-label" style="color:#8ca5ff">Review of Literature</div>
+            </div>
+            <div class="rs2-tl-line" style="background:rgba(140,165,255,.2)"></div>
+            <div class="rs2-tl-node">
+              <div class="rs2-tl-dot" style="background:rgba(140,165,255,.15);border:1.5px solid rgba(140,165,255,.4);color:#8ca5ff">Ch3</div>
+              <div class="rs2-tl-label" style="color:#8ca5ff">Methodology &amp; Proposal</div>
+            </div>
+            <div class="rs2-tl-line" style="background:rgba(184,78,44,.3)"></div>
+            <div class="rs2-tl-node">
+              <div class="rs2-tl-dot" style="background:rgba(184,78,44,.12);border:1.5px solid rgba(184,78,44,.4);color:var(--accent)">RREB</div>
+              <div class="rs2-tl-label" style="color:var(--accent)">6–10 wk wait</div>
+            </div>
+            <div class="rs2-tl-line" style="background:rgba(154,122,26,.3)"></div>
+            <div class="rs2-tl-node">
+              <div class="rs2-tl-dot" style="background:rgba(154,122,26,.12);border:1.5px solid rgba(154,122,26,.4);color:var(--gold)">Ch4</div>
+              <div class="rs2-tl-label" style="color:var(--gold)">Results &amp; Discussion</div>
+            </div>
+            <div class="rs2-tl-line" style="background:rgba(154,122,26,.3)"></div>
+            <div class="rs2-tl-node">
+              <div class="rs2-tl-dot" style="background:rgba(154,122,26,.12);border:1.5px solid rgba(154,122,26,.4);color:var(--gold)">Ch5</div>
+              <div class="rs2-tl-label" style="color:var(--gold)">Conclusion &amp; Rec.</div>
+            </div>
+            <div class="rs2-tl-line" style="background:rgba(30,100,73,.3)"></div>
+            <div class="rs2-tl-node">
+              <div class="rs2-tl-dot" style="background:rgba(30,100,73,.12);border:1.5px solid rgba(30,100,73,.4);color:var(--teal)">◎</div>
+              <div class="rs2-tl-label" style="color:var(--teal)">Defense &amp; Panel</div>
+            </div>
+          </div>
+          <!-- Stats -->
+          <div class="rs2-stat-row">
+            <div class="rs2-stat"><div class="rs2-stat-val">3</div><div class="rs2-stat-lbl">Chapters in proposal</div></div>
+            <div class="rs2-stat"><div class="rs2-stat-val">6–10</div><div class="rs2-stat-lbl">Weeks RREB wait</div></div>
+            <div class="rs2-stat"><div class="rs2-stat-val">5</div><div class="rs2-stat-lbl">Chapters total</div></div>
+          </div>
+          <div style="font-size:12px;color:var(--ink-muted);line-height:1.7;padding:10px 14px;background:rgba(42,58,122,.06);border-radius:var(--radius);border-left:2px solid #3a5a9a;margin-bottom:0">Most research failures are coordination failures that became academic failures. Group structure first — Week 1, not Week 8.</div>
+        </div>
+
+        <!-- STUDY DESIGN SELECTOR -->
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;margin-top:4px">Study designs approved in PH nursing schools — click to expand</div>
+        <div class="rs2-designs">
+          <div class="rs2-design open" onclick="this.classList.toggle('open')">
+            <div class="rs2-design-head">
+              <div class="rs2-design-badge" style="background:rgba(42,58,122,.1);color:#3a5a9a;border:1px solid rgba(42,58,122,.2)">Most approved</div>
+              <div class="rs2-design-name">Descriptive Correlational</div>
+            </div>
+            <div class="rs2-design-body">Tests relationships between variables without manipulation. Most commonly approved because no intervention on patients is required. Default choice for Year 3 capstones. Know your r-value interpretation and p-value threshold (p&lt;0.05).</div>
+          </div>
+          <div class="rs2-design" onclick="this.classList.toggle('open')">
+            <div class="rs2-design-head">
+              <div class="rs2-design-badge" style="background:rgba(30,100,73,.1);color:var(--teal);border:1px solid rgba(30,100,73,.2)">Growing acceptance</div>
+              <div class="rs2-design-name">Phenomenological</div>
+            </div>
+            <div class="rs2-design-body">Explores lived experiences of nurses, patients, or students. Only 5–10 participants needed for saturation, but requires rigorous thematic analysis. Growing acceptance in PH nursing research — strong if your adviser has qualitative background.</div>
+          </div>
+          <div class="rs2-design" onclick="this.classList.toggle('open')">
+            <div class="rs2-design-head">
+              <div class="rs2-design-badge" style="background:rgba(154,122,26,.1);color:var(--gold);border:1px solid rgba(154,122,26,.2)">Adviser-dependent</div>
+              <div class="rs2-design-name">Quasi-Experimental</div>
+            </div>
+            <div class="rs2-design-body">Pre-test/post-test design for clinical practice improvement studies. Approved when your adviser has published one before and knows the RREB pathway. Check their Google Scholar profile first.</div>
+          </div>
+          <div class="rs2-design" onclick="this.classList.toggle('open')">
+            <div class="rs2-design-head">
+              <div class="rs2-design-badge" style="background:rgba(184,78,44,.08);color:var(--accent);border:1px solid rgba(184,78,44,.2)">Best strategy</div>
+              <div class="rs2-design-name">Match Your Adviser</div>
+            </div>
+            <div class="rs2-design-body">Find a topic your adviser has already published. Faster feedback, faster RREB, more engaged guidance. Look them up on Google Scholar before choosing your design or topic — the adviser's existing methodology is your fastest path through.</div>
+          </div>
+        </div>
+
+        <!-- RREB CHECKLIST -->
+        <div class="rs2-checklist">
+          <div class="rs2-check-head">⊕ RREB/IRB — what actually causes delays</div>
+          <div class="rs2-check-item">
+            <div class="rs2-check-num">01</div>
+            <div><div class="rs2-check-main">Consent form language errors — the most common delay</div><div class="rs2-check-note">Write consent at a Grade 8 reading level. RREB returns forms with jargon. Explain risks, benefits, and withdrawal rights plainly.</div></div>
+          </div>
+          <div class="rs2-check-item">
+            <div class="rs2-check-num">02</div>
+            <div><div class="rs2-check-main">Sampling minors or special populations triggers full review</div><div class="rs2-check-note">Avoid unless your adviser specifically guides this. Full review adds 6–8 weeks. Stick to adult participants with intact decision-making.</div></div>
+          </div>
+          <div class="rs2-check-item">
+            <div class="rs2-check-num">03</div>
+            <div><div class="rs2-check-main">Check your school's sequence: RREB before adviser, or after?</div><div class="rs2-check-note">Many schools require RREB approval before the adviser signs off on methodology. Some reverse it. Check Week 1 — not when you're ready to submit.</div></div>
+          </div>
+          <div class="rs2-check-item">
+            <div class="rs2-check-num">04</div>
+            <div><div class="rs2-check-main">Submit RREB the moment your proposal is defensible — not perfect</div><div class="rs2-check-note">6–10 weeks is calendar time, not working time. The RREB clock doesn't start until you submit. Never wait for perfection.</div></div>
+          </div>
+        </div>
+
+        <!-- SPSS TERMINAL -->
+        <div class="rs2-terminal">
+          <div class="rs2-term-head">SPSS — what you actually need to know</div>
+          <div class="rs2-term-row">
+            <div class="rs2-term-key">Frequency &amp; percentage</div>
+            <div class="rs2-term-val">Describes your sample. Runs automatically. Know what the output table means — n, %, cumulative %.</div>
+          </div>
+          <div class="rs2-term-row">
+            <div class="rs2-term-key">Pearson r / Spearman rho</div>
+            <div class="rs2-term-val">Tests correlation. Pearson = normal data. Spearman = ordinal or non-normal. Read r-value + p-value. p&lt;0.05 = significant.</div>
+          </div>
+          <div class="rs2-term-row">
+            <div class="rs2-term-key">T-test / Mann-Whitney</div>
+            <div class="rs2-term-val">Compares two groups. T-test for normal data, Mann-Whitney for ordinal. Menu: Analyze → Compare Means.</div>
+          </div>
+          <div class="rs2-term-row">
+            <div class="rs2-term-key">Find tutorials</div>
+            <div class="rs2-term-val">Search "SPSS nursing research Philippines" on YouTube — they show your exact school version (usually v25/v26).</div>
+          </div>
+        </div>
+
+        <!-- ADVISER TACTICS -->
+        <div class="rs2-adviser">
+          <div class="rs2-adv-head">⚑ When your adviser is absent, slow, or contradictory</div>
+          <div class="rs2-adv-item">
+            <div class="rs2-adv-tag">Absent adviser</div>
+            <div class="rs2-adv-body">Document every attempt with timestamps. After 3 unanswered messages, CC your department chair. This is not snitching — it is creating a documented record that protects you in grade disputes.</div>
+          </div>
+          <div class="rs2-adv-item">
+            <div class="rs2-adv-tag">Contradictory feedback</div>
+            <div class="rs2-adv-body">After every meeting, send a summary email: "To confirm: you advised [X] for the sampling section." This makes verbal feedback permanent and prevents "I never said that" at defense.</div>
+          </div>
+          <div class="rs2-adv-item">
+            <div class="rs2-adv-tag">Slow adviser</div>
+            <div class="rs2-adv-body">Submit chapters in smaller units. "Can I send the Introduction for feedback before the full Chapter 1?" Smaller submissions get faster responses. Always.</div>
+          </div>
+          <div class="rs2-adv-item">
+            <div class="rs2-adv-tag">Group coordination — Week 1 rules</div>
+            <div class="rs2-adv-body">Assign sections with names and dates — not vague "help" roles. Set internal deadlines 2 weeks before submission deadlines. The gap between sections written by different people is where bad papers live.</div>
+          </div>
+        </div>
+
+        <!-- DEFENSE QUESTIONS -->
+        <div class="rs2-defense">
+          <div class="rs2-def-label">◎ Defense day — questions you will always be asked</div>
+          <div class="rs2-def-q">Why this sampling method and not [alternative]?</div>
+          <div class="rs2-def-a">Know the limitation of your chosen method. Know why you chose it anyway.</div>
+          <div class="rs2-def-q">What are the limitations of your study?</div>
+          <div class="rs2-def-a">Name three. Every study has them. Having them ready signals intellectual honesty, not weakness.</div>
+          <div class="rs2-def-q">How would you change this if you did it again?</div>
+          <div class="rs2-def-a">Have an actual answer. The panel is testing whether you learned from the process, not whether it was perfect.</div>
+          <div class="rs2-def-q">What is the significance of your findings for Philippine nursing practice?</div>
+          <div class="rs2-def-a">The most important question. Know why your study matters locally, not just academically. This is the one they remember.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXAMS -->
+    <div id="sg-4" class="pv-panel">
+      <div class="sg-tab-header sg-red" data-glyph="📝">
+        <div class="sg-tab-eyebrow">Survival · Exams</div>
+        <div class="sg-tab-title">NCLEX-style thinking is a different cognitive skill from memorization.</div>
+        <div class="sg-tab-sub">It needs years of practice. Build it now, in Year 1, on every concept you study.</div>
+      </div>
+      <div class="sg-exam-chain">
+        <div class="sg-chain-rule">The student who understands 50 mechanisms beats the student who memorized 500 facts. Every time.</div>
+        <div class="sg-chain-steps">
+          <div class="sg-chain-step"><div class="sg-cs-num" style="background:#B84E2C">1</div><div class="sg-cs-body"><div class="sg-cs-action">Assess before you intervene</div><div class="sg-cs-note">Define the situation before acting. What is happening right now?</div></div></div>
+          <div class="sg-chain-connector"></div>
+          <div class="sg-chain-step"><div class="sg-cs-num" style="background:#C75A30">2</div><div class="sg-cs-body"><div class="sg-cs-action">Identify the immediate threat</div><div class="sg-cs-note">ABCs — Airway before anything else. No exceptions.</div></div></div>
+          <div class="sg-chain-connector"></div>
+          <div class="sg-chain-step"><div class="sg-cs-num" style="background:#9A7A1A">3</div><div class="sg-cs-body"><div class="sg-cs-action">Apply Maslow hierarchy</div><div class="sg-cs-note">Physiological before psychological. Survival before comfort.</div></div></div>
+          <div class="sg-chain-connector"></div>
+          <div class="sg-chain-step"><div class="sg-cs-num" style="background:#2A7A5A">4</div><div class="sg-cs-body"><div class="sg-cs-action">Check nursing scope</div><div class="sg-cs-note">Is this within what a nurse does independently?</div></div></div>
+          <div class="sg-chain-connector"></div>
+          <div class="sg-chain-step"><div class="sg-cs-num" style="background:#2A3A7A">5</div><div class="sg-cs-body"><div class="sg-cs-action">Act first, not most thoroughly</div><div class="sg-cs-note">"Call the doctor" is almost never option 1. Assess first. Call second.</div></div></div>
+        </div>
+      </div>
+      <div class="sg-exam-grid">
+        <div class="sg-exam-rule sg-er-red"><div class="sg-er-label">◈ Priority Order</div><div class="sg-er-body">Actual &gt; potential · Acute &gt; chronic · Unstable &gt; stable · Safety &gt; comfort. When in doubt: <strong>airway.</strong></div></div>
+        <div class="sg-exam-rule sg-er-teal"><div class="sg-er-label">◐ Build board thinking now</div><div class="sg-er-body">For every Obsidian concept, write 3 NCLEX-style questions. Four years = 1,000+ questions built from your own mechanisms. Worth 10× any review center.</div></div>
+        <div class="sg-exam-rule sg-er-gold"><div class="sg-er-label">◆ PLE-specific</div><div class="sg-er-body">Know RA 9173 cold. Know DOH programs. Know PHN roles in the RHU. These are PLE-only areas NCLEX doesn't cover. First-takers from strong schools pass at 70–85%.</div></div>
+        <div class="sg-exam-rule sg-er-ink"><div class="sg-er-label">⊗ After a bad exam</div><div class="sg-er-body">Categorize every wrong answer: (1) didn't know content, (2) knew it but misread, (3) knew it but wrong priority. Each fix is different. "Study harder" is not a diagnosis.</div></div>
+      </div>
+    </div>
+
+        <!-- COLLEGE LIFE -->
+    <div id="sg-5" class="pv-panel">
+      <div class="sg-tab-header sg-warm" data-glyph="☕">
+        <div class="sg-tab-eyebrow">Survival · College Life</div>
+        <div class="sg-tab-title">Your social life will shrink. Plan for it instead of being surprised.</div>
+        <div class="sg-tab-sub">Students who burn out fastest expected a normal college schedule.</div>
+      </div>
+      <div class="sg-pull-quote"><div class="sg-pq-mark">"</div><div class="sg-pq-text">The only useful comparison is you versus your coverage map from last week.</div></div>
+      <div class="sg-life-grid">
+        <div class="sg-life-card sg-lc-schedule"><div class="sg-lc-icon">◷</div><div class="sg-lc-title">The schedule reality</div><div class="sg-lc-body">Clinicals 6am–6pm. Post-duty documentation after. Return demo prep at night. Pre-exam weeks are <strong>fully blocked</strong>. Schedule the open weeks or they won't happen.</div></div>
+        <div class="sg-life-card sg-lc-compare"><div class="sg-lc-icon">⊘</div><div class="sg-lc-title">The comparison trap</div><div class="sg-lc-body">Aesthetic notes and study vlogs are the <em>performance</em> of studying. The diagnostic: would you do this if no one could see? If not, it's performance. Your coverage map doesn't care about the aesthetic.</div></div>
+        <div class="sg-life-card sg-lc-identity"><div class="sg-lc-icon">◈</div><div class="sg-lc-title">Maintain your identity</div><div class="sg-lc-body">Your reading and writing are not luxuries earned after surviving. They are what makes surviving possible. Keep the reading block — it is maintenance, not reward.</div></div>
+        <div class="sg-life-card sg-lc-money"><div class="sg-lc-icon">◆</div><div class="sg-lc-title">Financial reality</div><div class="sg-lc-body">Review center pressure will come. Understanding-first students pass boards at higher rates. Your Gizmo deck built from genuine mechanisms is worth more. Don't let cohort anxiety spend money you don't need to spend.</div></div>
+      </div>
+      <div class="sg-life-relationships">
+        <div class="sg-lr-label">⋈ Relationships under pressure</div>
+        <div class="sg-lr-row"><span class="sg-lr-who">Non-nursing friends</span><span class="sg-lr-rule">Explain once clearly. Then actually show up during the open windows — don't cancel those too.</span></div>
+        <div class="sg-lr-row"><span class="sg-lr-who">Romantic relationships</span><span class="sg-lr-rule">Uncertainty strains more than absence. Communicate the calendar, not just the mood.</span></div>
+        <div class="sg-lr-row"><span class="sg-lr-who">Family expectations</span><span class="sg-lr-rule">Name it early: "I am going to be a competent nurse. That is different from top student."</span></div>
+      </div>
+    </div>
+    <!-- MENTAL HEALTH -->
+    <div id="sg-6" class="pv-panel">
+      <div class="sg-tab-header sg-warm" data-glyph="🌿">
+        <div class="sg-tab-eyebrow">Survival · Mental Health</div>
+        <div class="sg-tab-title">Nursing school has a well-documented mental health cost.</div>
+        <div class="sg-tab-sub">Knowing this in advance is protection. You are not weak for finding this hard.</div>
+      </div>
+      <!-- Tired vs Burnout spectrum -->
+      <div class="sg-mh-spectrum">
+        <div class="sg-mhs-label">◐ Diagnostic: after a full day of genuine rest, do you feel restored?</div>
+        <div class="sg-mhs-cards">
+          <div class="sg-mhs-card sg-mhs-tired">
+            <div class="sg-mhs-head">
+              <div class="sg-mhs-title">Tired</div>
+              <div class="sg-mhs-rx">→ Scheduled rest</div>
+            </div>
+            <div class="sg-mhs-points">
+              <div class="sg-mhs-pt">◦ Rest actually restores — day off = human again</div>
+              <div class="sg-mhs-pt">◦ Can identify when it started</div>
+              <div class="sg-mhs-pt">◦ Motivation returns after a break</div>
+              <div class="sg-mhs-pt">◦ Fix: one scheduled low-energy day, then minimum viable</div>
+            </div>
+          </div>
+          <div class="sg-mhs-card sg-mhs-burnout">
+            <div class="sg-mhs-head">
+              <div class="sg-mhs-title">Burnout</div>
+              <div class="sg-mhs-rx">→ Structural change</div>
+            </div>
+            <div class="sg-mhs-points">
+              <div class="sg-mhs-pt">◦ Rest doesn't restore — days off feel empty</div>
+              <div class="sg-mhs-pt">◦ No clear trigger — just arrived and stayed</div>
+              <div class="sg-mhs-pt">◦ The subject feels meaningless, not just hard</div>
+              <div class="sg-mhs-pt">◦ Fix: reduced load, professional support, or both</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- The guilt loop -->
+      <div class="sg-mh-loop">
+        <div class="sg-loop-label">⊗ The guilt-productivity cycle</div>
+        <div class="sg-loop-chain">
+          <div class="sg-loop-node">Guilt</div><div class="sg-loop-arr">→</div>
+          <div class="sg-loop-node">Try harder</div><div class="sg-loop-arr">→</div>
+          <div class="sg-loop-node">Less effective</div><div class="sg-loop-arr">→</div>
+          <div class="sg-loop-node">More guilt</div>
+        </div>
+        <div class="sg-loop-break">Break it with data, not motivation. Open your tracker. Count your ✓'s. Guilt is a feeling. The tracker is data. They almost always disagree in your favour.</div>
+      </div>
+      <!-- Circuit breakers -->
+      <div class="sg-mh-breakers">
+        <div class="sg-mhb-label">◈ Circuit breakers for the sustained low</div>
+        <div class="sg-mhb-grid">
+          <div class="sg-mhb-item"><div class="sg-mhb-icon">⊞</div><div>Study in a different room or at a different time — sensory change interrupts the loop</div></div>
+          <div class="sg-mhb-item"><div class="sg-mhb-icon">⋈</div><div>One conversation with someone outside nursing about something entirely unrelated</div></div>
+          <div class="sg-mhb-item"><div class="sg-mhb-icon">↺</div><div>One review session only (no new content) — low stakes, some success, circuit-breaker</div></div>
+          <div class="sg-mhb-item"><div class="sg-mhb-icon">◆</div><div>Write exactly what happened privately — externalizes it from working memory</div></div>
+        </div>
+      </div>
+      <!-- Crisis line -->
+      <div class="sg-mh-crisis">
+        <div class="sg-mhc-label">◎ When to get actual support — early, not at the bottom</div>
+        <div class="sg-mhc-signs">If any of these persist 2+ weeks: unable to sleep despite exhaustion, can't feel anything positive, withdrawal from everyone you care about — this is beyond study stress. <strong>Reach out early.</strong></div>
+        <div class="sg-mhc-lines">
+          <div class="sg-mhc-line"><div class="sg-mhcl-name">NCMH Hopeline</div><div class="sg-mhcl-num">1553</div><div class="sg-mhcl-note">Free · 24/7 · Philippines</div></div>
+          <div class="sg-mhc-line"><div class="sg-mhcl-name">iCare Philippines</div><div class="sg-mhcl-num">+63 2 8893 7603</div><div class="sg-mhcl-note">Mental health support</div></div>
+          <div class="sg-mhc-line"><div class="sg-mhcl-name">University guidance office</div><div class="sg-mhcl-num" style="font-size:13px">Use the referral network</div><div class="sg-mhcl-note">Quality varies; the referrals don't</div></div>
+        </div>
+      </div>
+    </div>
+    <!-- PH CULTURE -->
+    <div id="sg-7" class="pv-panel">
+      <div class="sg-tab-header sg-gold" data-glyph="🇵🇭">
+        <div class="sg-tab-eyebrow">Survival · PH Culture</div>
+        <div class="sg-tab-title">The unwritten rules no orientation covers.</div>
+        <div class="sg-tab-sub">Understanding the culture you are entering is preparation, not cynicism. Adapt the useful parts. Protect yourself from the rest.</div>
+      </div>
+      <!-- Editorial pull quote -->
+      <div class="sg-ph2-pullquote">
+        <div class="sg-ph2-quote-mark">"</div>
+        <div class="sg-ph2-quote-body">Understanding the hierarchy is not submission to it. It is intelligence gathering.</div>
+      </div>
+      <!-- Two column editorial layout -->
+      <div class="sg-ph2-grid">
+        <!-- Left: numbered rules -->
+        <div class="sg-ph2-left">
+          <div class="sg-ph2-col-label">◈ Navigate the hierarchy</div>
+          <div class="sg-ph2-rules">
+            <div class="sg-ph2-rule">
+              <div class="sg-ph2-num" style="color:var(--gold)">1</div>
+              <div>
+                <div class="sg-ph2-name">Respect is performed visibly</div>
+                <div class="sg-ph2-note">"Ma'am," "Sir," standing at entry. Fight it internally — perform it consistently. It signals you are there to learn.</div>
+              </div>
+            </div>
+            <div class="sg-ph2-rule">
+              <div class="sg-ph2-num" style="color:var(--teal)">2</div>
+              <div>
+                <div class="sg-ph2-name">Bayanihan cuts both ways</div>
+                <div class="sg-ph2-note">The collective impulse is real and useful. It also creates pressure to share exam answers. Build the study alliance. Protect yourself explicitly.</div>
+              </div>
+            </div>
+            <div class="sg-ph2-rule">
+              <div class="sg-ph2-num" style="color:var(--blue)">3</div>
+              <div>
+                <div class="sg-ph2-name">Visibility is currency</div>
+                <div class="sg-ph2-note">Your reputation travels faster than your grades. Being known by professors and CIs opens doors that performance alone does not.</div>
+              </div>
+            </div>
+            <div class="sg-ph2-rule">
+              <div class="sg-ph2-num" style="color:var(--accent)">4</div>
+              <div>
+                <div class="sg-ph2-name">The review center economy</div>
+                <div class="sg-ph2-note">Pressure to enroll will come. Understanding-first students pass at higher rates. Your Gizmo deck costs nothing and is worth more.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Right: code-switch + LMS -->
+        <div class="sg-ph2-right">
+          <div class="sg-ph2-col-label">◐ Three registers you need</div>
+          <div class="sg-ph2-registers">
+            <div class="sg-ph2-reg" style="border-color:var(--bd-teal);background:var(--bg-teal)">
+              <div class="sg-ph2-reg-label" style="color:var(--teal)">Patient communication</div>
+              <div class="sg-ph2-reg-lang">Filipino / Tagalog</div>
+              <div class="sg-ph2-reg-note">Builds trust. Patients understand their condition better. Required at the bedside.</div>
+            </div>
+            <div class="sg-ph2-reg" style="border-color:var(--bd-blue);background:var(--bg-blue)">
+              <div class="sg-ph2-reg-label" style="color:var(--blue)">Documentation</div>
+              <div class="sg-ph2-reg-lang">English — always</div>
+              <div class="sg-ph2-reg-note">Legal standard. SOAP notes, nursing care plans, incident reports. No code-switching.</div>
+            </div>
+            <div class="sg-ph2-reg" style="border-color:var(--bd-gold);background:var(--bg-gold)">
+              <div class="sg-ph2-reg-label" style="color:var(--gold)">CI presentation</div>
+              <div class="sg-ph2-reg-lang">Formal English</div>
+              <div class="sg-ph2-reg-note">Clinical reasoning presented aloud. "I assessed the patient and found…" Not conversational.</div>
+            </div>
+          </div>
+          <div class="sg-ph2-col-label" style="margin-top:16px">⊗ Senior-junior dynamics</div>
+          <div class="sg-ph2-note-box">Senior nursing students informally mentor juniors in clinicals. Treat them like staff nurses: with respect, but evaluate their advice independently. Clinical advice from a 3rd-year student is not clinical advice from a CI.</div>
+        </div>
+      </div>
+    </div>
+    <!-- TECHNOLOGY -->
+    <div id="sg-8" class="pv-panel">
+      <div class="sg-tab-header sg-teal" data-glyph="💻">
+        <div class="sg-tab-eyebrow">Survival · Technology</div>
+        <div class="sg-tab-title">The technology you'll actually use — in hospital, classroom, and study workflow.</div>
+        <div class="sg-tab-sub">Sophisticated procrastination is still procrastination. Know each tool's failure mode before adopting it.</div>
+      </div>
+      <div class="sg-tech-diagnostic">
+        <div class="sg-td-icon">◐</div>
+        <div class="sg-td-text">Ask about any tool: <em>am I using this to think harder, or to avoid thinking?</em> If the latter — close the tab, open the notebook.</div>
+      </div>
+      <div class="sg-tech-grid">
+        <div class="sg-tech-item sg-ti-hospital">
+          <div class="sg-ti-label">⊕ Hospital documentation</div>
+          <div class="sg-ti-body">Philippine hospitals range from fully digital EHR to pure paper Kardex. The legal standard is equal in both: accurate, objective, timely, legible, no white-out. Learn paper Kardex cold — digital follows naturally from the same data fields.</div>
+        </div>
+        <div class="sg-tech-item sg-ti-lms">
+          <div class="sg-ti-label">⊞ LMS (Google Classroom / Canvas)</div>
+          <div class="sg-ti-body">Enable push notifications immediately. Missed announcements on Classroom are the most common reason for avoidable missed deadlines. Check the grade center for rubrics before every submission — professors post them there.</div>
+        </div>
+        <div class="sg-tech-item sg-ti-ai">
+          <div class="sg-ti-label">◈ AI — tool, not teacher</div>
+          <div class="sg-ti-body">Useful for: Feynman checks, generating NCLEX practice questions from your own notes, simplifying mechanisms. Dangerous for: generating notes you haven't earned, replacing retrieval. Diagnostic: "Did I produce the understanding, or did the AI?"</div>
+        </div>
+        <div class="sg-tech-item sg-ti-screen">
+          <div class="sg-ti-label">◷ Screen fatigue</div>
+          <div class="sg-ti-body">Nursing school is already screen-heavy. Alternate screen and paper at each study transition. Block I on paper, Block III on screen, or vice versa. The notebook creates a distinct sensory mode that prevents the specific fatigue pattern digital-only study creates.</div>
+        </div>
+      </div>
+    </div>
+    <!-- CAREER PATH -->
+    <div id="sg-9" class="pv-panel">
+      <div class="sg-tab-header sg-teal" data-glyph="✈️">
+        <div class="sg-tab-eyebrow">Survival · Career Path</div>
+        <div class="sg-tab-title">You are not just studying for nursing school.</div>
+        <div class="sg-tab-sub">You are building a career that ends in Europe. Every decision from Year 1 should be readable from that destination backward.</div>
+      </div>
+      <div class="career-dest">
+        <div class="career-dest-lbl">Destination</div>
+        <div class="career-dest-title">Europe — Germany / DACH Region</div>
+        <div class="career-dest-sub">3–5 years for those who planned from Year 1 · 6–10 for those who didn't · The difference starts right now</div>
+      </div>
+
+      <!-- INTIMIDATION FACTOR -->
+      <div style="margin-bottom:20px;border-radius:6px;overflow:hidden;border:1px solid rgba(139,58,42,.22)">
+        <div style="background:rgba(139,58,42,.09);padding:11px 18px;border-bottom:1px solid rgba(139,58,42,.18);display:flex;align-items:center;gap:10px">
+          <span style="font-family:var(--font-mono);font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600">⚑ Intimidation Factor</span>
+          <span style="font-family:var(--font-mono);font-size:8px;color:var(--accent-soft);margin-left:auto;letter-spacing:.06em">name it or it owns you</span>
+        </div>
+        <div style="padding:16px 18px;background:rgba(139,58,42,.03)">
+          <div style="font-size:13px;color:var(--ink-soft);line-height:1.85;margin-bottom:14px">Nursing school is designed to intimidate. The volume of content, the return demos, the CI hierarchy, the board exam looming at the end — all of it is genuinely a lot, and feeling overwhelmed is not weakness. It is the appropriate response to the actual size of the task. The question is never whether it's intimidating. The question is what you do with that.</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+            <div style="padding:12px 14px;background:rgba(139,58,42,.06);border:1px solid rgba(139,58,42,.18);border-radius:4px;border-top:3px solid var(--accent)">
+              <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Volume</div>
+              <div style="font-size:12px;color:var(--ink-soft);line-height:1.7">14 Fundamentals topics, 57 A&P chapters, 12 Pharm modules — in parallel. Nobody covers all of it. The goal is understanding the critical parts deeply, not skimming everything.</div>
+            </div>
+            <div style="padding:12px 14px;background:rgba(58,74,106,.06);border:1px solid rgba(58,74,106,.18);border-radius:4px;border-top:3px solid #3a4a6a">
+              <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#3a4a6a;margin-bottom:8px">Hierarchy</div>
+              <div style="font-size:12px;color:var(--ink-soft);line-height:1.7">Professors, CIs, senior students — the power differential is real. Navigate it strategically, not submissively. Compliance in public, independent thinking in private.</div>
+            </div>
+            <div style="padding:12px 14px;background:rgba(154,124,58,.06);border:1px solid rgba(154,124,58,.18);border-radius:4px;border-top:3px solid var(--gold)">
+              <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Stakes</div>
+              <div style="font-size:12px;color:var(--ink-soft);line-height:1.7">Scholarship, PLE, Germany — all real. High stakes are not a reason to freeze; they're a reason to plan. The plan already exists. Executing it is the only variable.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- YEAR-SPECIFIC EDGE -->
+      <div style="margin-bottom:20px">
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border)">Your edge by year — what pre-studying now buys you</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:grid;grid-template-columns:72px 1fr;gap:0;border-radius:6px;overflow:hidden;border:1px solid rgba(42,90,84,.22)">
+            <div style="background:rgba(42,90,84,.1);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 8px;gap:3px">
+              <span style="font-family:var(--font-mono);font-size:22px;font-weight:500;color:#1e6449;line-height:1">Y1</span>
+              <span style="font-family:var(--font-mono);font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:#1e6449;opacity:.7">advantage</span>
+            </div>
+            <div style="padding:13px 16px;background:rgba(42,90,84,.03)">
+              <div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px">You're not learning the material — you're reviewing it.</div>
+              <div style="font-size:11px;color:var(--ink-muted);line-height:1.7">Classmates are seeing A&P and Fundamentals for the first time. You've already built the framework. Year 1 exams cover what you've been studying for months. Confidence compounds in the first semester and becomes social capital in the second.</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:72px 1fr;gap:0;border-radius:6px;overflow:hidden;border:1px solid rgba(58,74,106,.22)">
+            <div style="background:rgba(58,74,106,.1);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 8px;gap:3px">
+              <span style="font-family:var(--font-mono);font-size:22px;font-weight:500;color:#3a4a6a;line-height:1">Y2</span>
+              <span style="font-family:var(--font-mono);font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:#3a4a6a;opacity:.7">advantage</span>
+            </div>
+            <div style="padding:13px 16px;background:rgba(58,74,106,.03)">
+              <div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px">Pharmacology and Med-Surg land on A&P you already understand.</div>
+              <div style="font-size:11px;color:var(--ink-muted);line-height:1.7">Year 2 is when most students hit the wall — Pharm and Med-Surg simultaneously, clinical rotations starting, German needing to be consistent. Your A&P foundation means you're deducing Pharm mechanisms instead of memorizing them. That difference is 3–4 hours per week that your cohort doesn't have.</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:72px 1fr;gap:0;border-radius:6px;overflow:hidden;border:1px solid rgba(154,124,58,.22)">
+            <div style="background:rgba(154,124,58,.1);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 8px;gap:3px">
+              <span style="font-family:var(--font-mono);font-size:22px;font-weight:500;color:#8a6a0a;line-height:1">Y3</span>
+              <span style="font-family:var(--font-mono);font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:#8a6a0a;opacity:.7">advantage</span>
+            </div>
+            <div style="padding:13px 16px;background:rgba(154,124,58,.03)">
+              <div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px">Clinical portfolio is 2 years deep. German is at A2–B1. You're not catching up.</div>
+              <div style="font-size:11px;color:var(--ink-muted);line-height:1.7">Research subject starts Year 3. You're also deepening clinical rotations, completing more complex return demos, and managing the social politics of a cohort that's been under pressure for 2 years. The students who built their systems early have cognitive space for this. Students who are still building the system are behind on all fronts simultaneously.</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:72px 1fr;gap:0;border-radius:6px;overflow:hidden;border:1px solid rgba(90,58,138,.22)">
+            <div style="background:rgba(90,58,138,.1);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 8px;gap:3px">
+              <span style="font-family:var(--font-mono);font-size:22px;font-weight:500;color:#5a3a8a;line-height:1">Y4</span>
+              <span style="font-family:var(--font-mono);font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:#5a3a8a;opacity:.7">advantage</span>
+            </div>
+            <div style="padding:13px 16px;background:rgba(90,58,138,.03)">
+              <div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px">PLE review isn't review — it's recognition of things you already own.</div>
+              <div style="font-size:11px;color:var(--ink-muted);line-height:1.7">Year 4 is thesis, comprehensive clinicals, PLE prep. Students who are cramming for boards for the first time are spending 3–4 months on what you can consolidate in 6 weeks. Your Gizmo deck — built from real understanding across 4 years — is the difference between passing on the first attempt and not.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- THE ONE CONSTANT -->
+      <div style="margin-bottom:20px;border-radius:6px;overflow:hidden;border:2px solid rgba(139,58,42,.25)">
+        <div style="background:var(--accent);padding:16px 20px">
+          <div style="font-family:var(--font-mono);font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,220,200,.6);margin-bottom:8px">The one constant across all four years</div>
+          <div style="font-family:var(--font-body),sans-serif;font-size:18px;font-weight:600;color:white;line-height:1.4;letter-spacing:-.01em">Students who <em style="font-style:normal;background:rgba(255,210,180,.22);padding:0 4px;border-radius:2px">understand</em> outperform students who <em style="font-style:normal;color:rgba(255,200,170,.65)">memorize</em> — at every exam, every return demo, every clinical evaluation, and the board exam at the end of it all.</div>
+        </div>
+        <div style="padding:16px 20px;background:rgba(139,58,42,.04);display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div>
+            <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Memorizers face</div>
+            <div style="font-size:12px;color:var(--ink-muted);line-height:1.85">Questions phrased differently than they studied. Scenarios they didn't memorize. The boards after 4 years of forgetting. A feeling of perpetual almost-knowing that doesn't hold under pressure.</div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#1e6449;margin-bottom:8px">Understanding-first students face</div>
+            <div style="font-size:12px;color:var(--ink-muted);line-height:1.85">The same exams — and can reconstruct answers from mechanism when memory fails. Clinical scenarios where their reasoning transfers. Boards that test judgment — which is exactly what they've been building.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VISUAL GATE TIMELINE -->
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 20px;margin-bottom:20px">
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:18px;display:flex;justify-content:space-between;align-items:center">
+          Germany timeline — gates to clear
+          <span style="font-size:8px;opacity:.6;letter-spacing:.08em">age 17 → 22+</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0;position:relative">
+          <div style="position:absolute;left:14px;top:20px;bottom:20px;width:2px;background:linear-gradient(to bottom,#2a5a54,rgba(107,94,74,.2));border-radius:99px"></div>
+
+          <div style="display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:center;padding:8px 0;position:relative;z-index:1">
+            <div style="width:30px;height:30px;border-radius:50%;background:#2a5a54;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 0 3px var(--bg-card),0 0 0 4px #2a5a54">
+              <span style="font-family:var(--font-mono);font-size:8px;color:white;font-weight:600">★</span>
+            </div>
+            <div style="background:rgba(42,90,84,.08);border:1px solid rgba(42,90,84,.2);border-radius:var(--radius);padding:8px 12px">
+              <div style="font-family:var(--font-mono);font-size:9px;color:#2a5a54;font-weight:600;letter-spacing:.06em">NOW — Age 17 · You are here</div>
+              <div style="font-size:11px;color:var(--ink-muted);margin-top:2px">Pre-enrollment prep · study system building · German A1 starting</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:center;padding:8px 0;position:relative;z-index:1">
+            <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-card);border:2px solid #2a5a54;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <span style="font-family:var(--font-mono);font-size:8px;color:#2a5a54;font-weight:600">18</span>
+            </div>
+            <div style="padding:8px 12px">
+              <div style="font-family:var(--font-mono);font-size:9px;color:#2a5a54;font-weight:500;letter-spacing:.06em">2026–27 · Gate 1 · Age 18</div>
+              <div style="font-size:11px;color:var(--ink-muted);margin-top:2px">Nursing school starts · German A1 in daily practice</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:center;padding:8px 0;position:relative;z-index:1">
+            <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-card);border:2px solid #9a7c3a;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <span style="font-family:var(--font-mono);font-size:8px;color:#9a7c3a;font-weight:600">19</span>
+            </div>
+            <div style="padding:8px 12px">
+              <div style="font-family:var(--font-mono);font-size:9px;color:#9a7c3a;font-weight:500;letter-spacing:.06em">2028 · Gate 2 · Age 19–20</div>
+              <div style="font-size:11px;color:var(--ink-muted);margin-top:2px">Year 2 complete · Goethe B1 exam</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:center;padding:8px 0;position:relative;z-index:1">
+            <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-card);border:2px solid #9a7c3a;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <span style="font-family:var(--font-mono);font-size:8px;color:#9a7c3a;font-weight:600">20</span>
+            </div>
+            <div style="padding:8px 12px">
+              <div style="font-family:var(--font-mono);font-size:9px;color:#9a7c3a;font-weight:500;letter-spacing:.06em">2029 · Gate 3 · Age 20–21</div>
+              <div style="font-size:11px;color:var(--ink-muted);margin-top:2px">PLE → RN License · Local hospital experience begins</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:center;padding:8px 0;position:relative;z-index:1">
+            <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-card);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <span style="font-family:var(--font-mono);font-size:8px;color:var(--accent);font-weight:600">21</span>
+            </div>
+            <div style="padding:8px 12px">
+              <div style="font-family:var(--font-mono);font-size:9px;color:var(--accent);font-weight:500;letter-spacing:.06em">2030 · Gate 4 · Age 21–22</div>
+              <div style="font-size:11px;color:var(--ink-muted);margin-top:2px">German B2 exam · Anerkennung filing begins</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:center;padding:8px 0;position:relative;z-index:1">
+            <div style="width:30px;height:30px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 0 3px var(--bg-card),0 0 0 4px rgba(139,58,42,.4)">
+              <span style="font-size:11px">✈</span>
+            </div>
+            <div style="background:rgba(139,58,42,.06);border:1px solid rgba(139,58,42,.2);border-radius:var(--radius);padding:8px 12px">
+              <div style="font-family:var(--font-mono);font-size:9px;color:var(--accent);font-weight:600;letter-spacing:.06em">2031+ · Age 22 · The gate opens</div>
+              <div style="font-size:11px;color:var(--ink-muted);margin-top:2px">Germany — the destination. You will be 22.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="career-next-gate">
+          <div class="career-next-gate-icon">→</div>
+          <div class="career-next-gate-body">
+            <div class="career-next-label">Next gate</div>
+            <div class="career-next-title">Nursing school enrollment — 2026 · Age 18</div>
+            <div class="career-next-detail"></div>
+          </div>
+        </div>
+      </div>
+        <div style="display:flex;flex-direction:column;gap:0;position:relative">
+          <div style="position:absolute;left:14px;top:20px;bottom:20px;width:2px;background:linear-gradient(to bottom,#2a5a54,rgba(107,94,74,.2));border-radius:99px"></div>
+
+          <div style="display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:center;padding:8px 0;position:relative;z-index:1">
+            <div style="width:30px;height:30px;border-radius:50%;background:#2a5a54;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 0 3px var(--bg-card),0 0 0 4px #2a5a54">
+              <span style="font-family:var(--font-mono);font-size:8px;color:white;font-weight:600">★</span>
+            </div>
+            <div style="background:rgba(42,90,84,.08);border:1px solid rgba(42,90,84,.2);border-radius:var(--radius);padding:8px 12px">
+              <div style="font-family:var(--font-mono);font-size:9px;color:#2a5a54;font-weight:600;letter-spacing:.06em">NOW — You are here</div>
+              <div style="font-size:11px;color:var(--ink-muted);margin-top:2px">Pre-enrollment prep · study system active</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:center;padding:8px 0;position:relative;z-index:1">
+            <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-card);border:2px solid #2a5a54;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <span style="font-family:var(--font-mono);font-size:8px;color:#2a5a54;font-weight:600">26</span>
+            </div>
+            <div style="padding:8px 12px">
+              <div style="font-family:var(--font-mono);font-size:9px;color:#2a5a54;font-weight:500;letter-spacing:.06em">2026 · Gate 1</div>
+              <div style="font-size:11px;color:var(--ink-muted);margin-top:2px">Nursing school starts · German A1 in progress</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:center;padding:8px 0;position:relative;z-index:1">
+            <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-card);border:2px solid #9a7c3a;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <span style="font-family:var(--font-mono);font-size:8px;color:#9a7c3a;font-weight:600">28</span>
+            </div>
+            <div style="padding:8px 12px">
+              <div style="font-family:var(--font-mono);font-size:9px;color:#9a7c3a;font-weight:500;letter-spacing:.06em">2028 · Gate 2</div>
+              <div style="font-size:11px;color:var(--ink-muted);margin-top:2px">Year 2 complete · Goethe B1 exam</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:center;padding:8px 0;position:relative;z-index:1">
+            <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-card);border:2px solid #9a7c3a;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <span style="font-family:var(--font-mono);font-size:8px;color:#9a7c3a;font-weight:600">29</span>
+            </div>
+            <div style="padding:8px 12px">
+              <div style="font-family:var(--font-mono);font-size:9px;color:#9a7c3a;font-weight:500;letter-spacing:.06em">2029 · Gate 3</div>
+              <div style="font-size:11px;color:var(--ink-muted);margin-top:2px">PLE → RN License · Local hospital experience begins</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:center;padding:8px 0;position:relative;z-index:1">
+            <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-card);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <span style="font-family:var(--font-mono);font-size:8px;color:var(--accent);font-weight:600">30</span>
+            </div>
+            <div style="padding:8px 12px">
+              <div style="font-family:var(--font-mono);font-size:9px;color:var(--accent);font-weight:500;letter-spacing:.06em">2030 · Gate 4</div>
+              <div style="font-size:11px;color:var(--ink-muted);margin-top:2px">German B2 exam · Anerkennung filing begins</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:center;padding:8px 0;position:relative;z-index:1">
+            <div style="width:30px;height:30px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 0 3px var(--bg-card),0 0 0 4px rgba(139,58,42,.4)">
+              <span style="font-size:11px">✈</span>
+            </div>
+            <div style="background:rgba(139,58,42,.06);border:1px solid rgba(139,58,42,.2);border-radius:var(--radius);padding:8px 12px">
+              <div style="font-family:var(--font-mono);font-size:9px;color:var(--accent);font-weight:600;letter-spacing:.06em">2031+ · The gate opens</div>
+              <div style="font-size:11px;color:var(--ink-muted);margin-top:2px">Germany — the destination, finally</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="career-next-gate">
+          <div class="career-next-gate-icon">→</div>
+          <div class="career-next-gate-body">
+            <div class="career-next-label">Next gate</div>
+            <div class="career-next-title">Nursing school enrollment — 2026</div>
+            <div class="career-next-detail"></div>
+          </div>
+        </div>
+        <div class="career-phase">
+          <div class="career-phase-header">
+            <span class="career-phase-badge now">Year 1–2 · Now</span>
+            <div class="career-phase-title">Build the language habit. Build the clinical documentation habit.</div>
+          </div>
+          <div class="career-phase-body">
+            <div class="career-phase-item"><div class="career-item-label">German 15–30 min daily</div><div class="career-item-detail">Duolingo, then Nicos Weg (Deutsche Welle, free). Non-negotiable even on bad days.</div></div>
+            <div class="career-phase-item"><div class="career-item-label">Goethe A1 materials</div><div class="career-item-detail">Familiarize with the certification format years before sitting the exam.</div></div>
+            <div class="career-phase-item"><div class="career-item-label">Clinical German vocab in Gizmo</div><div class="career-item-detail">10 terms/week. Body parts, vital signs, procedures. Parallel to nursing study, not competing with it.</div></div>
+            <div class="career-phase-item"><div class="career-item-label">Start Clinical Log in Obsidian</div><div class="career-item-detail">One line per rotation day: ward, procedures observed, procedures performed. This becomes your Anerkennung evidence package.</div></div>
+          </div>
+        </div>
+        <div class="career-phase">
+          <div class="career-phase-header">
+            <span class="career-phase-badge mid">Year 3–4</span>
+            <div class="career-phase-title">Formalize the language. Begin the Germany research.</div>
+          </div>
+          <div class="career-phase-body">
+            <div class="career-phase-item"><div class="career-item-label">Goethe A2 → B1 exam</div><div class="career-item-detail">Sit the official certification. Creates a trackable credential and reveals real gaps.</div></div>
+            <div class="career-phase-item"><div class="career-item-label">German nursing YouTube immersion</div><div class="career-item-detail">Passive daily exposure to medical German in real clinical contexts.</div></div>
+            <div class="career-phase-item"><div class="career-item-label">Find Filipino nurses in Germany</div><div class="career-item-detail">Facebook groups, Reddit r/nursing, LinkedIn. They will tell you what actually happened. That information is worth more than any guide.</div></div>
+            <div class="career-phase-item"><div class="career-item-label">Research state-specific requirements</div><div class="career-item-detail">Bavaria and Baden-Württemberg have highest shortages. Each Bundesland processes Anerkennung differently.</div></div>
+          </div>
+        </div>
+        <div class="career-phase">
+          <div class="career-phase-header">
+            <span class="career-phase-badge after">Post-Graduation</span>
+            <div class="career-phase-title">PLE → RN License → Local Experience → Germany application.</div>
+          </div>
+          <div class="career-phase-body">
+            <div class="career-phase-item"><div class="career-item-label">PLE (Philippine Licensure Exam)</div><div class="career-item-detail">NCLEX-adjacent format. Understanding-first study habits pass at higher rates than review center memorization.</div></div>
+            <div class="career-phase-item"><div class="career-item-label">1–2 years Philippine hospital experience</div><div class="career-item-detail">Required by most German states for Anerkennung. Choose a hospital with documented procedures and active training programs — not just proximity.</div></div>
+            <div class="career-phase-item"><div class="career-item-label">German B2 exam</div><div class="career-item-detail">Minimum for Anerkennung. C1 is the competitive floor for the better hospitals in larger cities.</div></div>
+            <div class="career-phase-item"><div class="career-item-label">BLS/ACLS certification</div><div class="career-item-detail">Certifications obtained in the Philippines carry weight in the German application package.</div></div>
+          </div>
+        </div>
+        <div class="career-phase">
+          <div class="career-phase-header">
+            <span class="career-phase-badge final">Anerkennung</span>
+            <div class="career-phase-title">Recognition of foreign nursing credentials. The gate opens.</div>
+          </div>
+          <div class="career-phase-body">
+            <div class="career-phase-item"><div class="career-item-label">Anpassungslehrgang</div><div class="career-item-detail">A paid adaptation period (typically 3–6 months) in a German hospital. Common for Philippine graduates. Normal and not a failure — the nurses who arrive prepared complete it faster.</div></div>
+            <div class="career-phase-item"><div class="career-item-label">Luxembourg as EU entry</div><div class="career-item-detail">If Germany's process is slow, Luxembourg accepts English-speaking nurses with simpler credential recognition. Once licensed in any EU country, freedom of movement applies across all 27 member states.</div></div>
+            <div class="career-phase-item"><div class="career-item-label">Switzerland (non-EU)</div><div class="career-item-detail">Separate bilateral agreement with Philippines. Higher pay, stricter German requirement (C1 effectively mandatory), longer recognition timeline. Research after your German B2.</div></div>
+          </div>
+        </div>
+      <div class="pv-card gold"><div class="pv-card-label">The Clinical Portfolio — start today, not Year 4</div><div class="pv-card-body">Anerkennung requires documented proof of clinical competency: hours in each ward, procedures performed, skills demonstrated, certifications held. Students who documented from Day 1 submit in 2 weeks. Students who reconstruct 4 years of clinical work take 4 months and submit incomplete packages.<br><br>Clinical Log/ folder in Obsidian. One line per rotation day: date · ward · procedures observed · procedures performed. That's it. Four years of that = a complete Anerkennung evidence package.</div></div>
+      </div>
+
+  </div>
+  </div>
+  <div style="height:1px;clear:both"></div>
+    </div><!-- /sg-detail-area -->

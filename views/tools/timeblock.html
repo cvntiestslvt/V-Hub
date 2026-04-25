@@ -1,0 +1,180 @@
+<!-- ═══════════════════════════════════════════════════════
+     VIEW: timeblock
+     This file contains only the HTML for this view/tab.
+     It is injected into index.html at runtime by core.js.
+     Edit content here; don't touch the id="view-timeblock" attribute.
+     ═══════════════════════════════════════════════════════ -->
+
+<div class="view" id="view-timeblock">
+  <button class="back-btn" onclick="goBack()">back</button>
+  <div class="pv-wrap">
+    <div class="cs-view-header" style="--cs-color:var(--blue);--cs-bg:var(--bg-blue);--cs-border:var(--bd-blue)" data-glyph="⏱">
+      <div class="cs-view-eyebrow">Tools · Core System 02</div>
+      <div class="cs-view-title">Daily <em>Structure</em></div>
+      <div class="cs-view-sub">Sequence-based, not clock-based. Energy-adaptive. Three modes. The skeleton the whole day hangs on.</div>
+    </div>
+    <!-- ── Day at a glance ── -->
+    <div class="ds-note">No fixed clock times — these are blocks in sequence, not times on a calendar.</div>
+
+    <!-- ── SECTION: Timeline ── -->
+    <div class="ds-section-label">Day sequence</div>
+    <div class="tb-timeline">
+      <div class="tbl-spine"></div>
+      <div class="tbl-row tbl-rest">
+        <div class="tbl-marker"><div class="tbl-dot"></div></div>
+        <div class="tbl-block">
+          <div class="tbl-type">Wake</div>
+          <div class="tbl-title">Morning buffer — 30 min</div>
+          <div class="tbl-note">No phone. No scrolling. Eat, hydrate, exist. Brain priming before the first block.</div>
+        </div>
+        <div class="tbl-dur">30m</div>
+      </div>
+      <div class="tbl-row tbl-study">
+        <div class="tbl-marker"><div class="tbl-dot"></div></div>
+        <div class="tbl-block">
+          <div class="tbl-type">Block I</div>
+          <div class="tbl-title">Nursing study — 90 min</div>
+          <div class="tbl-note">One concept. Full study loop. Notebook → Obsidian → 3 Gizmo cards. Hard stop at 90 min even when it feels good.</div>
+        </div>
+        <div class="tbl-dur">90m</div>
+      </div>
+      <div class="tbl-row tbl-rest">
+        <div class="tbl-marker"><div class="tbl-dot"></div></div>
+        <div class="tbl-block">
+          <div class="tbl-type">Rest</div>
+          <div class="tbl-title">Break — 30 min</div>
+          <div class="tbl-note">Walk, eat, stare. No studying. No scrolling. Brain consolidating — don't interrupt it.</div>
+        </div>
+        <div class="tbl-dur">30m</div>
+      </div>
+      <div class="tbl-row tbl-german">
+        <div class="tbl-marker"><div class="tbl-dot"></div></div>
+        <div class="tbl-block">
+          <div class="tbl-type">Block II</div>
+          <div class="tbl-title">German — 15–30 min</div>
+          <div class="tbl-note">Duolingo, Nicos Weg, German YouTube. Low cognitive load. Non-negotiable even on bad days.</div>
+        </div>
+        <div class="tbl-dur">30m</div>
+      </div>
+      <div class="tbl-row tbl-rest">
+        <div class="tbl-marker"><div class="tbl-dot"></div></div>
+        <div class="tbl-block">
+          <div class="tbl-type">Midday</div>
+          <div class="tbl-title">Lunch + scroll — 60 min</div>
+          <div class="tbl-note">Actual meal. TikTok, YouTube, Twitter — here only. One hour, then it closes.</div>
+        </div>
+        <div class="tbl-dur">60m</div>
+      </div>
+      <div class="tbl-row tbl-study">
+        <div class="tbl-marker"><div class="tbl-dot"></div></div>
+        <div class="tbl-block">
+          <div class="tbl-type">Block III</div>
+          <div class="tbl-title">Nursing study — 90 min</div>
+          <div class="tbl-note">Second concept OR Gizmo review + blurting. Alternate new learning and review days.</div>
+        </div>
+        <div class="tbl-dur">90m</div>
+      </div>
+      <div class="tbl-row tbl-rest">
+        <div class="tbl-marker"><div class="tbl-dot"></div></div>
+        <div class="tbl-block">
+          <div class="tbl-type">Move</div>
+          <div class="tbl-title">Movement — 20 min</div>
+          <div class="tbl-note">Walk. Stretch. Afternoon retention depends on this break.</div>
+        </div>
+        <div class="tbl-dur">20m</div>
+      </div>
+      <div class="tbl-row tbl-read">
+        <div class="tbl-marker"><div class="tbl-dot"></div></div>
+        <div class="tbl-block">
+          <div class="tbl-type">Block IV</div>
+          <div class="tbl-title">Reading — 45–60 min</div>
+          <div class="tbl-note">Current books. No minimums. Earned by completing Block I and German first — not scheduled before them.</div>
+        </div>
+        <div class="tbl-dur">60m</div>
+      </div>
+      <div class="tbl-row tbl-rest">
+        <div class="tbl-marker tbl-marker-last"><div class="tbl-dot"></div></div>
+        <div class="tbl-block">
+          <div class="tbl-type">Wind</div>
+          <div class="tbl-title">Synthesis + shutdown — 15 min</div>
+          <div class="tbl-note">One line in Daily/. ✓ or ✗ in tracker. Close Obsidian. No screens 30 min before sleep.</div>
+        </div>
+        <div class="tbl-dur">15m</div>
+      </div>
+    </div>
+
+    <!-- ── SECTION: Time breakdown ── -->
+    <div class="ds-section-label">Time breakdown</div>
+    <div class="ds-breakdown">
+      <div class="ds-donut-wrap">
+        <svg width="110" height="110" viewBox="0 0 140 140">
+          <circle cx="70" cy="70" r="52" fill="none" stroke="rgba(107,94,74,.15)" stroke-width="18"/>
+          <circle cx="70" cy="70" r="52" fill="none" stroke="var(--blue)" stroke-width="18"
+            stroke-dasharray="81.6 244.9" stroke-dashoffset="0"
+            stroke-linecap="butt" transform="rotate(-90 70 70)"/>
+          <circle cx="70" cy="70" r="52" fill="none" stroke="var(--teal)" stroke-width="18"
+            stroke-dasharray="13.1 244.9" stroke-dashoffset="-81.6"
+            stroke-linecap="butt" transform="rotate(-90 70 70)"/>
+          <circle cx="70" cy="70" r="52" fill="none" stroke="var(--gold)" stroke-width="18"
+            stroke-dasharray="26.1 244.9" stroke-dashoffset="-94.7"
+            stroke-linecap="butt" transform="rotate(-90 70 70)"/>
+          <text x="70" y="64" text-anchor="middle" font-family="var(--font-mono)" font-size="20" font-weight="600" fill="var(--ink)">37%</text>
+          <text x="70" y="80" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--ink-ghost)" letter-spacing="1">utilized</text>
+        </svg>
+      </div>
+      <div class="ds-breakdown-right">
+        <div class="ds-legend">
+          <div class="ds-leg-row"><div class="ds-leg-dot" style="background:var(--blue)"></div><span class="ds-leg-label">Nursing</span><span class="ds-leg-val">3h · 25%</span></div>
+          <div class="ds-leg-row"><div class="ds-leg-dot" style="background:var(--teal)"></div><span class="ds-leg-label">German</span><span class="ds-leg-val">30m · 4%</span></div>
+          <div class="ds-leg-row"><div class="ds-leg-dot" style="background:var(--gold)"></div><span class="ds-leg-label">Reading</span><span class="ds-leg-val">60m · 8%</span></div>
+          <div class="ds-leg-row"><div class="ds-leg-dot" style="background:rgba(107,94,74,.2)"></div><span class="ds-leg-label">Rest + life</span><span class="ds-leg-val">63%</span></div>
+        </div>
+        <div class="ds-breakdown-note">90-min active recall blocks produce more consolidation than 4 hours of passive reading. The breaks aren't wasted time — they're when your hippocampus transfers to long-term memory.</div>
+      </div>
+    </div>
+
+    <!-- ── SECTION: Energy modes ── -->
+    <div class="ds-section-label">Energy calibration — ask this within 30 min of waking</div>
+    <div class="ds-energy-q"><em>Can you open a book and read one paragraph right now?</em></div>
+    <div class="ds-energy-stack">
+      <div class="ds-energy-card ds-e-high">
+        <div class="ds-e-head">
+          <div class="ds-e-signal"><span></span><span></span><span></span></div>
+          <div class="ds-e-level">High energy</div>
+          <div class="ds-e-answer">Yes, immediately.</div>
+        </div>
+        <div class="ds-e-action">Both study blocks · German 30 min · Reading 60 min</div>
+        <div class="ds-e-note">Default mode. Don't downgrade out of habit. When focus is available, use all of it.</div>
+      </div>
+      <div class="ds-energy-card ds-e-med">
+        <div class="ds-e-head">
+          <div class="ds-e-signal"><span></span><span></span></div>
+          <div class="ds-e-level">Medium energy</div>
+          <div class="ds-e-answer">Yes, but reluctantly.</div>
+        </div>
+        <div class="ds-e-action">One study block · German 15 min · Reading whenever</div>
+        <div class="ds-e-note">Pick the most interesting concept. Drop the second block — one good session beats two mediocre ones.</div>
+      </div>
+      <div class="ds-energy-card ds-e-low">
+        <div class="ds-e-head">
+          <div class="ds-e-signal"><span></span></div>
+          <div class="ds-e-level">Low energy</div>
+          <div class="ds-e-answer">No, not really.</div>
+        </div>
+        <div class="ds-e-action">German 15 min only · Reading if possible · Honest ✗ to tracker</div>
+        <div class="ds-e-note">No studying. No guilt. Re-entry starts tomorrow — not catch-up, just Day 1.</div>
+      </div>
+    </div>
+
+    <!-- ── SECTION: Block rules ── -->
+    <div class="ds-section-label">Six rules — non-negotiable</div>
+    <div class="ds-rules">
+      <div class="ds-rule ds-r-blue"><div class="ds-r-num">I</div><div class="ds-r-body"><div class="ds-r-main">Blocks are in sequence, not at fixed times</div><div class="ds-r-note">Block I at 7am or 2pm — both fine. Sequence matters, clock doesn't.</div></div></div>
+      <div class="ds-rule ds-r-blue"><div class="ds-r-num">II</div><div class="ds-r-body"><div class="ds-r-main">Hard stop at 90 minutes — especially when it feels good</div><div class="ds-r-note">The stop is what makes tomorrow's session possible. Going over once starts the precedent that ends the system.</div></div></div>
+      <div class="ds-rule ds-r-blue"><div class="ds-r-num">III</div><div class="ds-r-body"><div class="ds-r-main">Breaks are not productivity time</div><div class="ds-r-note">No Obsidian, no Gizmo, no "just one more." Walk, eat, exist. The brain is consolidating.</div></div></div>
+      <div class="ds-rule ds-r-blue"><div class="ds-r-num">IV</div><div class="ds-r-body"><div class="ds-r-main">Scroll window is lunch break only</div><div class="ds-r-note">Outside that window: phone in another room. Not silent — another room. Silent still vibrates.</div></div></div>
+      <div class="ds-rule ds-r-blue"><div class="ds-r-num">V</div><div class="ds-r-body"><div class="ds-r-main">Reading block is always last — earned, not scheduled</div><div class="ds-r-note">Block I and German must be done before the book opens. Reading first means not studying.</div></div></div>
+      <div class="ds-rule ds-r-blue"><div class="ds-r-num">VI</div><div class="ds-r-body"><div class="ds-r-main">Synthesis before sleep, not during the day</div><div class="ds-r-note">One sentence in Daily/. Takes 60 seconds. Worth more than the note it produces.</div></div></div>
+    </div>
+  </div>
+</div>

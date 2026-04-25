@@ -1,0 +1,35 @@
+<!-- ═══════════════════════════════════════════════════════
+     VIEW: chain
+     This file contains only the HTML for this view/tab.
+     It is injected into index.html at runtime by core.js.
+     Edit content here; don't touch the id="view-chain" attribute.
+     ═══════════════════════════════════════════════════════ -->
+
+<div class="view" id="view-chain">
+  <button class="back-btn" onclick="goBack()">back</button>
+  <div class="chain-hero">
+    <div class="chain-hero-eye">Tools · PNLE Prep</div>
+    <div class="chain-hero-title">The Clinical <em style="font-style:normal;color:#8ca5ff">Chain</em></div>
+    <div class="chain-hero-sub">PNLE questions test whether you can think across courses — not inside one. Select a concept and trace how it threads through all five disciplines. This is the reasoning the board actually tests.</div>
+  </div>
+  <div class="chain-body">
+    <div class="chain-select-row">
+      <span class="chain-select-lbl">Select concept →</span>
+      <select class="chain-select" id="chain-select" onchange="chainRender(this.value)">
+        <option value="">— choose a concept —</option>
+        <option value="hf">Heart Failure</option>
+        <option value="furosemide">Furosemide</option>
+        <option value="dka">DKA (Diabetic Ketoacidosis)</option>
+        <option value="shock">Shock</option>
+        <option value="stroke">Stroke / Increased ICP</option>
+        <option value="hypokalemia">Hypokalemia</option>
+        <option value="iv_fluids">IV Fluids &amp; Tonicity</option>
+        <option value="sepsis">Sepsis &amp; Infection</option>
+        <option value="hypoxia">Hypoxia / Respiratory Failure</option>
+        <option value="mi">Myocardial Infarction</option>
+      </select>
+    </div>
+    <div id="chain-visual" class="chain-visual" style="display:none"></div>
+    <div id="chain-empty" style="font-family:var(--font-mono);font-size:11px;color:var(--ink-ghost);text-align:center;padding:32px 0;letter-spacing:.06em">Select a concept above to trace the chain ↑</div>
+  </div>
+</div>

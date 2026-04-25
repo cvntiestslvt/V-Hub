@@ -1,0 +1,92 @@
+<!-- ═══════════════════════════════════════════════════════
+     VIEW: returnDemo
+     This file contains only the HTML for this view/tab.
+     It is injected into index.html at runtime by core.js.
+     Edit content here; don't touch the id="view-returnDemo" attribute.
+     ═══════════════════════════════════════════════════════ -->
+
+<div class="view" id="view-returnDemo">
+  <button class="back-btn" onclick="goBack()">back</button>
+  <div class="pv-wrap">
+
+    <!-- Header band -->
+    <div class="rdt-header-band">
+      <div class="rdt-header-eyebrow">Tools · Return Demo</div>
+      <div class="rdt-header-title">Return Demo <em>Tracker</em></div>
+      <div class="rdt-header-sub">Automaticity, not familiarity. Watching once creates familiarity. Repeating until the sequence runs without conscious thought creates automaticity. Only automaticity survives CI observation pressure.</div>
+    </div>
+
+    <!-- Kanban board — procedures sorted by stage -->
+    <div class="rdt-status-board" id="rdt-board">
+      <div class="rdt-stage-col rdt-col-0">
+        <div class="rdt-stage-col-head">
+          <span class="rdt-stage-col-num">01</span>
+          <span class="rdt-stage-col-label">Not started</span>
+          <span class="rdt-stage-col-count" id="rdt-count-0">0</span>
+        </div>
+        <div class="rdt-stage-col-body" id="rdt-col-body-0"></div>
+      </div>
+      <div class="rdt-stage-col rdt-col-1">
+        <div class="rdt-stage-col-head">
+          <span class="rdt-stage-col-num">02</span>
+          <span class="rdt-stage-col-label">Practicing</span>
+          <span class="rdt-stage-col-count" id="rdt-count-1">0</span>
+        </div>
+        <div class="rdt-stage-col-body" id="rdt-col-body-1"></div>
+      </div>
+      <div class="rdt-stage-col rdt-col-2">
+        <div class="rdt-stage-col-head">
+          <span class="rdt-stage-col-num">03</span>
+          <span class="rdt-stage-col-label">Stress testing</span>
+          <span class="rdt-stage-col-count" id="rdt-count-2">0</span>
+        </div>
+        <div class="rdt-stage-col-body" id="rdt-col-body-2"></div>
+      </div>
+      <div class="rdt-stage-col rdt-col-3">
+        <div class="rdt-stage-col-head">
+          <span class="rdt-stage-col-num">✦</span>
+          <span class="rdt-stage-col-label">Ready to demo</span>
+          <span class="rdt-stage-col-count" id="rdt-count-3">0</span>
+        </div>
+        <div class="rdt-stage-col-body" id="rdt-col-body-3"></div>
+      </div>
+    </div>
+
+    <!-- Add procedure -->
+    <div class="rdt-add-row" style="margin-bottom:20px">
+      <input class="rdt-add-input" id="rdt-new-proc" placeholder="Add a procedure — e.g. IV insertion, foley catheter, wound dressing..." onkeydown="if(event.key==='Enter')rdtAddProcedure()">
+      <button class="rdt-add-btn" onclick="rdtAddProcedure()">+ Add</button>
+    </div>
+
+    <!-- Procedure list -->
+    <div id="rdt-list"></div>
+
+    <!-- Protocol reference card -->
+    <div class="rdt-protocol-card">
+      <div class="rdt-protocol-head">The four-stage protocol — only Stage 4 is CI-ready</div>
+      <div class="rdt-protocol-steps">
+        <div class="rdt-proto-step">
+          <div class="rdt-proto-num">01</div>
+          <div class="rdt-proto-action">Solo — build the sequence</div>
+          <div class="rdt-proto-note">Perform alone, referencing notes. Goal: no hesitation between steps. Familiarity only.</div>
+        </div>
+        <div class="rdt-proto-step">
+          <div class="rdt-proto-num">02</div>
+          <div class="rdt-proto-action">Solo with interruptions — stress test</div>
+          <div class="rdt-proto-note">Timer running, someone asks questions mid-procedure. Exposes gaps that fluency hasn't filled.</div>
+        </div>
+        <div class="rdt-proto-step">
+          <div class="rdt-proto-num">03</div>
+          <div class="rdt-proto-action">Partner observing silently</div>
+          <div class="rdt-proto-note">Being watched changes execution. Closest available simulation of CI observation pressure.</div>
+        </div>
+        <div class="rdt-proto-step">
+          <div class="rdt-proto-num">✦</div>
+          <div class="rdt-proto-action">Partner asking questions — demo ready</div>
+          <div class="rdt-proto-note">Perform correctly while explaining each step aloud. This is CI conditions. If you can do this, you are ready.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

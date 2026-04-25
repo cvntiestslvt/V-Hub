@@ -1,0 +1,181 @@
+<!-- ═══════════════════════════════════════════════════════
+     VIEW: home  (v41 — layout fix + redesign)
+     It is injected into index.html at runtime by core.js.
+     ═══════════════════════════════════════════════════════ -->
+
+<div class="view active" id="view-dashboard">
+
+  <!-- ── PAGE HEADER ──────────────────────────────────────── -->
+  <div class="home-header">
+    <div class="home-header-left">
+      <div class="eyebrow">Viktoria · Study Hub</div>
+      <h1>Hello, <em>Viktoria.</em></h1>
+    </div>
+    <div class="home-header-right">
+      <div class="home-date-block">
+        <div class="home-date-val" id="live-date">—</div>
+        <div class="home-date-sub" id="live-weekday">—</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── LIVE STRIP ───────────────────────────────────────── -->
+  <div class="ov-live-strip">
+    <div class="ov-live-cell ov-live-streak">
+      <div class="ov-live-icon">◉</div>
+      <div class="ov-live-content">
+        <div class="ov-live-val accent" id="live-streak">0</div>
+        <div class="ov-live-label">Day streak</div>
+      </div>
+    </div>
+    <div class="ov-live-cell ov-live-enroll">
+      <div class="ov-live-icon">◈</div>
+      <div class="ov-live-content">
+        <div class="ov-live-val gold" id="live-days">—</div>
+        <div class="ov-live-label" id="live-days-sub">Days to enrollment</div>
+      </div>
+    </div>
+    <div class="ov-live-cell ov-live-sess">
+      <div class="ov-live-icon">✦</div>
+      <div class="ov-live-content">
+        <div class="ov-live-val teal" id="live-sessions">0</div>
+        <div class="ov-live-label">Sessions this week</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── BENTO GRID ────────────────────────────────────────── -->
+  <div class="ov-bento">
+
+    <!-- ── READINESS HERO ──────────────────────────── -->
+    <div class="ov-cell ov-readiness">
+      <div class="ov-cell-eyebrow" style="margin-bottom:12px">✦ Overall readiness</div>
+      <div class="ov-readiness-inner">
+        <div class="ov-ring-wrap">
+          <svg width="80" height="80" viewBox="0 0 80 80" style="transform:rotate(-90deg)">
+            <circle cx="40" cy="40" r="33" fill="none" stroke="rgba(154,122,26,.15)" stroke-width="6"/>
+            <circle cx="40" cy="40" r="33" id="ov-readiness-ring" fill="none"
+              stroke="var(--gold)" stroke-width="6"
+              stroke-dasharray="207.3" stroke-dashoffset="207.3"
+              stroke-linecap="round"
+              style="transition:stroke-dashoffset .8s cubic-bezier(.4,0,.2,1)"/>
+          </svg>
+          <div class="ov-ring-label">
+            <span class="ov-readiness-num" id="ov-readiness-hero" style="font-size:20px;line-height:1">0</span>
+            <span style="font-family:var(--font-mono);font-size:8px;color:var(--gold);letter-spacing:.04em">%</span>
+          </div>
+        </div>
+        <div class="ov-readiness-right">
+          <div class="ov-readiness-meta" id="ov-total-meta">— of — items</div>
+          <div class="ov-course-mini" id="ov-course-mini"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── STREAK ─────────────────────────────────── -->
+    <div class="ov-cell ov-streak">
+      <div class="ov-cell-eyebrow" style="margin-bottom:8px">◉ Study streak</div>
+      <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:8px">
+        <span class="ov-streak-big" id="streak-count">0</span>
+        <span style="font-size:13px;color:var(--text-muted)">days</span>
+      </div>
+      <div class="streak-type-row" id="streak-type-row">
+        <button class="streak-type-btn active" data-type="study" style="--btn-color:var(--blue)" onclick="setStreakType(this,'study')">Study</button>
+        <button class="streak-type-btn" data-type="german" style="--btn-color:var(--teal)" onclick="setStreakType(this,'german')">German</button>
+        <button class="streak-type-btn" data-type="light" style="--btn-color:var(--gold)" onclick="setStreakType(this,'light')">Light</button>
+      </div>
+      <div class="ov-cell-eyebrow" style="margin-bottom:5px;margin-top:4px;font-size:8px">Last 28 days</div>
+      <div class="streak-grid" id="streak-grid"></div>
+      <div class="streak-legend" id="streak-legend" style="margin-top:6px">click any dot to mark · type selected above</div>
+    </div>
+
+    <!-- ── TODAY'S INTENTION ──────────────────────── -->
+    <div class="ov-cell ov-focus">
+      <div class="ov-focus-header">
+        <div class="ov-cell-eyebrow">⁂ Today's intention</div>
+        <span style="font-family:var(--font-mono);font-size:9px;color:var(--text-muted);letter-spacing:.06em" id="ov-focus-date"></span>
+      </div>
+      <div class="ov-focus-body" style="flex:1;display:flex;flex-direction:column;gap:8px;margin-top:10px">
+        <textarea id="ov-intention-input"
+          placeholder="What is the one thing you are building toward today?"
+          style="flex:1;min-height:72px;width:100%;font-family:var(--font-body),sans-serif;font-size:13px;line-height:1.7;color:var(--ink);background:transparent;border:none;outline:none;resize:none;padding:0;"
+          oninput="saveIntention(this.value)"></textarea>
+        <div style="height:1px;background:var(--border)"></div>
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <span style="font-family:var(--font-mono);font-size:9px;color:var(--text-muted);letter-spacing:.04em" id="ov-intention-saved"></span>
+          <button onclick="clearIntention()" style="font-family:var(--font-mono);font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);background:none;border:none;cursor:pointer;opacity:.45;transition:opacity .15s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.45">clear</button>
+            <button id="decl-save-btn" onclick="saveDeclaration()" style="font-family:var(--font-mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:none;border:1px solid var(--border);border-radius:4px;padding:3px 10px;cursor:pointer;transition:all .15s" onmouseover="this.style.borderColor='var(--ink)'" onmouseout="this.style.borderColor='var(--border)'">Declare · +10 vt</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── COURSE COVERAGE ────────────────────────── -->
+    <div class="ov-cell ov-courses">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+        <div class="ov-cell-eyebrow">❧ Course coverage</div>
+        <span style="font-family:var(--font-mono);font-size:9px;color:var(--text-muted);padding:2px 8px;border:1px solid var(--border);border-radius:99px">click to open</span>
+      </div>
+      <div id="ov-course-bars"></div>
+    </div>
+
+    <!-- ── TODAY'S TASKS ──────────────────────────── -->
+    <div class="ov-cell ov-tasks">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+        <span class="ov-cell-eyebrow todo-title">✧ Today's Tasks</span>
+        <span style="font-family:var(--font-mono);font-size:9px;color:var(--text-muted)" id="todo-date"></span>
+      </div>
+      <ul class="todo-list" id="todo-list" style="flex:1;max-height:none"><li class="todo-empty">No tasks yet.</li></ul>
+      <div class="todo-add-row" style="margin-top:8px;margin-bottom:0">
+        <input type="text" class="todo-input" id="todo-input" placeholder="Add a task..." onkeydown="if(event.key==='Enter')addTodo()">
+        <button class="todo-add-btn" onclick="addTodo()">+ Add</button>
+      </div>
+      <div style="margin-top:6px;font-family:var(--font-mono);font-size:9px;color:var(--text-muted);text-align:center;letter-spacing:.04em">synced · tools · pomodoro</div>
+    </div>
+
+    <!-- ── SESSION LOG ──────────────────────────────── -->
+    <div class="ov-cell ov-slog">
+      <div class="slog-dash-head">
+        <div class="ov-cell-eyebrow">◆ Session log</div>
+        <span class="slog-dash-link" onclick="goDeep('weekly-synthesis');setTimeout(()=>showToolTab('ws','sessionlog'),80)">view all →</span>
+      </div>
+      <div class="slog-dash-list" id="slog-dash-list">
+        <div class="slog-dash-empty">No sessions yet — log one below.</div>
+      </div>
+      <div class="slog-dash-add">
+        <input class="slog-dash-inp" id="slog-dash-inp" placeholder="What concept did you study?" onkeydown="if(event.key==='Enter')slogDashAdd()">
+        <button class="slog-dash-log-btn" onclick="slogDashAdd()">+ Log</button>
+      </div>
+    </div>
+
+    <!-- ── CALENDAR ───────────────────────────────── -->
+    <div class="ov-cell ov-calendar">
+      <div class="week-cal-header" style="margin-bottom:10px">
+        <span class="ov-cell-eyebrow week-cal-title" id="week-title">◆ This week</span>
+        <div style="display:flex;gap:6px">
+          <button class="week-nav-btn" onclick="calPrev()">←</button>
+          <button class="week-nav-btn" onclick="calNext()">→</button>
+        </div>
+      </div>
+      <div class="week-days-header">
+        <div class="week-day-name">M</div><div class="week-day-name">T</div><div class="week-day-name">W</div>
+        <div class="week-day-name">T</div><div class="week-day-name">F</div><div class="week-day-name">S</div><div class="week-day-name">S</div>
+      </div>
+      <div class="week-days" id="week-days"></div>
+      <div style="margin-top:6px;font-family:var(--font-mono);font-size:9px;color:var(--text-muted);letter-spacing:.06em">· click a day to add an event</div>
+      <div class="week-shared-form" id="week-shared-form">
+        <div class="week-shared-form-title" id="week-form-date-lbl">Adding event for —</div>
+        <input class="week-add-input" id="cal-shared-inp" placeholder="Event name..." onkeydown="if(event.key==='Enter')saveSharedCalEvent()">
+        <div class="week-add-type" id="cal-type-btns">
+          <button class="week-type-btn active" onclick="setCalType(this,'')">Study</button>
+          <button class="week-type-btn" onclick="setCalType(this,'teal')">German</button>
+          <button class="week-type-btn" onclick="setCalType(this,'gold')">Other</button>
+        </div>
+        <div class="week-add-btns">
+          <button class="week-add-save" onclick="saveSharedCalEvent()">Save</button>
+          <button class="week-add-cancel" onclick="closeSharedForm()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

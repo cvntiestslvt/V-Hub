@@ -1,0 +1,132 @@
+<!-- ═══════════════════════════════════════════════════════
+     VIEW: studysystem
+     This file contains only the HTML for this view/tab.
+     It is injected into index.html at runtime by core.js.
+     Edit content here; don't touch the id="view-studysystem" attribute.
+     ═══════════════════════════════════════════════════════ -->
+
+<div class="view" id="view-studysystem">
+  <button class="back-btn" onclick="goBack()">back</button>
+
+  <!-- ZONE A: The Loop ─────────────────────────────────────────── -->
+  <div class="ss-zone-a">
+    <div class="ss-zone-eyebrow">Core System 01 · Study System</div>
+    <h2 class="ss-zone-title">The <em>Loop</em></h2>
+    <p class="ss-zone-sub">Every concept goes through this. No exceptions. No shortcuts.</p>
+
+    <div class="ss-loop-card">
+      <!-- Pipeline -->
+      <div class="ss-loop-top">
+        <div class="ss-pipeline" id="ss-pipeline">
+          <div class="ss-pipe-node active" data-step="0" onclick="ssPipeSelect(0)">
+            <div class="ss-pipe-num">01</div>
+            <div class="ss-pipe-label">Read</div>
+          </div>
+          <div class="ss-pipe-arrow">→</div>
+          <div class="ss-pipe-node" data-step="1" onclick="ssPipeSelect(1)">
+            <div class="ss-pipe-num">02</div>
+            <div class="ss-pipe-label">Gap</div>
+          </div>
+          <div class="ss-pipe-arrow">→</div>
+          <div class="ss-pipe-node" data-step="2" onclick="ssPipeSelect(2)">
+            <div class="ss-pipe-num">03</div>
+            <div class="ss-pipe-label">Write</div>
+          </div>
+          <div class="ss-pipe-arrow">→</div>
+          <div class="ss-pipe-node" data-step="3" onclick="ssPipeSelect(3)">
+            <div class="ss-pipe-num">04</div>
+            <div class="ss-pipe-label">Test</div>
+          </div>
+          <div class="ss-pipe-arrow">→</div>
+          <div class="ss-pipe-node" data-step="4" onclick="ssPipeSelect(4)">
+            <div class="ss-pipe-num">05</div>
+            <div class="ss-pipe-label">Space</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detail panel - inline, no separate card -->
+      <div class="ss-loop-detail" id="ss-pipe-detail">
+        <div id="ss-pipe-detail-inner">
+          <div class="ss-pipe-step-title" id="ss-pipe-step-title">Read one concept actively</div>
+          <div class="ss-pipe-step-body" id="ss-pipe-step-body">One section, not a chapter. Ask: why does this exist? What happens if a nurse gets this wrong? Clinical framing, not academic framing.</div>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="ss-loop-divider"></div>
+
+      <!-- Tool flow inline -->
+      <div class="ss-loop-tools">
+        <div class="ss-tool-node">
+          <div class="ss-tool-letter">N</div>
+          <div class="ss-tool-name">Notebook</div>
+          <div class="ss-tool-role">Messy thinking</div>
+        </div>
+        <div class="ss-tool-arrow">→</div>
+        <div class="ss-tool-node ss-tool-teal">
+          <div class="ss-tool-letter">O</div>
+          <div class="ss-tool-name">Obsidian</div>
+          <div class="ss-tool-role">Own words</div>
+        </div>
+        <div class="ss-tool-arrow">→</div>
+        <div class="ss-tool-node ss-tool-gold">
+          <div class="ss-tool-letter">G</div>
+          <div class="ss-tool-name">Gizmo</div>
+          <div class="ss-tool-role">3–5 cards</div>
+        </div>
+        <div class="ss-loop-rule">Cards are the output of understanding. Never a shortcut to it.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ZONE B: Methods grid ────────────────────────────────────── -->
+  <div class="ss-zone-b">
+    <div class="ss-zone-b-label">Methods</div>
+    <div class="ss-methods-grid">
+      <div class="ss-method-card ss-m-teal">
+        <div class="ss-method-name">Feynman</div>
+        <div class="ss-method-when">When: complex mechanisms</div>
+        <div class="ss-method-body">Explain as if teaching a 10-year-old. No jargon. Where you reach for jargon = the gap. Go back, fill only that gap, simplify again.</div>
+        <div class="ss-method-test">Test: can you explain this to a patient in Filipino-English?</div>
+      </div>
+      <div class="ss-method-card ss-m-blue">
+        <div class="ss-method-name">Blurting</div>
+        <div class="ss-method-when">When: new concepts</div>
+        <div class="ss-method-body">Blank page. Write everything from memory. Open notes — highlight only what you missed. Review gaps only. Never re-read the whole thing.</div>
+        <div class="ss-method-test">Test: how many gaps did you find? That's the real assessment.</div>
+      </div>
+      <div class="ss-method-card ss-m-gold">
+        <div class="ss-method-name">Question-first</div>
+        <div class="ss-method-when">When: Gizmo card creation</div>
+        <div class="ss-method-body">Before reading: write 3 questions you expect the section to answer. After reading: close the book. Answer all three from memory. Gaps → cards.</div>
+        <div class="ss-method-test">Test: can you answer before looking?</div>
+      </div>
+      <div class="ss-method-card ss-m-mauve">
+        <div class="ss-method-name">Spaced rep</div>
+        <div class="ss-method-when">When: daily + ongoing</div>
+        <div class="ss-method-body">Day 0: test before ending session. Day 1: Gizmo before anything new. Day 3+: Gizmo algorithm. Day 7: weekly blurt on one page. Honest ratings only.</div>
+        <div class="ss-method-test">Rule: marking Easy to clear the queue destroys retention.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Connection Lab moved to courses view -->
+
+  <!-- Gizmo card rules -->
+  <div class="ss-zone-b gizmo-zone" style="margin-top:0">
+    <div class="ss-zone-b-label">Gizmo card rules</div>
+    <div class="ss-gizmo-rules">
+      <div class="ss-gizmo-rule"><span class="ss-grule-num">1</span><div><strong>One card = one idea.</strong> Never cram two things into one card.</div></div>
+      <div class="ss-gizmo-rule"><span class="ss-grule-num">2</span><div><strong>Answer requires thinking</strong>, not reciting. Bad: "What is Assessment?" Good: "Patient BP 160/100, looks flushed. What step of the nursing process is this and what specifically gets collected?"</div></div>
+      <div class="ss-gizmo-rule"><span class="ss-grule-num">3</span><div><strong>Clinical context over definition.</strong> Always frame in what a nurse would actually face.</div></div>
+    </div>
+    <div class="pv-obsidian-note" style="margin-top:12px">
+      <div class="pv-obsidian-comment">CONCEPT: What is [concept] and why does it matter clinically?</div>
+      <div class="pv-obsidian-text">Back: Feynman explanation + clinical consequence</div>
+      <div class="pv-obsidian-comment" style="margin-top:6px">SCENARIO: Patient presents with [signs]. What do you do first and why?</div>
+      <div class="pv-obsidian-text">Back: Action + rationale in your own words</div>
+    </div>
+  </div>
+
+</div>

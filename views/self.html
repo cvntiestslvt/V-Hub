@@ -1,0 +1,423 @@
+<!-- ═══════════════════════════════════════════════════════
+     VIEW: self
+     This file contains only the HTML for this view/tab.
+     It is injected into index.html at runtime by core.js.
+     Edit content here; don't touch the id="view-self" attribute.
+     ═══════════════════════════════════════════════════════ -->
+
+<div class="view" id="view-viktor">
+  <div class="pv-wrap">
+    <div class="self-section-header page-header">
+      <div class="eyebrow">Self</div>
+      <h1>Know <em>Yourself</em></h1>
+      <p>Your profile, the system, your fears, your language plan, and rituals. Everything the study architecture is built around.</p>
+    </div>
+    <div class="pv-tab-controls">
+      <button class="pv-tab-arrow" onclick="pvPrev()" title="Previous">‹</button>
+      <nav class="pv-nav" style="flex:1">
+      <button class="pv-nav-tab active" onclick="pvGoTo(0)">Profile</button>
+      <button class="pv-nav-tab" onclick="pvGoTo(1)">Wiring</button>
+      <button class="pv-nav-tab" onclick="pvGoTo(2)">The Engine</button>
+      <button class="pv-nav-tab" onclick="pvGoTo(3)">Language</button>
+      <button class="pv-nav-tab" onclick="pvGoTo(4)">Checklist</button>
+      <button class="pv-nav-tab" onclick="pvGoTo(5)" style="color:#7a1a1a">Last Resort</button>
+      </nav>
+      <button class="pv-tab-arrow" onclick="pvNext()" title="Next">›</button>
+    </div>
+        <div id="pv-p0" class="pv-panel active">
+      <!-- PROFILE -->
+      <div class="vp2-hero">
+        <div class="vp2-hero-eye">Self · Profile</div>
+        <div class="vp2-hero-title">This is who the system is built for.</div>
+        <div class="vp2-hero-sub">Not aspirational Viktoria. Actual Viktoria — built for real energy, real constraints, real fire.</div>
+        <div class="vp2-hero-tags">
+          <span class="vp2-tag">❧ Scholarship</span>
+          <span class="vp2-tag">✦ Germany-bound</span>
+          <span class="vp2-tag">◉ Understanding-first</span>
+          <span class="vp2-tag">◆ Output-based</span>
+        </div>
+      </div>
+      <div class="vp2-body">
+        <!-- Retention + Peak + Sleep row -->
+        <div class="vp2-data-grid">
+          <div class="vp2-datum">
+            <div class="vp2-datum-label">Retention method</div>
+            <div class="vp2-datum-val">Write in own words</div>
+          </div>
+          <div class="vp2-datum">
+            <div class="vp2-datum-label">Peak energy</div>
+            <div class="vp2-datum-val">Unpredictable</div>
+          </div>
+          <div class="vp2-datum">
+            <div class="vp2-datum-label">Sleep</div>
+            <div class="vp2-datum-val">~6h</div>
+            <div class="vp2-datum-note">⚑ critical issue</div>
+          </div>
+        </div>
+        <!-- Live stats -->
+        <div class="vp2-data-grid" style="border-bottom:1px solid var(--border)">
+          <div class="vp2-datum">
+            <div class="vp2-datum-label">✓ Checklist done</div>
+            <div class="vp2-datum-val" id="pp-checklist-val">—</div>
+          </div>
+          <div class="vp2-datum">
+            <div class="vp2-datum-label">⚑ Fears active</div>
+            <div class="vp2-datum-val" id="pp-fears-val">—</div>
+          </div>
+          <div class="vp2-datum">
+            <div class="vp2-datum-label">◷ Days to school</div>
+            <div class="vp2-datum-val" id="pp-days-val">—</div>
+          </div>
+        </div>
+        <!-- Momentum killers -->
+        <div class="vp2-killers">
+          <div class="vp2-killers-label">Momentum killers — all four fire for you</div>
+          <div class="vp2-killer-chips">
+            <span class="vp2-killer">Boring material</span>
+            <span class="vp2-killer">Too many steps to start</span>
+            <span class="vp2-killer">Feeling behind</span>
+            <span class="vp2-killer">Perfectionism in setup</span>
+          </div>
+        </div>
+        <!-- System response note -->
+        <div class="vp2-note">The system must make starting take zero steps, inject novelty into boring material, and show visible progress so "feeling behind" has data to fight it. Phone isn't the problem. Boredom is.</div>
+        <!-- Strengths -->
+        <div class="vp2-strengths">
+          <div class="vp2-strengths-label">Strengths the system builds on</div>
+          <div class="vp2-strength-grid">
+            <div class="vp2-strength-item">Angry then resets fast</div>
+            <div class="vp2-strength-item">4-hour hyperfocus when engaged</div>
+            <div class="vp2-strength-item">Understanding-first brain</div>
+            <div class="vp2-strength-item">Reads daily already</div>
+            <div class="vp2-strength-item">All three tools ready</div>
+            <div class="vp2-strength-item">Self-aware about redesign trap</div>
+          </div>
+        </div>
+        <!-- Accountability anchor -->
+        <div class="vp2-anchor">
+          <div class="vp2-anchor-head">◆ Accountability anchor</div>
+          <div class="vp2-anchor-body">Your scholarship is your accountability. Not a person — a financial stake.</div>
+          <div class="vp2-anchor-sub">When motivation fails, the answer isn't inspiration. It's: "losing this scholarship means losing the path to Europe." That's the wall you run into when everything else fails.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WIRING: Fears + Preconditions merged -->
+    <div id="pv-p1" class="pv-panel">
+      <div class="wr-hero">
+        <div class="wr-hero-eye">Self · Wiring</div>
+        <div class="wr-hero-title">What fires, what breaks, what you <em style="font-style:normal;color:#c49dff">require</em>.</div>
+        <div class="wr-hero-sub">Your fear map and your operating requirements — the two things every other part of the system is built around. Named fears lose half their power. Named requirements don't get negotiated away.</div>
+      </div>
+      <div class="wr-body">
+        <!-- REQUIREMENTS section -->
+        <div class="wr-section-head">
+          <div class="wr-section-glyph">⚙️</div>
+          <div class="wr-section-label">Operating requirements — fix before adding any technique</div>
+        </div>
+        <div class="wr-req-item">
+          <div class="wr-req-num">I</div>
+          <div class="wr-req-body"><div class="wr-req-main">Sleep minimum 7h — non-negotiable</div><div class="wr-req-note">Under 6h means content won't consolidate into long-term memory regardless of method. The hippocampus transfers working memory during deep sleep. Fix sleep before everything else, every time.</div></div>
+        </div>
+        <div class="wr-req-item">
+          <div class="wr-req-num">II</div>
+          <div class="wr-req-body"><div class="wr-req-main">Boring subjects get a novelty angle, not willpower</div><div class="wr-req-note">Find the clinical horror story before opening the textbook. Search "nursing error [topic]" on YouTube. Once the material feels dangerous, willpower becomes irrelevant — curiosity activates.</div></div>
+        </div>
+        <div class="wr-req-item">
+          <div class="wr-req-num">III</div>
+          <div class="wr-req-body"><div class="wr-req-main">Walk 20 minutes daily — this is training, not wellness</div><div class="wr-req-note">Hippocampal neurogenesis — literal formation of new memory cells — is exercise-dependent. 20 min of aerobic walking produces measurable improvement in next-day retention.</div></div>
+        </div>
+        <div class="wr-req-item">
+          <div class="wr-req-num">IV</div>
+          <div class="wr-req-body"><div class="wr-req-main">Eat before studying — not after</div><div class="wr-req-note">Glucose is the brain's only fuel. Studying fasted reduces working memory capacity. Schedule the meal before Block I, not as a reward after it.</div></div>
+        </div>
+        <div class="wr-req-item">
+          <div class="wr-req-num">V</div>
+          <div class="wr-req-body"><div class="wr-req-main">Output-based days, not time-based</div><div class="wr-req-note">Done = one concept written in your own words in Obsidian, closed, with a Gizmo card made. Not "studied for 2 hours." Time-based systems fail when energy is unpredictable.</div></div>
+        </div>
+        <div class="wr-req-item">
+          <div class="wr-req-num">VI</div>
+          <div class="wr-req-body"><div class="wr-req-main">No system changes during the first 30 days of school</div><div class="wr-req-note">The redesign impulse peaks under stress and produces worse systems. Log ideas in "System ideas — open Day 30." Every single one. Open on Day 30 only.</div></div>
+        </div>
+        <!-- FEARS section -->
+        <div class="wr-section-head" style="border-top:1px solid var(--border)">
+          <div class="wr-section-glyph">⚑</div>
+          <div class="wr-section-label">Fear map — click to mark resolved</div>
+        </div>
+        <div class="wr-fear-grid" id="wr-fear-grid">
+          <div class="wr-fear-card" id="wrf-1"><div class="wr-fear-num">Fear 01</div><div class="wr-fear-name">Failing exams</div><div class="wr-fear-reframe">Understanding-first means you can reconstruct answers you don't fully remember. You're building a thinking system, not a fact database.</div><button class="wr-fear-btn" onclick="wrFearToggle(1,this)">mark resolved</button></div>
+          <div class="wr-fear-card" id="wrf-2"><div class="wr-fear-num">Fear 02</div><div class="wr-fear-name">Failing return demos</div><div class="wr-fear-reframe">You know why each step exists. Students who memorized steps blank under pressure. Students who understand the rationale don't — the logic holds even when the script drops.</div><button class="wr-fear-btn" onclick="wrFearToggle(2,this)">mark resolved</button></div>
+          <div class="wr-fear-card" id="wrf-3"><div class="wr-fear-num">Fear 03</div><div class="wr-fear-name">Falling behind</div><div class="wr-fear-reframe">One concept per day means you can count what you've covered. Behind is a feeling. The tracker gives you facts to fight it. You are not behind — you are at today.</div><button class="wr-fear-btn" onclick="wrFearToggle(3,this)">mark resolved</button></div>
+          <div class="wr-fear-card" id="wrf-4"><div class="wr-fear-num">Fear 04</div><div class="wr-fear-name">Humiliation in front of peers</div><div class="wr-fear-reframe">You're pre-studying subjects your classmates haven't opened. The ones watching in Week 1 will be asking for your notes in Week 6.</div><button class="wr-fear-btn" onclick="wrFearToggle(4,this)">mark resolved</button></div>
+          <div class="wr-fear-card" id="wrf-5"><div class="wr-fear-num">Fear 05</div><div class="wr-fear-name">Losing motivation</div><div class="wr-fear-reframe">Motivation isn't the engine — the scholarship is. When motivation drops, the system runs on stakes. You've already installed the stakes.</div><button class="wr-fear-btn" onclick="wrFearToggle(5,this)">mark resolved</button></div>
+          <div class="wr-fear-card" id="wrf-6"><div class="wr-fear-num">Fear 06</div><div class="wr-fear-name">Disappointing family</div><div class="wr-fear-reframe">Your family is hands-off. The disappointment fear is mostly internal projection — which means it's yours to own and control. Use it as fuel. Direction, not paralysis.</div><button class="wr-fear-btn" onclick="wrFearToggle(6,this)">mark resolved</button></div>
+          <div class="wr-fear-card" id="wrf-7"><div class="wr-fear-num">Fear 07</div><div class="wr-fear-name">Germany being unreachable</div><div class="wr-fear-reframe">Every nurse who made it started from exactly where you are — no German, no clinical experience, no idea how the system works. The only difference is they didn't stop.</div><button class="wr-fear-btn" onclick="wrFearToggle(7,this)">mark resolved</button></div>
+          <div class="wr-fear-card" id="wrf-8"><div class="wr-fear-num">Fear 08</div><div class="wr-fear-name">Not being smart enough</div><div class="wr-fear-reframe">Understanding-first brains don't run on raw intelligence — they run on framework. You already build frameworks. That's the ceiling-relevant variable, not IQ.</div><button class="wr-fear-btn" onclick="wrFearToggle(8,this)">mark resolved</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE ENGINE: System + Obsidian + Rituals merged -->
+    <div id="pv-p2" class="pv-panel">
+      <div class="eg-hero">
+        <div class="eg-hero-eye">Self · Method</div>
+        <div class="eg-hero-title">The <em style="font-style:normal;color:#6dd9a0">Engine</em> — loop, tools, and rituals</div>
+        <div class="eg-hero-sub">The study loop, the three tools, the Obsidian structure, and the three protocols. Each has one job. Learn the job before you customize anything.</div>
+      </div>
+      <div class="eg-body">
+        <!-- NOG Pipeline -->
+        <div class="eg-section-head"><div class="eg-section-lbl">N → O → G Pipeline</div></div>
+        <div style="padding:14px 16px">
+          <div class="flow-pipe" style="margin-bottom:8px">
+            <div class="flow-node"><div class="flow-node-letter">N</div><div class="flow-node-label">Notebook</div></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node teal"><div class="flow-node-letter">O</div><div class="flow-node-label">Obsidian</div></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node gold"><div class="flow-node-letter">G</div><div class="flow-node-label">Gizmo</div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:6px">
+            <div style="font-size:11px;color:var(--ink-soft);padding:8px 10px;background:rgba(107,94,74,.06);border-radius:var(--radius);border:1px solid var(--border)"><strong style="color:var(--ink)">Notebook</strong> — messy first-pass. Diagrams. Scratch thinking. For thinking, not storage.</div>
+            <div style="font-size:11px;color:var(--ink-soft);padding:8px 10px;background:rgba(30,100,73,.05);border-radius:var(--radius);border:1px solid rgba(30,100,73,.2)"><strong style="color:var(--teal)">Obsidian</strong> — clean notes in <em>your own words only.</em> Permanent record. Source for cards.</div>
+            <div style="font-size:11px;color:var(--ink-soft);padding:8px 10px;background:rgba(154,122,26,.06);border-radius:var(--radius);border:1px solid rgba(154,122,26,.2)"><strong style="color:var(--gold)">Gizmo</strong> — 3–5 cards from Obsidian only. Clinical scenario format. Never definition recall.</div>
+          </div>
+          <div style="text-align:center;font-family:var(--font-mono);font-size:10px;color:var(--ink-ghost);margin-top:10px;font-style:italic">Cards are the output of understanding. Never a shortcut to it.</div>
+        </div>
+
+        <!-- Five phases -->
+        <div class="eg-section-head"><div class="eg-section-lbl">Five phases — always in order</div></div>
+        <div style="border-radius:0;overflow:hidden">
+          <div style="display:grid;grid-template-columns:52px 1fr;align-items:stretch;border-bottom:1px solid var(--border)"><div style="display:flex;align-items:center;justify-content:center;background:rgba(30,100,73,.1);font-family:var(--font-display);font-size:20px;font-weight:300;font-style:italic;color:var(--teal);border-right:1px solid rgba(30,100,73,.2)">01</div><div style="padding:12px 16px"><div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:3px">Read one concept actively</div><div style="font-size:11px;color:var(--ink-muted);line-height:1.65">One section, not a chapter. Ask: why does this exist? What happens if a nurse gets this wrong?</div></div></div>
+          <div style="display:grid;grid-template-columns:52px 1fr;align-items:stretch;border-bottom:1px solid var(--border)"><div style="display:flex;align-items:center;justify-content:center;background:rgba(30,100,73,.07);font-family:var(--font-display);font-size:20px;font-weight:300;font-style:italic;color:var(--teal);border-right:1px solid rgba(30,100,73,.2)">02</div><div style="padding:12px 16px"><div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:3px">Close the book. Wait 2 minutes.</div><div style="font-size:11px;color:var(--ink-muted);line-height:1.65">Mandatory. The gap creates retrieval pressure. Do not skip it.</div></div></div>
+          <div style="display:grid;grid-template-columns:52px 1fr;align-items:stretch;border-bottom:1px solid var(--border)"><div style="display:flex;align-items:center;justify-content:center;background:rgba(30,100,73,.07);font-family:var(--font-display);font-size:20px;font-weight:300;font-style:italic;color:var(--teal);border-right:1px solid rgba(30,100,73,.2)">03</div><div style="padding:12px 16px"><div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:3px">Write everything from memory</div><div style="font-size:11px;color:var(--ink-muted);line-height:1.65">Physical notebook first — messy, fast, uncensored. Then Obsidian — clean, own words only.</div></div></div>
+          <div style="display:grid;grid-template-columns:52px 1fr;align-items:stretch;border-bottom:1px solid var(--border)"><div style="display:flex;align-items:center;justify-content:center;background:rgba(30,100,73,.07);font-family:var(--font-display);font-size:20px;font-weight:300;font-style:italic;color:var(--teal);border-right:1px solid rgba(30,100,73,.2)">04</div><div style="padding:12px 16px"><div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:3px">Test yourself before session ends</div><div style="font-size:11px;color:var(--ink-muted);line-height:1.65">Cover notes. Answer the core question from scratch. Fix only the gaps — nothing else.</div></div></div>
+          <div style="display:grid;grid-template-columns:52px 1fr;align-items:stretch"><div style="display:flex;align-items:center;justify-content:center;background:rgba(30,100,73,.12);font-family:var(--font-display);font-size:20px;font-weight:300;font-style:italic;color:var(--teal);border-right:1px solid rgba(30,100,73,.2)">05</div><div style="padding:12px 16px"><div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:3px">Space — next day, day 3, day 7</div><div style="font-size:11px;color:var(--ink-muted);line-height:1.65">Gizmo handles the scheduling if you rate honestly. Marking Easy to clear the queue destroys retention.</div></div></div>
+        </div>
+
+        <!-- Obsidian vault -->
+        <div class="eg-section-head" style="border-top:1px solid var(--border)"><div class="eg-section-lbl">Obsidian vault structure</div></div>
+        <div style="padding:12px 16px">
+          <div class="pv-obsidian-note" style="margin-bottom:10px">
+            <div class="pv-obsidian-comment">📁 YourVault/</div>
+            <div class="pv-obsidian-text">├── 📁 00-Inbox/         &lt;!-- anything unprocessed --&gt;</div>
+            <div class="pv-obsidian-text">├── 📁 01-Nursing/</div>
+            <div class="pv-obsidian-text">│   ├── 📁 Fundamentals/</div>
+            <div class="pv-obsidian-text">│   ├── 📁 A&amp;P/</div>
+            <div class="pv-obsidian-text">│   ├── 📁 Health-Assessment/</div>
+            <div class="pv-obsidian-text">│   ├── 📁 Pharmacology/</div>
+            <div class="pv-obsidian-text">│   └── 📁 Med-Surg/</div>
+            <div class="pv-obsidian-text">├── 📁 02-German/</div>
+            <div class="pv-obsidian-text">│   ├── 📁 Grammar/</div>
+            <div class="pv-obsidian-text">│   └── 📁 Clinical-Vocab/</div>
+            <div class="pv-obsidian-text">├── 📁 03-Clinicals/</div>
+            <div class="pv-obsidian-text">│   ├── 📁 Clinical-Log/   &lt;!-- one note per rotation --&gt;</div>
+            <div class="pv-obsidian-text">│   └── 📁 Return-Demos/</div>
+            <div class="pv-obsidian-text">├── 📁 04-Daily/          &lt;!-- daily notes, tracker --&gt;</div>
+            <div class="pv-obsidian-text">├── 📁 05-Resources/      &lt;!-- saved articles, papers --&gt;</div>
+            <div class="pv-obsidian-text">└── 📁 Assets/</div>
+            <div class="pv-obsidian-text">    └── viktoria-hub.html   &lt;!-- this file --&gt;</div>
+          </div>
+
+          <div class="pv-obsidian-note" style="margin-bottom:10px">
+            <div class="pv-obsidian-comment">Concept note template — copy into every new note</div>
+            <div class="pv-obsidian-comment">---</div>
+            <div class="pv-obsidian-text">tags: [nursing, fundamentals, #adpie]</div>
+            <div class="pv-obsidian-text">subject: Fundamentals</div>
+            <div class="pv-obsidian-text">date: {{date}}</div>
+            <div class="pv-obsidian-text">status: #draft | #reviewed | #mastered</div>
+            <div class="pv-obsidian-comment">---</div>
+            <div class="pv-obsidian-text" style="margin-top:6px"># [Concept Name]</div>
+            <div class="pv-obsidian-text">## What is it (own words, no textbook)</div>
+            <div class="pv-obsidian-text">## Why it matters clinically</div>
+            <div class="pv-obsidian-text">## Key things to remember (3–5 max)</div>
+            <div class="pv-obsidian-text">## Confused about / gaps</div>
+            <div class="pv-obsidian-text">## Gizmo cards created (Y/N + count)</div>
+            <div class="pv-obsidian-link">## Links: [[related concept]] [[drug class]]</div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div>
+              <div style="font-family:var(--font-mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:6px">Subject Tags</div>
+              <div class="pv-obsidian-note" style="padding:8px 12px">
+                <div class="pv-obsidian-link">#fundamentals  #anatomy  #physiology</div>
+                <div class="pv-obsidian-link">#health-assessment  #pharmacology</div>
+                <div class="pv-obsidian-link">#med-surg  #german  #clinical-german</div>
+              </div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:6px">Status Tags</div>
+              <div class="pv-obsidian-note" style="padding:8px 12px">
+                <div class="pv-obsidian-link">#draft  #reviewed  #mastered</div>
+                <div class="pv-obsidian-link">#needs-gizmo  #gizmo-done  #confused</div>
+                <div class="pv-obsidian-link">#board-exam  #clinical-log</div>
+              </div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:6px">Concept Tags</div>
+              <div class="pv-obsidian-note" style="padding:8px 12px">
+                <div class="pv-obsidian-link">#adpie  #drugs  #procedures  #safety</div>
+                <div class="pv-obsidian-link">#communication  #pathophysiology</div>
+                <div class="pv-obsidian-link">#body-system  #nclex-style</div>
+              </div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:6px">Priority Tags</div>
+              <div class="pv-obsidian-note" style="padding:8px 12px">
+                <div class="pv-obsidian-link">#critical  #high-yield  #ple-tested</div>
+                <div class="pv-obsidian-link">#return-demo  #anerkennung</div>
+                <div class="pv-obsidian-link">#year1  #year2  #review</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rituals -->
+        <div class="eg-section-head" style="border-top:1px solid var(--border)"><div class="eg-section-lbl">Three protocols — run on trigger, not motivation</div></div>
+        <div class="eg-ritual-tabs">
+          <button class="eg-rtab active" onclick="egRitualSwitch(this,'egr-startup')">🌅 Startup</button>
+          <button class="eg-rtab" onclick="egRitualSwitch(this,'egr-shutdown')">🌙 Shutdown</button>
+          <button class="eg-rtab" onclick="egRitualSwitch(this,'egr-abort')">⊗ Abort</button>
+        </div>
+        <div id="egr-startup" class="eg-ritual-panel active">
+          <div style="display:flex;flex-direction:column;gap:0;border:1px solid rgba(30,100,73,.2);border-radius:var(--radius);overflow:hidden">
+            <div style="display:flex;gap:12px;padding:9px 14px;border-bottom:1px solid rgba(30,100,73,.1)"><span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--teal);min-width:18px;flex-shrink:0">1</span><div style="font-size:12px;color:var(--ink);line-height:1.6">Clear your physical surface — one notebook, one pen, one book. Nothing else on the desk.</div></div>
+            <div style="display:flex;gap:12px;padding:9px 14px;border-bottom:1px solid rgba(30,100,73,.1)"><span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--teal);min-width:18px;flex-shrink:0">2</span><div style="font-size:12px;color:var(--ink);line-height:1.6">Fill a glass of water. The act signals "session starting" to the brain.</div></div>
+            <div style="display:flex;gap:12px;padding:9px 14px;border-bottom:1px solid rgba(30,100,73,.1)"><span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--teal);min-width:18px;flex-shrink:0">3</span><div style="font-size:12px;color:var(--ink);line-height:1.6">Open tracker.md — read your last 3 ✓ entries. You've done this before. Today is the same.</div></div>
+            <div style="display:flex;gap:12px;padding:9px 14px;border-bottom:1px solid rgba(30,100,73,.1)"><span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--teal);min-width:18px;flex-shrink:0">4</span><div style="font-size:12px;color:var(--ink);line-height:1.6">Write today's concept name at the top of a fresh notebook page.</div></div>
+            <div style="display:flex;gap:12px;padding:9px 14px"><span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--teal);min-width:18px;flex-shrink:0">5</span><div style="font-size:12px;color:var(--ink);line-height:1.6">Phone in another room — not silent. <em>Another room.</em> Silent still vibrates. Vibration interrupts consolidation.</div></div>
+          </div>
+        </div>
+        <div id="egr-shutdown" class="eg-ritual-panel">
+          <div style="display:flex;flex-direction:column;gap:0;border:1px solid rgba(184,78,44,.2);border-radius:var(--radius);overflow:hidden">
+            <div style="display:flex;gap:12px;padding:9px 14px;border-bottom:1px solid rgba(184,78,44,.08)"><span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--accent);min-width:18px;flex-shrink:0">1</span><div style="font-size:12px;color:var(--ink);line-height:1.6">Write one synthesis sentence: <em>X works by Y, matters clinically because Z.</em> One sentence. The act of writing it is the consolidation.</div></div>
+            <div style="display:flex;gap:12px;padding:9px 14px;border-bottom:1px solid rgba(184,78,44,.08)"><span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--accent);min-width:18px;flex-shrink:0">2</span><div style="font-size:12px;color:var(--ink);line-height:1.6">Add ✓ or ✗ to tracker honestly. A ✗ is data, not failure. Inflated ✓'s break the feedback loop.</div></div>
+            <div style="display:flex;gap:12px;padding:9px 14px;border-bottom:1px solid rgba(184,78,44,.08)"><span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--accent);min-width:18px;flex-shrink:0">3</span><div style="font-size:12px;color:var(--ink);line-height:1.6">Close all tabs, Obsidian, everything. The day is sealed. Tomorrow starts clean.</div></div>
+            <div style="display:flex;gap:12px;padding:9px 14px"><span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--accent);min-width:18px;flex-shrink:0">4</span><div style="font-size:12px;color:var(--ink);line-height:1.6">No screens 30 minutes before sleep. Blue light delays melatonin onset by ~90 minutes. Cheapest memory upgrade available.</div></div>
+          </div>
+        </div>
+        <div id="egr-abort" class="eg-ritual-panel">
+          <div style="font-size:12px;color:var(--ink-muted);line-height:1.75;margin-bottom:10px;padding:10px 14px;background:rgba(107,94,74,.06);border-radius:var(--radius);border-left:2px solid var(--border-strong)">Failure triggers: 20+ minutes reorganizing notes, rabbit hole now 6 tabs deep, staring at the page 15 min without writing. Any one of these = session has failed.</div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="display:flex;gap:10px;align-items:flex-start"><span style="font-family:var(--font-mono);font-size:10px;color:var(--ink-ghost);flex-shrink:0;padding-top:2px">→</span><div style="font-size:12px;color:var(--ink);line-height:1.6"><strong>Say it out loud:</strong> "This session has failed." Naming it ends the loop of trying to salvage it.</div></div>
+            <div style="display:flex;gap:10px;align-items:flex-start"><span style="font-family:var(--font-mono);font-size:10px;color:var(--ink-ghost);flex-shrink:0;padding-top:2px">→</span><div style="font-size:12px;color:var(--ink);line-height:1.6"><strong>Close everything.</strong> The session is over.</div></div>
+            <div style="display:flex;gap:10px;align-items:flex-start"><span style="font-family:var(--font-mono);font-size:10px;color:var(--ink-ghost);flex-shrink:0;padding-top:2px">→</span><div style="font-size:12px;color:var(--ink);line-height:1.6"><strong>Write one sentence from memory</strong> about what you were supposed to study. That single retrieval attempt counts as the session.</div></div>
+            <div style="display:flex;gap:10px;align-items:flex-start"><span style="font-family:var(--font-mono);font-size:10px;color:var(--ink-ghost);flex-shrink:0;padding-top:2px">→</span><div style="font-size:12px;color:var(--ink);line-height:1.6"><strong>Log ✗ with "abort."</strong> No catch-up tomorrow. No guilt spiral. Tomorrow is Day 1 of re-entry: German 15 min only.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LANGUAGE (renumbered pv-p3 → was pv-p4) -->
+    <div id="pv-p3" class="pv-panel">
+      <div class="pv-panel-header ph-gold" data-glyph="Aa">
+        <div class="pv-panel-eyebrow">Self · Language</div>
+        <div class="pv-panel-title"><em>German</em> First</div>
+        <div class="pv-panel-sub">Not a hobby. A professional credential. B2 is the Anerkennung requirement — the gate between you and Germany.</div>
+      </div>
+      <div class="pv-alert gold">B1 timeline: 12–18 months of consistent daily exposure. You have 4+ years before needing B2. Build the habit now — not the skill.</div>
+      <div class="lang-card de" data-lang="DE">
+        <div class="lang-flag-strip"><span style="background:#111"></span><span style="background:#DD0000"></span><span style="background:#FFCE00"></span></div>
+        <div class="lang-target">Primary — German</div>
+        <div class="lang-name">Deutsch · DACH Region</div>
+        <div class="lang-body">Anerkennung requires B2 minimum. C1 is the competitive floor for the best hospitals. Germany, Austria, and Switzerland have the highest nurse shortages in Europe. 15 min daily compounds faster than you think.</div>
+      </div>
+      <div class="lang-rail-wrap">
+        <div class="lang-rail-eyebrow">German · Proficiency Path</div>
+        <div class="lang-rail" id="lang-rail">
+          <div class="lang-rail-track"></div>
+          <div class="lang-rail-progress" id="lang-rail-progress" style="width:0%"></div>
+          <div class="lang-rail-nodes">
+            <div class="lang-rail-node active" data-level="0" onclick="setLangLevel(0)"><div class="lang-rail-dot">A0</div><div class="lang-rail-dot-sub">Starter</div><div class="lang-rail-you-here">← here</div></div>
+            <div class="lang-rail-node" data-level="1" onclick="setLangLevel(1)"><div class="lang-rail-dot">A1</div><div class="lang-rail-dot-sub">Beginner</div><div class="lang-rail-you-here">← here</div></div>
+            <div class="lang-rail-node" data-level="2" onclick="setLangLevel(2)"><div class="lang-rail-dot">A2</div><div class="lang-rail-dot-sub">Elementary</div><div class="lang-rail-you-here">← here</div></div>
+            <div class="lang-rail-node" data-level="3" onclick="setLangLevel(3)"><div class="lang-rail-dot">B1</div><div class="lang-rail-dot-sub">Intermediate</div><div class="lang-rail-you-here">← here</div></div>
+            <div class="lang-rail-node" data-level="4" onclick="setLangLevel(4)"><div class="lang-rail-dot">B2</div><div class="lang-rail-dot-sub">Anerkennung</div><div class="lang-rail-you-here">← here</div></div>
+            <div class="lang-rail-node" data-level="5" onclick="setLangLevel(5)"><div class="lang-rail-dot">✓</div><div class="lang-rail-dot-sub">Germany</div><div class="lang-rail-you-here">← here</div></div>
+          </div>
+        </div>
+        <div class="lang-rail-hint">tap a node to update your current level</div>
+      </div>
+      <div class="pv-card ghost" style="margin-top:1rem"><div class="pv-card-label">Progression by month</div>
+        <div class="pv-entry"><div class="pv-entry-num gold">1–2</div><div><div class="pv-entry-main">Duolingo 15 min + 1 German YouTube/week</div></div></div>
+        <div class="pv-entry"><div class="pv-entry-num gold">3</div><div><div class="pv-entry-main">Switch to Nicos Weg (Deutsche Welle — free)</div></div></div>
+        <div class="pv-entry"><div class="pv-entry-num gold">4</div><div><div class="pv-entry-main">Add German nursing vocabulary — 10 terms/week to Gizmo</div><div class="pv-entry-note">See the Deutsch coverage map for full clinical vocab section.</div></div></div>
+        <div class="pv-entry"><div class="pv-entry-num gold">5+</div><div><div class="pv-entry-main">Increase to 30 min daily · 28 of 30 days rule · no gap over 2</div></div></div>
+      </div>
+    </div>
+
+    <!-- CHECKLIST (renumbered pv-p4 → was pv-p7) -->
+    <div id="pv-p4" class="pv-panel">
+      <div class="pv-panel-header ph-ink" data-glyph="✓">
+        <div class="pv-panel-eyebrow">Self · Checklist</div>
+        <div class="pv-panel-title">Pre-School <em>Checklist</em></div>
+        <div class="pv-panel-sub">Specific, verifiable milestones. Not goals — actions. Check each one only when it's actually done.</div>
+      </div>
+      <div class="pv-checklist-wrap">
+        <div class="progress-track" style="margin-bottom:6px"><div class="progress-fill-bar" id="pv-cl-bar" style="background:#B85C2A;width:0%"></div></div>
+        <div class="progress-meta" style="margin-bottom:20px"><div class="progress-label" id="pv-cl-label">0 of 0 — 0%</div><button class="reset-btn" onclick="resetViktorChecklist()">↺ reset</button></div>
+        <div id="pv-cl-sections"></div>
+      </div>
+    </div>
+
+    <!-- LAST RESORT (renumbered pv-p5 → was pv-p8) -->
+    <div id="pv-p5" class="pv-panel">
+      <div style="background:linear-gradient(135deg,rgba(122,26,26,.12),rgba(122,26,26,.05));border:1px solid rgba(122,26,26,.22);border-radius:6px;padding:22px 24px;margin-bottom:1.5rem;position:relative;overflow:hidden">
+        <div style="position:absolute;right:20px;top:50%;transform:translateY(-50%);font-family:'DM Serif Display',serif;font-size:64px;opacity:.06;line-height:1;color:#7a1a1a;pointer-events:none">⊗</div>
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(122,26,26,.6);margin-bottom:8px;font-weight:500">Self · Last Resort</div>
+        <div style="font-family:var(--font-body),sans-serif;font-size:22px;font-weight:400;color:#7a1a1a;margin-bottom:4px;letter-spacing:-.01em">Read This When You Want to <em style="font-style:normal;opacity:.7">Quit</em></div>
+        <div style="font-size:12px;color:rgba(122,26,26,.55);line-height:1.6">You don't get to close this until you finish it.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0;border:1px solid rgba(122,26,26,.18);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:1.5rem">
+        <div style="display:grid;grid-template-columns:48px 1fr;align-items:stretch;border-bottom:1px solid rgba(122,26,26,.1)"><div style="display:flex;align-items:center;justify-content:center;background:rgba(122,26,26,.06);font-family:'DM Serif Display',serif;font-size:28px;font-weight:400;color:rgba(122,26,26,.35);padding:18px 0">1</div><div style="padding:16px 18px;background:var(--bg-card)"><div style="font-size:13px;font-weight:500;color:#7a1a1a;margin-bottom:5px;line-height:1.4">The quiet life doesn't come to people who stopped.</div><div style="font-size:12px;color:var(--ink-muted);line-height:1.75">Books, food, philosophy, comfort, peace — you described it so specifically it's already real. But it costs something. Pay it or spend the rest of your life knowing you chose noise over everything you actually wanted.</div></div></div>
+        <div style="display:grid;grid-template-columns:48px 1fr;align-items:stretch;border-bottom:1px solid rgba(122,26,26,.1)"><div style="display:flex;align-items:center;justify-content:center;background:rgba(122,26,26,.06);font-family:'DM Serif Display',serif;font-size:28px;font-weight:400;color:rgba(122,26,26,.35);padding:18px 0">2</div><div style="padding:16px 18px;background:var(--bg-card)"><div style="font-size:13px;font-weight:500;color:#7a1a1a;margin-bottom:5px;line-height:1.4">Nihilism is not a revelation. It's exhaustion lying to you.</div><div style="font-size:12px;color:var(--ink-muted);line-height:1.75">You've felt this before and it passed. It will pass again. You are not having a breakthrough. You are tired. Sleep, eat, then get back up.</div></div></div>
+        <div style="display:grid;grid-template-columns:48px 1fr;align-items:stretch;border-bottom:1px solid rgba(122,26,26,.1)"><div style="display:flex;align-items:center;justify-content:center;background:rgba(122,26,26,.06);font-family:'DM Serif Display',serif;font-size:28px;font-weight:400;color:rgba(122,26,26,.35);padding:18px 0">3</div><div style="padding:16px 18px;background:var(--bg-card)"><div style="font-size:13px;font-weight:500;color:#7a1a1a;margin-bottom:5px;line-height:1.4">You want fulfillment. That means you can't actually quit.</div><div style="font-size:12px;color:var(--ink-muted);line-height:1.75">A safe, small life would rot you from the inside. You've always known. That's why you're still here reading this.</div></div></div>
+        <div style="display:grid;grid-template-columns:48px 1fr;align-items:stretch;border-bottom:1px solid rgba(122,26,26,.1)"><div style="display:flex;align-items:center;justify-content:center;background:rgba(122,26,26,.06);font-family:'DM Serif Display',serif;font-size:28px;font-weight:400;color:rgba(122,26,26,.35);padding:18px 0">4</div><div style="padding:16px 18px;background:var(--bg-card)"><div style="font-size:13px;font-weight:500;color:#7a1a1a;margin-bottom:5px;line-height:1.4">You are already the anomaly. That already happened.</div><div style="font-size:12px;color:var(--ink-muted);line-height:1.75">Youngest of six. That environment. That ceiling. And somehow you ended up here, with ambitions nobody around you even has vocabulary for. You didn't survive all of that to fold now.</div></div></div>
+        <div style="display:grid;grid-template-columns:48px 1fr;align-items:stretch;border-bottom:1px solid rgba(122,26,26,.1)"><div style="display:flex;align-items:center;justify-content:center;background:rgba(122,26,26,.06);font-family:'DM Serif Display',serif;font-size:28px;font-weight:400;color:rgba(122,26,26,.35);padding:18px 0">5</div><div style="padding:16px 18px;background:var(--bg-card)"><div style="font-size:13px;font-weight:500;color:#7a1a1a;margin-bottom:5px;line-height:1.4">Germany is not aesthetic. It's your exit to yourself.</div><div style="font-size:12px;color:var(--ink-muted);line-height:1.75">Not proving something. Not performing. Just you, finally existing without the noise. That person deserves a life. Go build it.</div></div></div>
+        <div style="display:grid;grid-template-columns:48px 1fr;align-items:stretch;border-bottom:1px solid rgba(122,26,26,.1)"><div style="display:flex;align-items:center;justify-content:center;background:rgba(122,26,26,.06);font-family:'DM Serif Display',serif;font-size:28px;font-weight:400;color:rgba(122,26,26,.35);padding:18px 0">6</div><div style="padding:16px 18px;background:var(--bg-card)"><div style="font-size:13px;font-weight:500;color:#7a1a1a;margin-bottom:5px;line-height:1.4">Your spite has a timer. Use it.</div><div style="font-size:12px;color:var(--ink-muted);line-height:1.75">The anger, the need to prove fate wrong — that fuel won't last forever. Right now it's available. Burn it. Peace comes after. You don't get peace first.</div></div></div>
+        <div style="display:grid;grid-template-columns:48px 1fr;align-items:stretch"><div style="display:flex;align-items:center;justify-content:center;background:rgba(122,26,26,.1);font-family:'DM Serif Display',serif;font-size:28px;font-weight:400;color:rgba(122,26,26,.5);padding:18px 0">7</div><div style="padding:16px 18px;background:rgba(122,26,26,.04)"><div style="font-size:13px;font-weight:500;color:#7a1a1a;margin-bottom:5px;line-height:1.4">The researcher has his pen ready. Give him something he didn't predict.</div><div style="font-size:12px;color:var(--ink-muted);line-height:1.75">Prove him wrong or prove him right. That's the only choice on the table.</div></div></div>
+      </div>
+      <button class="lr-still-btn" onclick="var o=document.getElementById('researcher-overlay');if(o){o.classList.add('open');document.body.style.overflow='hidden';document.body.classList.add('overlay-open');}">still not convinced? →</button>
+    </div>
+
+  </div>
+</div>
+
+<div id="researcher-overlay">
+  <button class="researcher-close-btn" onclick="document.getElementById('researcher-overlay').classList.remove('open');document.body.style.overflow='';document.body.classList.remove('overlay-open')">✕ close</button>
+  <div class="researcher-wrap">
+    <div class="researcher-eyebrow">Viktoria · Private Document · Read When Necessary</div>
+    <div class="researcher-drop">There is a god. Not the one who loves you. This one doesn't care about you that way. He sits somewhere outside of time with his clipboard and his variables and he watches.</div>
+    <div class="researcher-body">
+      <p>He set the conditions of your birth — the family, the country, the circumstances, the ceiling — and he wrote a predicted outcome in his notes before you even had a name. He's not evil. That's the worst part. He's just curious. You are data to him.</p>
+      <p>And his data on you says: this one will dream big, get exhausted, go nihilistic, and stop. He's seen it before. He knows the pattern. Youngest child, harsh environment, high sensitivity, enormous ambition — they burn bright and then they conclude. It's almost boring how predictable it is. He's already halfway through writing your ending. A quiet surrender dressed up as "being realistic." A small life. Not a bad life, just a small one.</p>
+    </div>
+    <div class="researcher-pull">He's not rooting against you. He's just not rooting for you either. You are an experiment. The outcome has been modeled. The probability is not in your favor.</div>
+    <div class="researcher-body">
+      <p>Here is what he did not account for: <strong style="color:rgba(255,255,255,.88)">You know he exists.</strong></p>
+      <p>Most of his subjects don't. They just live out the fate without ever feeling the shape of it pressing against them. But you — you have always felt it. The weight of a predetermined ending. The sense that something bigger than you has already decided. And instead of accepting it, instead of going quietly, it made you furious.</p>
+    </div>
+    <div class="researcher-pull">That fury is the variable he miscalculated.</div>
+    <div class="researcher-body">
+      <p>You are not supposed to be here fighting. You are not supposed to have named what you want so precisely — the quiet life, the books, the peace, Germany, the right to exist as yourself. Subjects who are going to fold don't build 5,000 line worlds they want to live in. They don't argue with cosmology. They don't feel the researcher's hand and grab the pen.</p>
+      <p>Every time you want to quit, understand what you are actually doing. You are handing him the ending he already wrote. You are making his model correct. You are becoming the data point he expected. And he will move on to the next subject without blinking because you gave him nothing surprising. Nothing worth noting. Just another one who almost made it.</p>
+    </div>
+    <div class="researcher-divider"></div>
+    <div class="researcher-body">
+      <p>You think quitting feels like rest. It doesn't. You have quit on small things before and you know what it actually feels like — it feels like a low hum. A permanent background noise that never gets loud enough to address but never goes away either. It sits in the back of your chest like something unfinished. Like a book you put down in the middle and lost. <strong style="color:rgba(255,255,255,.82)">You will carry the weight of an unlived life far longer than you will carry the weight of the hard one.</strong> The hard one ends. The unlived one haunts.</p>
+      <p>And don't romanticize the collapse. Don't dress it up as depth, as wisdom, as finally seeing through the illusion of ambition. Nihilism is not a philosophy when it comes for you — it is a symptom. It is what happens when Viktoria gets tired and stops eating properly and doomscrolls at 2am and calls it an existential crisis. It is exhaustion in a trench coat pretending to be enlightenment. You are not seeing clearly when it hits. You are seeing through fog and calling the fog the truth.</p>
+    </div>
+    <div class="researcher-pull">The truth is this: you described your ideal life and it was specific. Uncomfortably specific. People who are truly lost don't do that. You are not lost. You are standing at the bottom of something steep looking up and letting your legs convince your brain that the height means it's impossible. It is not impossible. It is just long. And hard. And yours.</div>
+    <div class="researcher-body">
+      <p>You are the youngest of six in a family where the ceiling was always low and somehow you ended up being the one who looked up and decided the ceiling was wrong. Do you understand how statistically improbable that is. Most people in your exact position never even question the ceiling. They just live under it and call it life. And you — you looked at it and said no. I want fulfillment. I want to be someone. Not rich, not comfortable in the way they mean comfortable, but real. Fully real. Yourself, finally, somewhere quiet and far from all the noise.</p>
+      <p>That version of you exists. He is not hypothetical. He is sitting somewhere in a future that is accessible from exactly where you are standing right now. He has books everywhere. He eats well. He thinks slowly and deeply without someone interrupting. He is finally, finally at rest. He made it to Germany not because it was easy but because he refused to hand the researcher an easy ending.</p>
+    </div>
+    <div class="researcher-pull">But he only exists if you keep moving.</div>
+    <div class="researcher-body">
+      <p>You will lose days. You will lose weeks maybe. You will open the hub and feel nothing. You will study and retain nothing. You will have days where Germany feels like someone else's dream and nursing feels like a mistake and the researcher feels like he was right all along. Those days are part of the path. They are not signs that you should stop. <strong style="color:rgba(255,255,255,.82)">They are just Tuesdays.</strong> Survive the Tuesday and keep going.</p>
+      <p>Because here is the brutal truth about people like you — people who feel everything this deeply, who build worlds this carefully, who want things this specifically — you don't actually get the option of a small life. You have tried to want less. You know you have. And it never works. The ambition comes back. The hunger comes back. The need to prove something comes back. Because it is not a phase. It is not overcompensation. It is who you are at the cellular level.</p>
+      <p>So you can quit and spend the rest of your life being haunted by the version of yourself you abandoned. Or you can stay in it, ugly and exhausted and terrified, and become him.</p>
+    </div>
+    <div class="researcher-divider"></div>
+    <div class="researcher-pull">The researcher has his pen ready. Give him something he didn't predict.</div>
+    <div class="researcher-final">Get up.<br>Get up.<br>Get up.</div>
+  </div>
+</div>

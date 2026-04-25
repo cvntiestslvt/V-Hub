@@ -1,0 +1,203 @@
+<!-- ═══════════════════════════════════════════════════════
+     VIEW: weeklySynth
+     This file contains only the HTML for this view/tab.
+     It is injected into index.html at runtime by core.js.
+     Edit content here; don't touch the id="view-weeklySynth" attribute.
+     ═══════════════════════════════════════════════════════ -->
+
+<div class="view" id="view-weeklySynth">
+  <button class="back-btn" onclick="goBack()">back</button>
+  <div class="pv-wrap">
+    <div class="pv-panel-header ph-gold" data-glyph="◫" style="margin-bottom:1.5rem">
+      <div class="pv-panel-eyebrow">Tools · Weekly Review</div>
+      <div class="pv-panel-title">Weekly <em>Synthesis</em></div>
+      <div class="pv-panel-sub">Every Sunday. 15 minutes. What you mastered, what's still a gap, what next week targets. The writing is the synthesis — answering these questions forces the metacognition passive study never produces.</div>
+    </div>
+    <div class="tool-tabs">
+      <button class="tool-tab active" onclick="showToolTab('ws','review')">This Week</button>
+      <button class="tool-tab" onclick="showToolTab('ws','history')">History</button>
+      <button class="tool-tab" onclick="showToolTab('ws','sessionlog')">Session Log</button>
+    </div>
+    <div id="ws-review" class="tool-panel active">
+      <div class="pv-alert gold">2–4 sentences per question. Don't summarize — think. If you can't answer concretely, you haven't mastered it.</div>
+      <div class="synth-week-header">
+        <span class="synth-week-label">Week of</span>
+        <span class="synth-week-date" id="synth-week-date">—</span>
+      </div>
+      <div class="synth-question">
+        <div class="synth-q-label">What did I actually master this week?</div>
+        <textarea class="synth-textarea" id="synth-q1" placeholder="Name specific concepts. Feynman explanation without looking = mastered. Recognition only = not mastered." oninput="synthAutosave()"></textarea>
+      </div>
+      <div class="synth-question">
+        <div class="synth-q-label">What am I still confused about?</div>
+        <textarea class="synth-textarea" id="synth-q2" placeholder="Be specific. Not 'pharmacology is hard' but 'I keep mixing up loop diuretic effects on K+.' Specificity determines whether you can fix it." oninput="synthAutosave()"></textarea>
+      </div>
+      <div class="synth-question">
+        <div class="synth-q-label">What does next week focus on?</div>
+        <textarea class="synth-textarea" id="synth-q3" placeholder="One to three specific concepts. Not subjects — concepts. Check your coverage map gaps." oninput="synthAutosave()"></textarea>
+      </div>
+      <div class="synth-question">
+        <div class="synth-q-label">What pattern in my studying needs to change?</div>
+        <textarea class="synth-textarea" id="synth-q4" placeholder="Observable behavior, not self-criticism. 'I studied late and retained less' not 'I am lazy.'" oninput="synthAutosave()"></textarea>
+      </div>
+      <div class="synth-nav">
+        <button class="synth-nav-btn" id="synth-save-btn" onclick="synthSave()">Save week</button>
+        <button class="synth-nav-btn" onclick="synthClear()">Clear</button>
+        <span style="font-family:var(--font-mono);font-size:9px;color:var(--ink-ghost);margin-left:auto" id="synth-saved-lbl"></span>
+      </div>
+    </div>
+    <div id="ws-history" class="tool-panel">
+      <div class="pv-alert ink">All saved weekly reviews. Click any to re-read.</div>
+      <div id="synth-history-list"></div>
+    </div>
+    <div id="ws-sessionlog" class="tool-panel">
+      <div class="pv-alert gold">Every Pomodoro session you complete gets logged here. Add manual sessions too.</div>
+      <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
+        <input style="flex:2;min-width:140px;font-family:var(--font-body),sans-serif;font-size:13px;border:1px solid var(--border);background:var(--bg);border-radius:8px;padding:8px 12px;color:var(--ink);outline:none" id="slog-add-concept" placeholder="Concept studied..." onkeydown="if(event.key==='Enter')slogAddManual()">
+        <select id="slog-method" style="font-family:var(--font-mono);font-size:10px;border:1px solid var(--border);background:var(--bg);border-radius:6px;padding:7px 10px;color:var(--ink-muted);outline:none">
+          <option>Active recall</option><option>Feynman</option><option>Gizmo review</option><option>Reading</option><option>Pomodoro</option>
+        </select>
+        <select id="slog-conf" style="font-family:var(--font-mono);font-size:10px;border:1px solid var(--border);background:var(--bg);border-radius:6px;padding:7px 10px;color:var(--ink-muted);outline:none">
+          <option value="1">1 — lost</option><option value="2">2 — shaky</option><option value="3" selected>3 — getting it</option><option value="4">4 — solid</option><option value="5">5 — mastered</option>
+        </select>
+        <button onclick="slogAddManual()" style="font-family:var(--font-mono);font-size:10px;padding:8px 14px;background:var(--gold);color:white;border:none;border-radius:8px;cursor:pointer">+ Log</button>
+      </div>
+      <div id="slog-list"></div>
+    </div>
+  </div>
+</div>
+  <div class="footer" id="site-footer">viktoria · study hub · 2026–2029</div>
+</div>
+
+<div id="focus-lock-banner">
+  <span class="focus-lock-label">Focus lock —</span>
+  <span class="focus-lock-time" id="fl-time">25:00</span>
+  <span class="focus-lock-label" id="fl-task"></span>
+  <button class="focus-lock-exit" onclick="exitFocusLock()" type="button">✕ exit lock</button>
+</div>
+<!-- pomo-fab removed per user request -->
+
+<!-- v38: Connection Lab FAB + Advanced Overlay -->
+<button id="conn-fab" onclick="toggleConnOverlay()" title="Connection Lab">⊕</button>
+<div id="conn-overlay">
+  <div class="conn-panel">
+    <div class="conn-panel-head">
+      <span class="conn-panel-title">Connection Lab</span>
+      <button class="conn-panel-close" onclick="toggleConnOverlay()">✕ close</button>
+    </div>
+    <div class="conn-panel-sub">Map concepts across subjects. Every chain you write is a retrieval pathway.</div>
+
+    <!-- Stats bar -->
+    <div class="conn-stats-bar" id="conn-stats-bar">
+      <div class="conn-stat-cell"><div class="conn-stat-val" id="cstat-total" style="color:rgba(255,255,255,.7)">0</div><div class="conn-stat-lbl">Chains</div></div>
+      <div class="conn-stat-cell"><div class="conn-stat-val" id="cstat-starred" style="color:rgba(255,210,74,.8)">0</div><div class="conn-stat-lbl">Starred</div></div>
+      <div class="conn-stat-cell"><div class="conn-stat-val" id="cstat-today" style="color:rgba(100,217,160,.8)">0</div><div class="conn-stat-lbl">Today</div></div>
+      <div class="conn-stat-cell"><div class="conn-stat-val" id="cstat-pairs" style="color:rgba(140,165,255,.8)">0</div><div class="conn-stat-lbl">Subjects</div></div>
+    </div>
+
+    <!-- Add form -->
+    <div class="conn-form-wrap">
+      <div class="conn-form-row1">
+        <div>
+          <div class="conn-field-label">From Course</div>
+          <select class="conn-sel" id="conn-from">
+            <option value="">— from —</option>
+            <option value="A&P">A&P</option>
+            <option value="Fundamentals">Fundamentals</option>
+            <option value="Health Assessment">Health Assess.</option>
+            <option value="Pharmacology">Pharmacology</option>
+            <option value="Med-Surg">Med-Surg</option>
+            <option value="Microbiology">Microbiology</option>
+            <option value="Maternal">Maternal</option>
+            <option value="Psych">Psych</option>
+            <option value="German">German</option>
+          </select>
+        </div>
+        <div>
+          <div class="conn-field-label">To Course</div>
+          <select class="conn-sel" id="conn-to">
+            <option value="">— to —</option>
+            <option value="A&P">A&P</option>
+            <option value="Fundamentals">Fundamentals</option>
+            <option value="Health Assessment">Health Assess.</option>
+            <option value="Pharmacology">Pharmacology</option>
+            <option value="Med-Surg">Med-Surg</option>
+            <option value="Microbiology">Microbiology</option>
+            <option value="Maternal">Maternal</option>
+            <option value="Psych">Psych</option>
+            <option value="German">German</option>
+          </select>
+        </div>
+        <div>
+          <div class="conn-field-label">Link Type</div>
+          <select class="conn-sel" id="conn-type">
+            <option value="Mechanism">Mechanism</option>
+            <option value="Drug Link">Drug Link</option>
+            <option value="Clinical Sign">Clinical Sign</option>
+            <option value="Priority">Priority</option>
+            <option value="Vocab">Vocab</option>
+            <option value="Warning">Warning</option>
+          </select>
+        </div>
+      </div>
+      <div class="conn-form-row2">
+        <input class="conn-inp" id="conn-input" placeholder="e.g. Furosemide blocks NKCC2 → K⁺ lost → hypokalemia → hold digoxin" onkeydown="if(event.key==='Enter')connAddV2()">
+        <button class="conn-add-btn" onclick="connAddV2()">Add →</button>
+      </div>
+    </div>
+
+    <!-- Filter bar -->
+    <div class="conn-filter-row" id="conn-filter-row">
+      <button class="conn-filter-btn active" onclick="connSetFilter('all',this)">All</button>
+      <button class="conn-filter-btn" onclick="connSetFilter('starred',this)">⭐ Starred</button>
+      <button class="conn-filter-btn" onclick="connSetFilter('A&P',this)">A&P</button>
+      <button class="conn-filter-btn" onclick="connSetFilter('Pharmacology',this)">Pharm</button>
+      <button class="conn-filter-btn" onclick="connSetFilter('Med-Surg',this)">Med-Surg</button>
+      <button class="conn-filter-btn" onclick="connSetFilter('Microbiology',this)">Micro</button>
+      <button class="conn-filter-btn" onclick="connSetFilter('Maternal',this)">Maternal</button>
+      <button class="conn-filter-btn" onclick="connSetFilter('Psych',this)">Psych</button>
+    </div>
+
+    <!-- Chain list -->
+    <div class="conn-list-wrap" id="conn-list">
+      <div class="conn-empty">No chains yet. Write your first connection above.</div>
+    </div>
+  </div>
+</div>
+
+<div id="pomo-overlay">
+  <div class="pomo-focus-card">
+    <button class="pomo-close-btn" onclick="closePomoOverlay()">✕ close</button>
+    <div class="pomo-focus-title">Focus Timer</div>
+    <div class="pomo-focus-task-row">
+      <input class="pomo-focus-task-input" id="pomo-task-input" placeholder="What are you studying right now?">
+    </div>
+    <div class="pomo-focus-modes">
+      <button class="pomo-focus-mode-btn active" data-mode="work" onclick="setFocusMode('work')">Focus 25m</button>
+      <button class="pomo-focus-mode-btn mode-short" data-mode="short" onclick="setFocusMode('short')">Break 5m</button>
+      <button class="pomo-focus-mode-btn mode-long" data-mode="long" onclick="setFocusMode('long')">Long 15m</button>
+    </div>
+    <div class="pomo-focus-ring">
+      <svg width="180" height="180" viewBox="0 0 180 180">
+        <circle class="pomo-focus-track" cx="90" cy="90" r="80"/>
+        <circle class="pomo-focus-fill" id="pf-ring-fill" cx="90" cy="90" r="80" stroke-dasharray="502.65" stroke-dashoffset="0"/>
+      </svg>
+      <div class="pomo-focus-time-wrap">
+        <div class="pomo-focus-time" id="pf-time">25:00</div>
+        <div class="pomo-focus-mode-lbl" id="pf-mode-lbl">Focus session</div>
+      </div>
+    </div>
+    <div class="pomo-focus-btns">
+      <button class="pomo-focus-start" id="pf-start-btn" onclick="pfStart()">Start</button>
+      <button class="pomo-focus-reset" onclick="pfReset()">Reset</button>
+    </div>
+    <div style="text-align:center;margin-top:8px">
+      <button id="pf-lock-btn" onclick="toggleFocusLock()" style="font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border:1px solid var(--border);border-radius:99px;background:transparent;color:var(--ink-ghost);cursor:pointer;transition:all .15s">⊞ focus lock</button>
+    </div>
+    <div class="pomo-focus-sessions" id="pf-dots">
+      <div class="pomo-focus-dot"></div><div class="pomo-focus-dot"></div>
+      <div class="pomo-focus-dot"></div><div class="pomo-focus-dot"></div>
+    </div>
+    <div class="pomo-focus-session-log" id="pf-session-lbl">Session 0 of 4</div>
+  </div>
+</div>

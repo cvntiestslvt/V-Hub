@@ -1,0 +1,103 @@
+<!-- ═══════════════════════════════════════════════════════
+     VIEW: resources
+     This file contains only the HTML for this view/tab.
+     It is injected into index.html at runtime by core.js.
+     Edit content here; don't touch the id="view-resources" attribute.
+     ═══════════════════════════════════════════════════════ -->
+
+<div class="view" id="view-resources">
+  <button class="back-btn" onclick="goBack()">back</button>
+  <div class="pv-wrap">
+    <div class="cs-view-header" data-glyph="🔗">
+      <div class="cs-view-eyebrow">Tools · Core System 04</div>
+      <div class="cs-view-title"><em>Resources</em> + References</div>
+      <div class="cs-view-sub">Curated by subject and use case — not just links, but when and why to use each one.</div>
+    </div>
+    <div class="tool-tabs">
+      <button class="tool-tab active" onclick="showToolTab('rs','nursing')">Nursing</button>
+      <button class="tool-tab" onclick="showToolTab('rs','sciences')">Sciences</button>
+      <button class="tool-tab" onclick="showToolTab('rs','youtube')">YouTube</button>
+      <button class="tool-tab" onclick="showToolTab('rs','custom')">My Resources</button>
+      <button class="tool-tab" onclick="showToolTab('rs','files')">File Viewer</button>
+    </div>
+    <div id="rs-nursing" class="tool-panel active">
+      <div class="res-section">
+        <div class="res-section-label">Free Textbooks</div>
+        <div class="res-card"><div class="res-icon">📚</div><div class="res-meta"><div class="res-name">Library Genesis</div><div class="res-url">libgen.is</div><div class="res-body">Every Brunner &amp; Suddarth, Kozier, Potter &amp; Perry you'll need. Search exact ISBN for specific editions.</div><div class="res-note-area" id="res-note-libgen"><textarea class="res-textarea" placeholder="Your notes on this resource..." oninput="autoSaveResNote('libgen',this)"></textarea></div><button class="res-note-toggle" onclick="toggleResNote('libgen')">+ add notes</button></div><a class="res-link-btn" href="https://libgen.is" target="_blank">↗ open</a></div>
+        <div class="res-card"><div class="res-icon">📖</div><div class="res-meta"><div class="res-name">Open RN — Nursing Fundamentals</div><div class="res-url">wtcs.pressbooks.pub/nursingfundamentals</div><div class="res-body">Open-access nursing fundamentals textbook. High quality, NCLEX-aligned, covers everything in your Fundamentals coverage map. Free.</div><div class="res-note-area" id="res-note-openrn"><textarea class="res-textarea" placeholder="Your notes..." oninput="autoSaveResNote('openrn',this)"></textarea></div><button class="res-note-toggle" onclick="toggleResNote('openrn')">+ add notes</button></div><a class="res-link-btn" href="https://wtcs.pressbooks.pub/nursingfundamentals" target="_blank">↗ open</a></div>
+        <div class="res-card"><div class="res-icon">🔬</div><div class="res-meta"><div class="res-name">Sci-Hub</div><div class="res-url">sci-hub.se</div><div class="res-body">Research papers, clinical guidelines, journal articles. Paste DOI or URL. Search "sci-hub working domain" if one fails — they rotate.</div><div class="res-note-area" id="res-note-scihub"><textarea class="res-textarea" placeholder="Your notes..." oninput="autoSaveResNote('scihub',this)"></textarea></div><button class="res-note-toggle" onclick="toggleResNote('scihub')">+ add notes</button></div><a class="res-link-btn" href="https://sci-hub.se" target="_blank">↗ open</a></div>
+      </div>
+      <div class="res-section">
+        <div class="res-section-label">NCLEX Practice</div>
+        <div class="res-card"><div class="res-icon">📝</div><div class="res-meta"><div class="res-name">RegisteredNurseRN</div><div class="res-url">registerednursern.com</div><div class="res-body">Free NCLEX practice questions with detailed rationales. Organized by topic. Better than most paid review centers for understanding the <em>why</em>.</div><div class="res-note-area" id="res-note-rnrn"><textarea class="res-textarea" placeholder="Your notes..." oninput="autoSaveResNote('rnrn',this)"></textarea></div><button class="res-note-toggle" onclick="toggleResNote('rnrn')">+ add notes</button></div><a class="res-link-btn" href="https://www.registerednursern.com" target="_blank">↗ open</a></div>
+        <div class="res-card"><div class="res-icon">🧠</div><div class="res-meta"><div class="res-name">Nurseslabs</div><div class="res-url">nurseslabs.com</div><div class="res-body">Filipino nursing resource. Nursing care plans, NCLEX reviews, free quizzes. Familiar with local school formats. Good for NCP practice and understanding local exam structure.</div><div class="res-note-area" id="res-note-nurseslabs"><textarea class="res-textarea" placeholder="Your notes..." oninput="autoSaveResNote('nurseslabs',this)"></textarea></div><button class="res-note-toggle" onclick="toggleResNote('nurseslabs')">+ add notes</button></div><a class="res-link-btn" href="https://nurseslabs.com" target="_blank">↗ open</a></div>
+        <div class="res-card"><div class="res-icon">🎓</div><div class="res-meta"><div class="res-name">NCLEX Mastery — Free Mode</div><div class="res-url">nclexmastery.com</div><div class="res-body">Adaptive difficulty question bank. Focus on priority questions and SATA — most PH board exams now use NCLEX-style formats.</div><div class="res-note-area" id="res-note-nclexm"><textarea class="res-textarea" placeholder="Your notes..." oninput="autoSaveResNote('nclexm',this)"></textarea></div><button class="res-note-toggle" onclick="toggleResNote('nclexm')">+ add notes</button></div><a class="res-link-btn" href="https://nclexmastery.com" target="_blank">↗ open</a></div>
+      </div>
+      <div class="res-section">
+        <div class="res-section-label">Reference Tools</div>
+        <div class="res-card"><div class="res-icon">💊</div><div class="res-meta"><div class="res-name">Drugs.com</div><div class="res-url">drugs.com</div><div class="res-body">Free drug reference. Dosage, interactions, nursing considerations. Use before any pharmacology concept session.</div><div class="res-note-area" id="res-note-drugs"><textarea class="res-textarea" placeholder="Your notes..." oninput="autoSaveResNote('drugs',this)"></textarea></div><button class="res-note-toggle" onclick="toggleResNote('drugs')">+ add notes</button></div><a class="res-link-btn" href="https://www.drugs.com" target="_blank">↗ open</a></div>
+        <div class="res-card"><div class="res-icon">🏥</div><div class="res-meta"><div class="res-name">MedlinePlus</div><div class="res-url">medlineplus.gov</div><div class="res-body">NIH patient education resource. Read the simple-language version of a condition before the textbook chapter — it primes your Feynman technique before you hit the detail.</div><div class="res-note-area" id="res-note-medline"><textarea class="res-textarea" placeholder="Your notes..." oninput="autoSaveResNote('medline',this)"></textarea></div><button class="res-note-toggle" onclick="toggleResNote('medline')">+ add notes</button></div><a class="res-link-btn" href="https://medlineplus.gov" target="_blank">↗ open</a></div>
+      </div>
+    </div>
+    <div id="rs-sciences" class="tool-panel">
+      <div class="res-section">
+        <div class="res-section-label">Anatomy &amp; Physiology</div>
+        <div class="res-card"><div class="res-icon">🧬</div><div class="res-meta"><div class="res-name">OpenStax Anatomy &amp; Physiology</div><div class="res-url">openstax.org/books/anatomy-and-physiology</div><div class="res-body">Free, peer-reviewed A&amp;P textbook. Full substitute for a paid textbook. Download PDF and annotate in Obsidian.</div><div class="res-note-area" id="res-note-openstax"><textarea class="res-textarea" placeholder="Your notes..." oninput="autoSaveResNote('openstax',this)"></textarea></div><button class="res-note-toggle" onclick="toggleResNote('openstax')">+ add notes</button></div><a class="res-link-btn" href="https://openstax.org/books/anatomy-and-physiology/pages/1-introduction" target="_blank">↗ open</a></div>
+        <div class="res-card"><div class="res-icon">🫀</div><div class="res-meta"><div class="res-name">Khan Academy — Health &amp; Medicine</div><div class="res-url">khanacademy.org/science/health-and-medicine</div><div class="res-body">Free A&amp;P videos with MCAT/nursing context. Cardiovascular, renal, respiratory, endocrine. Watch before reading a chapter — builds the "why" first.</div><div class="res-note-area" id="res-note-khan"><textarea class="res-textarea" placeholder="Your notes..." oninput="autoSaveResNote('khan',this)"></textarea></div><button class="res-note-toggle" onclick="toggleResNote('khan')">+ add notes</button></div><a class="res-link-btn" href="https://www.khanacademy.org/science/health-and-medicine" target="_blank">↗ open</a></div>
+      </div>
+      <div class="res-section">
+        <div class="res-section-label">German</div>
+        <div class="res-card"><div class="res-icon">🇩🇪</div><div class="res-meta"><div class="res-name">Nicos Weg — Deutsche Welle</div><div class="res-url">dw.com/en/learn-german/nicos-weg</div><div class="res-body">Free A1–B1 German course from Deutsche Welle. Video-based, native speakers, subtitle support. Start Month 3 in your study plan.</div><div class="res-note-area" id="res-note-nicos"><textarea class="res-textarea" placeholder="Your notes..." oninput="autoSaveResNote('nicos',this)"></textarea></div><button class="res-note-toggle" onclick="toggleResNote('nicos')">+ add notes</button></div><a class="res-link-btn" href="https://www.dw.com/en/learn-german/nicos-weg/s-62192" target="_blank">↗ open</a></div>
+        <div class="res-card"><div class="res-icon">🎙</div><div class="res-meta"><div class="res-name">Goethe Institut — Free Practice</div><div class="res-url">goethe.de/en/spr/ueb.html</div><div class="res-body">Official certification body. Free practice materials for A1–B2. Familiarize yourself with the exam format years before you sit it.</div><div class="res-note-area" id="res-note-goethe"><textarea class="res-textarea" placeholder="Your notes..." oninput="autoSaveResNote('goethe',this)"></textarea></div><button class="res-note-toggle" onclick="toggleResNote('goethe')">+ add notes</button></div><a class="res-link-btn" href="https://www.goethe.de/en/spr/ueb.html" target="_blank">↗ open</a></div>
+      </div>
+    </div>
+    <div id="rs-youtube" class="tool-panel">
+      <div class="res-section">
+        <div class="res-section-label">Nursing</div>
+        <div class="res-card"><div class="res-icon">▶</div><div class="res-meta"><div class="res-name">RegisteredNurseRN</div><div class="res-url">youtube.com/@RegisteredNurseRN</div><div class="res-body">Best free nursing YouTube channel. NCLEX-style explanations, clinical judgment, med-surg basics. Covers nearly every nursing school topic. Start here for any concept you can't visualize from text alone.</div><div class="res-note-area" id="res-note-ytrnrn"><textarea class="res-textarea" placeholder="Your notes..." oninput="autoSaveResNote('ytrnrn',this)"></textarea></div><button class="res-note-toggle" onclick="toggleResNote('ytrnrn')">+ add notes</button></div><a class="res-link-btn" href="https://www.youtube.com/@RegisteredNurseRN" target="_blank">↗ open</a></div>
+        <div class="res-card"><div class="res-icon">▶</div><div class="res-meta"><div class="res-name">Simple Nursing</div><div class="res-url">youtube.com/@simplenursing</div><div class="res-body">Memory tricks, mnemonics, simplified explanations for complex topics. Good for pharmacology and pathophysiology. High novelty — good for low-energy study days.</div><div class="res-note-area" id="res-note-simplenursing"><textarea class="res-textarea" placeholder="Your notes..." oninput="autoSaveResNote('simplenursing',this)"></textarea></div><button class="res-note-toggle" onclick="toggleResNote('simplenursing')">+ add notes</button></div><a class="res-link-btn" href="https://www.youtube.com/@simplenursing" target="_blank">↗ open</a></div>
+        <div class="res-card"><div class="res-icon">▶</div><div class="res-meta"><div class="res-name">Dirty Medicine</div><div class="res-url">youtube.com/@dirtymedicine</div><div class="res-body">Medical and pharmacology content explained fast without fluff. Useful for understanding how drugs work rather than memorizing classes.</div><div class="res-note-area" id="res-note-dirtymedicine"><textarea class="res-textarea" placeholder="Your notes..." oninput="autoSaveResNote('dirtymedicine',this)"></textarea></div><button class="res-note-toggle" onclick="toggleResNote('dirtymedicine')">+ add notes</button></div><a class="res-link-btn" href="https://www.youtube.com/@dirtymedicine" target="_blank">↗ open</a></div>
+      </div>
+      <div class="res-section">
+        <div class="res-section-label">A&amp;P</div>
+        <div class="res-card"><div class="res-icon">▶</div><div class="res-meta"><div class="res-name">Professor Dave Explains</div><div class="res-url">youtube.com/@ProfessorDaveExplains</div><div class="res-body">The best free A&amp;P on YouTube. Cellular biology, organ systems, biochemistry. Clear, accurate, appropriately deep. Watch before reading a chapter, not after.</div><div class="res-note-area" id="res-note-profDave"><textarea class="res-textarea" placeholder="Your notes..." oninput="autoSaveResNote('profDave',this)"></textarea></div><button class="res-note-toggle" onclick="toggleResNote('profDave')">+ add notes</button></div><a class="res-link-btn" href="https://www.youtube.com/@ProfessorDaveExplains" target="_blank">↗ open</a></div>
+        <div class="res-card"><div class="res-icon">▶</div><div class="res-meta"><div class="res-name">Armando Hasudungan</div><div class="res-url">youtube.com/@armandohasudungan</div><div class="res-body">Hand-drawn illustrated explanations of pathophysiology and anatomy. Uniquely good for visual learners. Cardiology, renal, hematology. Slower pace — good for consolidation sessions.</div><div class="res-note-area" id="res-note-armando"><textarea class="res-textarea" placeholder="Your notes..." oninput="autoSaveResNote('armando',this)"></textarea></div><button class="res-note-toggle" onclick="toggleResNote('armando')">+ add notes</button></div><a class="res-link-btn" href="https://www.youtube.com/@armandohasudungan" target="_blank">↗ open</a></div>
+      </div>
+      <div class="res-section">
+        <div class="res-section-label">German</div>
+        <div class="res-card"><div class="res-icon">▶</div><div class="res-meta"><div class="res-name">Easy German</div><div class="res-url">youtube.com/@EasyGerman</div><div class="res-body">Native speakers in real situations with German + English subtitles. Best exposure content available. Watch one video per week from Month 1. Trains your ear before any grammar study begins.</div><div class="res-note-area" id="res-note-easygerman"><textarea class="res-textarea" placeholder="Your notes..." oninput="autoSaveResNote('easygerman',this)"></textarea></div><button class="res-note-toggle" onclick="toggleResNote('easygerman')">+ add notes</button></div><a class="res-link-btn" href="https://www.youtube.com/@EasyGerman" target="_blank">↗ open</a></div>
+      </div>
+    </div>
+    <div id="rs-custom" class="tool-panel">
+      <div class="pv-alert ink">Your saved resources. Add anything — links, notes, references, tools not in the curated lists.</div>
+      <div id="res-custom-list"></div>
+      <button class="res-add-btn" onclick="toggleResAddForm()">+ Add Resource</button>
+      <div class="res-add-form" id="res-custom-form">
+        <div class="res-form-row"><input class="res-form-input" id="res-new-name" placeholder="Name *" style="flex:2"><input class="res-form-input" id="res-new-subject" placeholder="Tag / subject"></div>
+        <div class="res-form-row"><input class="res-form-input" id="res-new-url" placeholder="URL (optional)"></div>
+        <div class="res-form-row"><input class="res-form-input" id="res-new-note" placeholder="Notes (optional)"></div>
+        <div style="display:flex;gap:8px"><button class="res-form-save" onclick="saveCustomResource()">Save</button><button class="res-form-cancel" onclick="toggleResAddForm()">Cancel</button></div>
+      </div>
+    </div>
+
+    <div id="rs-files" class="tool-panel">
+      <div class="pv-alert ink">Open PDFs directly in the hub. Drag and drop or click to upload. Files are stored in your browser — nothing is sent anywhere.</div>
+      <div class="file-drop-zone" id="file-drop-zone" onclick="document.getElementById('file-input').click()" ondragover="fileDragOver(event)" ondragleave="fileDragLeave(event)" ondrop="fileDrop(event)">
+        <div class="file-drop-icon">📄</div>
+        <div class="file-drop-title">Drop a PDF here, or click to choose a file</div>
+        <div class="file-drop-sub">PDF · EPUB · TXT — files open inside the hub</div>
+      </div>
+      <input type="file" id="file-input" accept=".pdf,.epub,.txt,.md" style="display:none" onchange="fileInputChange(event)">
+      <div class="file-list" id="file-list-cont"></div>
+      <div id="file-viewer-wrap" style="display:none">
+        <div class="file-viewer-toolbar">
+          <span class="file-viewer-name" id="fv-name">—</span>
+          <button class="file-viewer-close" onclick="closeFileViewer()">✕ Close</button>
+        </div>
+        <iframe class="file-viewer-frame" id="fv-iframe"></iframe>
+        <div class="epub-render" id="fv-epub"></div>
+      </div>
+    </div>
+
+  </div>
+</div>

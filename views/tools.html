@@ -1,0 +1,140 @@
+<!-- ═══════════════════════════════════════════════════════
+     VIEW: tools
+     This file contains only the HTML for this view/tab.
+     It is injected into index.html at runtime by core.js.
+     Edit content here; don't touch the id="view-tools" attribute.
+     ═══════════════════════════════════════════════════════ -->
+
+<div class="view" id="view-tools">
+  <div class="page-header">
+    <div class="eyebrow">Study Tools</div>
+    <h1>Your <em>Arsenal</em></h1>
+    <p>Every tool built for how you actually think and study.</p>
+  </div>
+
+  <!-- ── DAILY STRIP ─────────────────────────────────────────────────── -->
+  <div class="tools-daily-strip">
+    <div class="tools-daily-label">
+      Daily <span>always live — no click needed</span>
+    </div>
+    <div class="tools-daily-grid">
+
+      <!-- Pomodoro inline -->
+      <div class="tools-daily-pomo">
+        <div class="tools-pomo-top">
+          <svg width="56" height="56" viewBox="0 0 56 56" style="flex-shrink:0;transform:rotate(-90deg)">
+            <circle cx="28" cy="28" r="22" fill="none" stroke="rgba(107,94,74,.12)" stroke-width="5"/>
+            <circle cx="28" cy="28" r="22" id="tools-pomo-ring-fill" fill="none" stroke="var(--accent)"
+              stroke-width="5" stroke-dasharray="138.23" stroke-dashoffset="0"
+              stroke-linecap="round" style="transition:stroke-dashoffset .5s linear,stroke .4s"/>
+          </svg>
+          <div>
+            <div class="tools-pomo-time" id="tools-pomo-time">25:00</div>
+            <div class="tools-pomo-mode-lbl" id="tools-pomo-mode-lbl">Focus session</div>
+          </div>
+        </div>
+        <div class="tools-pomo-modes">
+          <button class="tools-pomo-mode-btn active" data-mode="work" onclick="setFocusMode('work')">Focus</button>
+          <button class="tools-pomo-mode-btn mode-short" data-mode="short" onclick="setFocusMode('short')">Break</button>
+          <button class="tools-pomo-mode-btn mode-long" data-mode="long" onclick="setFocusMode('long')">Long</button>
+        </div>
+        <div class="tools-pomo-btns">
+          <button class="tools-pomo-start" id="tools-pomo-start-btn" onclick="pfStart()">Start</button>
+          <button class="tools-pomo-reset" onclick="pfReset()">Reset</button>
+          <button class="tools-pomo-reset" onclick="openPomoOverlay()" title="Full overlay" style="padding:7px 11px">⤢</button>
+        </div>
+        <div class="tools-pomo-dots" id="tools-pomo-dots">
+          <div class="tools-pomo-dot"></div><div class="tools-pomo-dot"></div>
+          <div class="tools-pomo-dot"></div><div class="tools-pomo-dot"></div>
+        </div>
+      </div>
+
+      <!-- Tasks inline -->
+      <div class="tools-daily-tasks">
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px">Today's Tasks</div>
+        <ul id="tools-todo-list" style="list-style:none;display:flex;flex-direction:column;gap:4px;max-height:150px;overflow-y:auto;margin-bottom:8px"></ul>
+        <div style="display:flex;gap:6px">
+          <input type="text" id="tools-todo-input" class="todo-input" style="flex:1;font-size:12px;padding:6px 9px" placeholder="Add a task..." onkeydown="if(event.key==='Enter')toolsAddTodo()">
+          <button class="todo-add-btn" style="font-size:9px;padding:6px 10px" onclick="toolsAddTodo()">+ Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CORE SYSTEMS ─────────────────────────────────────────────────── -->
+  <div class="tools-section-lbl" style="margin-top:20px;margin-bottom:12px">Core Systems</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px">
+
+    <div class="cs-card cs-0" onclick="goDeep('studysystem')">
+      <div class="cs-icon">◉</div>
+      <div class="cs-meta">
+        <div class="cs-title">Study System</div>
+        <div class="cs-desc">Study loop · Feynman · Active recall · Spaced rep · Gizmo cards</div>
+        <span class="cs-cta">Open →</span>
+      </div>
+      <div class="cs-watermark">◉</div>
+    </div>
+
+    <div class="cs-card cs-1" onclick="goDeep('timeblock')">
+      <div class="cs-icon">◷</div>
+      <div class="cs-meta">
+        <div class="cs-title">Daily Structure</div>
+        <div class="cs-desc">Sequence blocks · Energy variants · Block rules</div>
+        <span class="cs-cta">Open →</span>
+      </div>
+      <div class="cs-watermark">◷</div>
+    </div>
+
+    <div class="cs-card cs-2" onclick="goDeep('lowenergy')">
+      <div class="cs-icon">✦</div>
+      <div class="cs-meta">
+        <div class="cs-title">Low Energy Protocol</div>
+        <div class="cs-desc">Intervention ladder · Procrastination types · Viktoria traps · Minimum day</div>
+        <span class="cs-cta">Open →</span>
+      </div>
+      <div class="cs-watermark">✦</div>
+    </div>
+
+    <div class="cs-card cs-3" onclick="goDeep('resources')">
+      <div class="cs-icon">⁂</div>
+      <div class="cs-meta">
+        <div class="cs-title">Resources</div>
+        <div class="cs-desc">Nursing links · Free textbooks · NCLEX sites · YouTube · File viewer</div>
+        <span class="cs-cta">Open →</span>
+      </div>
+      <div class="cs-watermark">⁂</div>
+    </div>
+
+    <div class="cs-card cs-4" onclick="goDeep('return-demo')">
+      <div class="cs-icon">❧</div>
+      <div class="cs-meta">
+        <div class="cs-title">Return Demo Tracker</div>
+        <div class="cs-desc">Track every clinical procedure through four practice stages until ready-to-demo.</div>
+        <span class="cs-cta">Open →</span>
+      </div>
+      <div class="cs-watermark">❧</div>
+    </div>
+
+    <div class="cs-card cs-5" onclick="goDeep('weekly-synthesis')">
+      <div class="cs-icon">◆</div>
+      <div class="cs-meta">
+        <div class="cs-title">Weekly Synthesis</div>
+        <div class="cs-desc">Sunday review protocol. What you mastered, what's a gap, what next week focuses on.</div>
+        <span class="cs-cta">Open →</span>
+      </div>
+      <div class="cs-watermark">◆</div>
+    </div>
+
+    <div class="cs-card" style="--cs-color:#3a4e82;--cs-bg:rgba(58,78,130,.07);--cs-border:rgba(58,78,130,.2);border-top:3px solid #3a4e82" onclick="goDeep('chain')">
+      <div class="cs-icon" style="color:#3a4e82">⊕</div>
+      <div class="cs-meta">
+        <div class="cs-title">Clinical Chain</div>
+        <div class="cs-desc">PNLE prep — how each concept threads through A&P, Pharm, Fundamentals, Assessment, Med-Surg.</div>
+        <span class="cs-cta" style="color:#3a4e82">Open →</span>
+      </div>
+      <div class="cs-watermark" style="color:#3a4e82">⊕</div>
+    </div>
+
+  </div>
+
+</div>

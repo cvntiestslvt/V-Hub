@@ -1,0 +1,120 @@
+<!-- ═══════════════════════════════════════════════════════
+     VIEW: lowenergy
+     This file contains only the HTML for this view/tab.
+     It is injected into index.html at runtime by core.js.
+     Edit content here; don't touch the id="view-lowenergy" attribute.
+     ═══════════════════════════════════════════════════════ -->
+
+<div class="view" id="view-lowenergy">
+  <button class="back-btn" onclick="goBack()">back</button>
+  <div class="pv-wrap">
+    <div class="cs-view-header" style="--cs-color:var(--gold);--cs-bg:var(--bg-gold);--cs-border:var(--bd-gold)" data-glyph="🌙">
+      <div class="cs-view-eyebrow">Tools · Core System 03</div>
+      <div class="cs-view-title">Low Energy <em>Protocol</em></div>
+      <div class="cs-view-sub">Diagnose the type first. Apply only that level's intervention. Wrong diagnosis = wrong fix = still not studying.</div>
+    </div>
+
+    <!-- SECTION A: The Ladder ───────────────────────────── -->
+    <div class="le-section-label">Intervention ladder — diagnose, then apply</div>
+    <div class="le-severity-bar">
+      <div class="le-sev-seg le-sev-0">Level 0</div>
+      <div class="le-sev-seg le-sev-1">Level 1</div>
+      <div class="le-sev-seg le-sev-2">Level 2</div>
+      <div class="le-sev-seg le-sev-3">Level 3</div>
+    </div>
+    <div class="le-ladder">
+      <div class="le-rung le-rung-0">
+        <div class="le-rung-head">
+          <div class="le-rung-level">0</div>
+          <div class="le-rung-title">Mild resistance — "I don't feel like it"</div>
+        </div>
+        <div class="le-rung-body">You can move, just avoiding. <strong>Intervention:</strong> open the physical notebook and write the concept name at the top. That's the only task. Resistance dissolves once you've written one word.</div>
+      </div>
+      <div class="le-rung le-rung-1">
+        <div class="le-rung-head">
+          <div class="le-rung-level">1</div>
+          <div class="le-rung-title">Overwhelm — "there's too much, I don't know where to start"</div>
+        </div>
+        <div class="le-rung-body">Paralyzed by scope, not laziness. <strong>Intervention:</strong> open tracker.md and read your ✓'s. Then pick the smallest possible unit — "read the first paragraph of one section." That's the whole task.</div>
+      </div>
+      <div class="le-rung le-rung-2">
+        <div class="le-rung-head">
+          <div class="le-rung-level">2</div>
+          <div class="le-rung-title">Brain fog — "I'm staring at the page but nothing is going in"</div>
+        </div>
+        <div class="le-rung-body">Brain is offline, not broken. <strong>Intervention:</strong> stop studying. Walk outside 10 minutes — no phone. Come back. German 15 minutes only. If brain is back, do one concept. If not, reading block and sleep.</div>
+      </div>
+      <div class="le-rung le-rung-3">
+        <div class="le-rung-head">
+          <div class="le-rung-level">3</div>
+          <div class="le-rung-title">Full shutdown — emotional event, financial stress, complete crash</div>
+        </div>
+        <div class="le-rung-body">Burnout day, not a lazy day. <strong>Intervention:</strong> German 15 minutes. Read your current book. That's it. Do not guilt yourself into studying through a shutdown — worse retention than not studying, and you'll associate studying with suffering.</div>
+      </div>
+    </div>
+    <div class="le-chain-rule">The goal on a bad day is not productivity. It's <strong>not breaking the chain.</strong> German 15 min keeps the chain alive at every level. Everything else is optional.</div>
+
+    <!-- SECTION B: Diagnosis grid ──────────────────────── -->
+    <div class="le-section-label" style="margin-top:2rem">Diagnose first — wrong type, wrong fix</div>
+    <div class="le-diag-grid">
+      <div class="le-diag-card le-d-teal">
+        <div class="le-diag-name">Novelty</div>
+        <div class="le-diag-type">Boredom disguised as avoidance</div>
+        <div class="le-diag-fix">Find the clinical horror story first. "Medication error [drug class]" before opening the textbook.</div>
+      </div>
+      <div class="le-diag-card le-d-blue">
+        <div class="le-diag-name">Perfectionism</div>
+        <div class="le-diag-type">Can't start because it won't be perfect</div>
+        <div class="le-diag-fix">Deliberately make a messy note. Ugly, incomplete, wrong structure. Done beats perfect every single time.</div>
+      </div>
+      <div class="le-diag-card le-d-gold">
+        <div class="le-diag-name">Emotional</div>
+        <div class="le-diag-type">Stress or anxiety blocking access</div>
+        <div class="le-diag-fix">Write one sentence about what's actually bothering you in Daily/. Named anxiety has less power than ambient anxiety.</div>
+      </div>
+      <div class="le-diag-card le-d-red">
+        <div class="le-diag-name">Fake work</div>
+        <div class="le-diag-type">Busy but not actually studying</div>
+        <div class="le-diag-fix">Test: did you produce an Obsidian concept note today? No = haven't studied. Stop reorganizing. Write one concept name.</div>
+      </div>
+    </div>
+
+    <!-- SECTION C: Viktoria Traps ────────────────────────── -->
+    <div class="le-section-label" style="margin-top:2rem">Viktoria-specific traps — recognize them by name</div>
+    <div class="le-traps-list">
+      <div class="le-trap-card">
+        <div class="le-trap-top"><span class="le-trap-pill">Trap</span><span class="le-trap-name">Redesigning the system instead of using it</span></div>
+        <div class="le-fix-top"><span class="le-fix-pill">Fix</span><span class="le-fix-text">Write the system idea in "System ideas — open day 30." Close Obsidian. Open the physical notebook. Write one concept name.</span></div>
+      </div>
+      <div class="le-trap-card">
+        <div class="le-trap-top"><span class="le-trap-pill">Trap</span><span class="le-trap-name">The rabbit hole — one lookup, now 6 tabs open</span></div>
+        <div class="le-fix-top"><span class="le-fix-pill">Fix</span><span class="le-fix-text">Write the lookup question in the notebook margin. Continue the session. Answer it only after the self-test at the end.</span></div>
+      </div>
+      <div class="le-trap-card">
+        <div class="le-trap-top"><span class="le-trap-pill">Trap</span><span class="le-trap-name">The reading exit — fiction during a study block</span></div>
+        <div class="le-fix-top"><span class="le-fix-pill">Fix</span><span class="le-fix-text">Name it out loud: "This is the reading exit." Then decide consciously. The only wrong move is not naming it.</span></div>
+      </div>
+      <div class="le-trap-card">
+        <div class="le-trap-top"><span class="le-trap-pill">Trap</span><span class="le-trap-name">One bad day becoming one bad week</span></div>
+        <div class="le-fix-top"><span class="le-fix-pill">Fix</span><span class="le-fix-text">Re-entry: Day 1 German only → Day 2 German + one synthesis sentence → Day 3 full minimum. Never compensate with a marathon.</span></div>
+      </div>
+    </div>
+
+    <!-- SECTION D: Minimum Day Poster ──────────────────── -->
+    <div class="le-mvd-poster">
+      <div class="le-mvd-label">The floor</div>
+      <div class="le-mvd-main">German.<br>15 minutes.</div>
+      <div class="le-mvd-sub">Any format. Any time. This keeps the chain alive.</div>
+      <div class="le-mvd-reentry">
+        <div class="le-reentry-label">Re-entry after a crash</div>
+        <div class="le-reentry-steps">
+          <div class="le-reentry-step"><span class="le-re-n">1</span><span>German 15 min + reading. Nothing else. Honest ✗ to tracker.</span></div>
+          <div class="le-reentry-step"><span class="le-re-n">2</span><span>German 15 min + one synthesis sentence. Still no full session.</span></div>
+          <div class="le-reentry-step"><span class="le-re-n">3</span><span>German + one Obsidian note on a concept you already know. Easy win.</span></div>
+          <div class="le-reentry-step"><span class="le-re-n">4</span><span>Full minimum. New concept. Back to normal. No catching up — just today.</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

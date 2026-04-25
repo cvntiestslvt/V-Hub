@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viktoria — Study Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="page-bg"></div>
+
+<header id="hub-header">
+  <div id="hub-logo" onclick="showHubTab('home')">
+    <span id="hub-logo-star">✦</span> <em>viktoria</em>
+  </div>
+  <div id="hub-topnav-tabs">
+    <button class="hub-nav-btn active" id="hnb-home"     onclick="showHubTab('home')">✦ Overview</button>
+    <button class="hub-nav-btn"        id="hnb-coverage" onclick="showHubTab('coverage')">❧ Courses</button>
+    <button class="hub-nav-btn"        id="hnb-tools"    onclick="showHubTab('tools')">◆ Tools</button>
+    <button class="hub-nav-btn"        id="hnb-viktor"   onclick="showHubTab('viktor')">◉ Self</button>
+    <button class="hub-nav-btn"        id="hnb-survival" onclick="showHubTab('survival')">† Survival</button>
+  <button id="sess-begin-btn" onclick="openSessionOverlay()" class="sess-header-btn">✦ Begin Rites</button>
+  <button id="sess-end-early-btn" onclick="endSessionEarly()" class="sess-header-btn sess-end-btn" style="display:none">✕ End Session</button>
+  </div>
+  <div id="hub-header-right">
+    <button class="hub-pomo-header-btn" id="hub-pomo-mini" onclick="openPomoOverlay()">⏱ 25:00</button>
+  </div>
+</header>
+
+<div class="container">
+  <div id="app-container">
+    <!-- Views are injected here by router.js via fetch() -->
+  </div>
+</div>
+
+<!-- Global overlays: always present in DOM, not part of any view -->
+<div id="focus-lock-banner">
+  <span class="focus-lock-label">Focus lock —</span>
+  <span class="focus-lock-time" id="fl-time">25:00</span>
+  <span class="focus-lock-label" id="fl-task"></span>
+  <button class="focus-lock-exit" onclick="exitFocusLock()" type="button">✕ exit lock</button>
+</div>
+<!-- pomo-fab removed per user request -->
+
+<!-- v38: Connection Lab FAB + Advanced Overlay -->
+<button id="conn-fab" onclick="toggleConnOverlay()" title="Connection Lab">⊕</button>
+<div id="conn-overlay">
+  <div class="conn-panel">
+    <div class="conn-panel-head">
+      <span class="conn-panel-title">Connection Lab</span>
+      <button class="conn-panel-close" onclick="toggleConnOverlay()">✕ close</button>
+    </div>
+    <div class="conn-panel-sub">Map concepts across subjects. Every chain you write is a retrieval pathway.</div>
+
+    <!-- Stats bar -->
+    <div class="conn-stats-bar" id="conn-stats-bar">
+      <div class="conn-stat-cell"><div class="conn-stat-val" id="cstat-total" style="color:rgba(255,255,255,.7)">0</div><div class="conn-stat-lbl">Chains</div></div>
+      <div class="conn-stat-cell"><div class="conn-stat-val" id="cstat-starred" style="color:rgba(255,210,74,.8)">0</div><div class="conn-stat-lbl">Starred</div></div>
+      <div class="conn-stat-cell"><div class="conn-stat-val" id="cstat-today" style="color:rgba(100,217,160,.8)">0</div><div class="conn-stat-lbl">Today</div></div>
+      <div class="conn-stat-cell"><div class="conn-stat-val" id="cstat-pairs" style="color:rgba(140,165,255,.8)">0</div><div class="conn-stat-lbl">Subjects</div></div>
+    </div>
+
+    <!-- Add form -->
+    <div class="conn-form-wrap">
+      <div class="conn-form-row1">
+        <div>
+          <div class="conn-field-label">From Course</div>
+          <select class="conn-sel" id="conn-from">
+            <option value="">— from —</option>
+            <option value="A&P">A&P</option>
+            <option value="Fundamentals">Fundamentals</option>
+            <option value="Nutrition">Nutrition</option>
+            <option value="TFN">TFN</option>
+            <option value="Health Assessment">Health Assess.</option>
+            <option value="Pharmacology">Pharmacology</option>
+            <option value="Med-Surg">Med-Surg</option>
+            <option value="Microbiology">Microbiology</option>
+            <option value="Maternal">Maternal</option>
+            <option value="Psych">Psych</option>
+            <option value="German">German</option>
+          </select>
+        </div>
+        <div>
+          <div class="conn-field-label">To Course</div>
+          <select class="conn-sel" id="conn-to">
+            <option value="">— to —</option>
+            <option value="A&P">A&P</option>
+            <option value="Fundamentals">Fundamentals</option>
+            <option value="Nutrition">Nutrition</option>
+            <option value="TFN">TFN</option>
+            <option value="Health Assessment">Health Assess.</option>
+            <option value="Pharmacology">Pharmacology</option>
+            <option value="Med-Surg">Med-Surg</option>
+            <option value="Microbiology">Microbiology</option>
+            <option value="Maternal">Maternal</option>
+            <option value="Psych">Psych</option>
+            <option value="German">German</option>
+          </select>
+        </div>
+        <div>
+          <div class="conn-field-label">Link Type</div>
+          <select class="conn-sel" id="conn-type">
+            <option value="Mechanism">Mechanism</option>
+            <option value="Drug Link">Drug Link</option>
+            <option value="Clinical Sign">Clinical Sign</option>
+            <option value="Priority">Priority</option>
+            <option value="Vocab">Vocab</option>
+            <option value="Warning">Warning</option>
+          </select>
+        </div>
+      </div>
+      <div class="conn-form-row2">
+        <input class="conn-inp" id="conn-input" placeholder="e.g. Furosemide blocks NKCC2 → K⁺ lost → hypokalemia → hold digoxin" onkeydown="if(event.key==='Enter')connAddV2()">
+        <button class="conn-add-btn" onclick="connAddV2()">Add →</button>
+      </div>
+    </div>
+
+    <!-- Filter bar -->
+    <div class="conn-filter-row" id="conn-filter-row">
+      <button class="conn-filter-btn active" onclick="connSetFilter('all',this)">All</button>
+      <button class="conn-filter-btn" onclick="connSetFilter('starred',this)">⭐ Starred</button>
+      <button class="conn-filter-btn" onclick="connSetFilter('A&P',this)">A&P</button>
+      <button class="conn-filter-btn" onclick="connSetFilter('Pharmacology',this)">Pharm</button>
+      <button class="conn-filter-btn" onclick="connSetFilter('Med-Surg',this)">Med-Surg</button>
+      <button class="conn-filter-btn" onclick="connSetFilter('Microbiology',this)">Micro</button>
+      <button class="conn-filter-btn" onclick="connSetFilter('Maternal',this)">Maternal</button>
+      <button class="conn-filter-btn" onclick="connSetFilter('Psych',this)">Psych</button>
+    </div>
+
+    <!-- Chain list -->
+    <div class="conn-list-wrap" id="conn-list">
+      <div class="conn-empty">No chains yet. Write your first connection above.</div>
+    </div>
+  </div>
+</div>
+
+<div id="pomo-overlay">
+  <div class="pomo-focus-card">
+    <button class="pomo-close-btn" onclick="closePomoOverlay()">✕ close</button>
+    <div class="pomo-focus-title">Focus Timer</div>
+    <div class="pomo-focus-task-row">
+      <input class="pomo-focus-task-input" id="pomo-task-input" placeholder="What are you studying right now?">
+    </div>
+    <div class="pomo-focus-modes">
+      <button class="pomo-focus-mode-btn active" data-mode="work" onclick="setFocusMode('work')">Focus 25m</button>
+      <button class="pomo-focus-mode-btn mode-short" data-mode="short" onclick="setFocusMode('short')">Break 5m</button>
+      <button class="pomo-focus-mode-btn mode-long" data-mode="long" onclick="setFocusMode('long')">Long 15m</button>
+    </div>
+    <div class="pomo-focus-ring">
+      <svg width="180" height="180" viewBox="0 0 180 180">
+        <circle class="pomo-focus-track" cx="90" cy="90" r="80"/>
+        <circle class="pomo-focus-fill" id="pf-ring-fill" cx="90" cy="90" r="80" stroke-dasharray="502.65" stroke-dashoffset="0"/>
+      </svg>
+      <div class="pomo-focus-time-wrap">
+        <div class="pomo-focus-time" id="pf-time">25:00</div>
+        <div class="pomo-focus-mode-lbl" id="pf-mode-lbl">Focus session</div>
+      </div>
+    </div>
+    <div class="pomo-focus-btns">
+      <button class="pomo-focus-start" id="pf-start-btn" onclick="pfStart()">Start</button>
+      <button class="pomo-focus-reset" onclick="pfReset()">Reset</button>
+    </div>
+    <div style="text-align:center;margin-top:8px">
+      <button id="pf-lock-btn" onclick="toggleFocusLock()" style="font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border:1px solid var(--border);border-radius:99px;background:transparent;color:var(--ink-ghost);cursor:pointer;transition:all .15s">⊞ focus lock</button>
+    </div>
+    <div class="pomo-focus-sessions" id="pf-dots">
+      <div class="pomo-focus-dot"></div><div class="pomo-focus-dot"></div>
+      <div class="pomo-focus-dot"></div><div class="pomo-focus-dot"></div>
+    </div>
+    <div class="pomo-focus-session-log" id="pf-session-lbl">Session 0 of 4</div>
+  </div>
+</div>
+
+<!-- ─── Course data ─────────────────────────────────────────────── -->
+<script src="js/courses/ap.js"></script>
+<script src="js/courses/nut.js"></script>
+<script src="js/courses/theo.js"></script>
+<script src="js/courses/fund.js"></script>
+<script src="js/courses/ha.js"></script>
+<script src="js/courses/micro.js"></script>
+<script src="js/courses/pharm.js"></script>
+<script src="js/courses/medsurg.js"></script>
+<script src="js/courses/matob.js"></script>
+<script src="js/courses/psych.js"></script>
+<script src="js/courses/biochem.js"></script>
+<script src="js/courses/de.js"></script>
+
+<script>
+// Assemble projects array from individual course constants.
+// Defined here so core.js can reference it as a plain var (no re-declaration).
+var projects = [
+  COURSE_AP, COURSE_FUND, COURSE_HA, COURSE_MICRO, COURSE_PHARM, COURSE_NUT,
+  COURSE_THEO, COURSE_MEDSURG, COURSE_MATOB, COURSE_PSYCH, COURSE_BIOCHEM, COURSE_DE
+];
+</script>
+
+<!-- ─── App logic ──────────────────────────────────────────────── -->
+<script src="js/core.js"></script>
+<script src="js/economy.js"></script>
+<script src="js/session.js"></script>
+<script src="js/metronome.js"></script>
+<script src="js/ui-session.js"></script>
+<script src="js/router.js"></script>
+
+<!-- ─── Session Flow Overlay ──────────────────────────────────── -->
+<div id="session-overlay" class="session-overlay" aria-modal="true">
+
+  <!-- STEP 0: DECLARATION -->
+  <div class="session-step" id="sess-step-decl" style="display:none">
+    <div class="sess-card">
+      <div class="sess-eyebrow">Before you begin</div>
+
+      <!-- Write state: no declaration yet today -->
+      <div id="sess-decl-write" style="display:none">
+        <div class="sess-title">Speak your intention</div>
+        <div class="sess-sub">The Rites will bear witness to what you declare here.</div>
+        <textarea class="sess-decl-area" id="sess-decl-input"
+          placeholder="Today I will…"
+          onkeydown="if(event.key==='Enter'&&event.ctrlKey)sessDeclarationSave()"></textarea>
+        <div class="sess-decl-hint">Ctrl + Enter to save</div>
+        <div class="sess-btn-row">
+          <button class="sess-btn-primary" onclick="sessDeclarationSave()">Declare ✦</button>
+          <button class="sess-btn-ghost" onclick="sessDeclarationSkip()">
+            Skip <span class="sess-cost">−10 vt</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Confirm state: declaration already written today -->
+      <div id="sess-decl-confirm" style="display:none; flex-direction:column; align-items:center; gap:20px">
+        <div class="sess-title">You have spoken</div>
+        <div class="sess-decl-echo" id="sess-decl-echo"></div>
+        <button class="sess-btn-primary" onclick="sessStepNext()">Continue →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1: DISCIPLE SELECTOR -->
+  <div class="session-step" id="sess-step-disciples" style="display:none">
+    <div class="sess-card sess-card-wide">
+      <div class="sess-eyebrow">Choose your Disciples</div>
+      <div class="sess-title">Who guides this session?</div>
+      <div class="sess-sub">Tap once for Primary. Tap again for Secondary. Tap a third time to deselect.</div>
+
+      <div class="sess-disciple-grid" id="sess-disciple-grid">
+        <!-- populated by ui-session.js -->
+      </div>
+
+      <div class="sess-disciple-summary" id="sess-disciple-summary">No Primary selected</div>
+
+      <div class="sess-disciple-legend">
+        <span class="sess-legend-dot sess-legend-primary"></span><span>Primary</span>
+        <span class="sess-legend-dot sess-legend-secondary"></span><span>Secondary</span>
+      </div>
+
+      <button class="sess-btn-primary" id="sess-disciple-confirm"
+              onclick="sessStepNext()" disabled>
+        Enter the Rites →
+      </button>
+    </div>
+  </div>
+
+  <!-- STEP 2: STRIKE -->
+  <div class="session-step" id="sess-step-strike" style="display:none">
+    <div class="sess-card">
+      <div class="sess-eyebrow">Strike the Metronome</div>
+      <div class="sess-strike-glyph" id="sess-strike-glyph">◎</div>
+      <div class="sess-strike-disciple" id="sess-strike-disciple"></div>
+
+      <div class="sess-duration-wrap">
+        <div class="sess-duration-group">
+          <div class="sess-dur-label">Rite Phase</div>
+          <div class="sess-dur-btns" id="sess-rite-btns">
+            <button class="sess-dur-btn" data-val="short"  onclick="sessSetRite('short')">25m</button>
+            <button class="sess-dur-btn active" data-val="normal" onclick="sessSetRite('normal')">52m</button>
+            <button class="sess-dur-btn" data-val="long"   onclick="sessSetRite('long')">90m</button>
+          </div>
+        </div>
+        <div class="sess-duration-group">
+          <div class="sess-dur-label">Reckoning</div>
+          <div class="sess-dur-btns" id="sess-rec-btns">
+            <button class="sess-dur-btn" data-val="short"  onclick="sessSetRec('short')">5m</button>
+            <button class="sess-dur-btn active" data-val="normal" onclick="sessSetRec('normal')">17m</button>
+            <button class="sess-dur-btn" data-val="long"   onclick="sessSetRec('long')">20m</button>
+          </div>
+        </div>
+      </div>
+
+      <label class="sess-lightday-row">
+        <input type="checkbox" id="sess-lightday-cb" onchange="sessToggleLightDay(this)">
+        <span class="sess-lightday-label">☽ Light Day — shorter rites, no penalty</span>
+      </label>
+
+      <button class="sess-btn-strike" id="sess-strike-btn" onclick="sessStrike()">
+        <span>✦</span> Strike
+      </button>
+
+      <button class="sess-btn-ghost" onclick="_showStep(1)" style="margin-top:8px;font-size:11px">
+        ← Back
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Session End Overlay ──────────────────────────────────────── -->
+<div id="session-end-overlay" class="session-overlay" style="display:none" aria-modal="true">
+  <div class="sess-card sess-card-end">
+    <div class="sess-end-glyph">✦</div>
+    <div class="sess-title" id="sess-end-title">The Metronome Falls Silent</div>
+    <div class="sess-end-vt" id="sess-end-vt">+0 vt</div>
+    <div class="sess-end-msg" id="sess-end-msg"></div>
+    <button class="sess-btn-primary" onclick="sessEndClose()">Return</button>
+  </div>
+</div>
+</body>
+</html>
