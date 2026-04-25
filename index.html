@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Viktoria — Study Hub</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500[...]
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -118,7 +118,7 @@
     <!-- Filter bar -->
     <div class="conn-filter-row" id="conn-filter-row">
       <button class="conn-filter-btn active" onclick="connSetFilter('all',this)">All</button>
-      <button class="conn-filter-btn" onclick="connSetFilter('starred',this)">��� Starred</button>
+      <button class="conn-filter-btn" onclick="connSetFilter('starred',this)">⭐ Starred</button>
       <button class="conn-filter-btn" onclick="connSetFilter('A&P',this)">A&P</button>
       <button class="conn-filter-btn" onclick="connSetFilter('Pharmacology',this)">Pharm</button>
       <button class="conn-filter-btn" onclick="connSetFilter('Med-Surg',this)">Med-Surg</button>
@@ -161,7 +161,7 @@
       <button class="pomo-focus-reset" onclick="pfReset()">Reset</button>
     </div>
     <div style="text-align:center;margin-top:8px">
-      <button id="pf-lock-btn" onclick="toggleFocusLock()" style="font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border:1px solid var(--b[...]
+      <button id="pf-lock-btn" onclick="toggleFocusLock()" style="font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer">lock session</button>
     </div>
     <div class="pomo-focus-sessions" id="pf-dots">
       <div class="pomo-focus-dot"></div><div class="pomo-focus-dot"></div>
@@ -273,14 +273,14 @@ var projects = [
         <span>✦</span> Strike
       </button>
 
-      <button class="sess-btn-ghost" onclick="sessStepNext(); _showStep(1)" style="margin-top:8px;font-size:11px">
+      <button class="sess-btn-ghost" onclick="_showStep(1)" style="margin-top:8px;font-size:11px">
         ← Back
       </button>
     </div>
   </div>
 </div>
 
-<!-- ─── Session End Overlay ──────────────────────────────────────── -->
+<!-- ��── Session End Overlay ──────────────────────────────────────── -->
 <div id="session-end-overlay" class="session-overlay" style="display:none" aria-modal="true">
   <div class="sess-card sess-card-end">
     <div class="sess-end-glyph">✦</div>
