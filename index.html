@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Viktoria — Study Hub</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500[...]
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -24,7 +24,7 @@
   <button id="sess-end-early-btn" onclick="endSessionEarly()" class="sess-header-btn sess-end-btn" style="display:none">✕ End Session</button>
   </div>
   <div id="hub-header-right">
-    <button class="hub-pomo-header-btn" id="hub-pomo-mini" onclick="openPomoOverlay()">⏱ 25:00</button>
+    <button class="hub-pomo-header-btn" id="hub-pomo-mini" onclick="openPomoOverlay()" style="display:block">⏱ 25:00</button>
   </div>
 </header>
 
@@ -41,9 +41,8 @@
   <span class="focus-lock-label" id="fl-task"></span>
   <button class="focus-lock-exit" onclick="exitFocusLock()" type="button">✕ exit lock</button>
 </div>
-<!-- pomo-fab removed per user request -->
 
-<!-- v38: Connection Lab FAB + Advanced Overlay -->
+<!-- Connection Lab FAB -->
 <button id="conn-fab" onclick="toggleConnOverlay()" title="Connection Lab">⊕</button>
 <div id="conn-overlay">
   <div class="conn-panel">
@@ -119,7 +118,7 @@
     <!-- Filter bar -->
     <div class="conn-filter-row" id="conn-filter-row">
       <button class="conn-filter-btn active" onclick="connSetFilter('all',this)">All</button>
-      <button class="conn-filter-btn" onclick="connSetFilter('starred',this)">⭐ Starred</button>
+      <button class="conn-filter-btn" onclick="connSetFilter('starred',this)">��� Starred</button>
       <button class="conn-filter-btn" onclick="connSetFilter('A&P',this)">A&P</button>
       <button class="conn-filter-btn" onclick="connSetFilter('Pharmacology',this)">Pharm</button>
       <button class="conn-filter-btn" onclick="connSetFilter('Med-Surg',this)">Med-Surg</button>
@@ -162,7 +161,7 @@
       <button class="pomo-focus-reset" onclick="pfReset()">Reset</button>
     </div>
     <div style="text-align:center;margin-top:8px">
-      <button id="pf-lock-btn" onclick="toggleFocusLock()" style="font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border:1px solid var(--border);border-radius:99px;background:transparent;color:var(--ink-ghost);cursor:pointer;transition:all .15s">⊞ focus lock</button>
+      <button id="pf-lock-btn" onclick="toggleFocusLock()" style="font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border:1px solid var(--b[...]
     </div>
     <div class="pomo-focus-sessions" id="pf-dots">
       <div class="pomo-focus-dot"></div><div class="pomo-focus-dot"></div>
@@ -261,42 +260,20 @@ var projects = [
     </div>
   </div>
 
-  <!-- STEP 2: STRIKE -->
+  <!-- STEP 2: STRIKE (simplified — no timer selection) -->
   <div class="session-step" id="sess-step-strike" style="display:none">
     <div class="sess-card">
       <div class="sess-eyebrow">Strike the Metronome</div>
       <div class="sess-strike-glyph" id="sess-strike-glyph">◎</div>
       <div class="sess-strike-disciple" id="sess-strike-disciple"></div>
 
-      <div class="sess-duration-wrap">
-        <div class="sess-duration-group">
-          <div class="sess-dur-label">Rite Phase</div>
-          <div class="sess-dur-btns" id="sess-rite-btns">
-            <button class="sess-dur-btn" data-val="short"  onclick="sessSetRite('short')">25m</button>
-            <button class="sess-dur-btn active" data-val="normal" onclick="sessSetRite('normal')">52m</button>
-            <button class="sess-dur-btn" data-val="long"   onclick="sessSetRite('long')">90m</button>
-          </div>
-        </div>
-        <div class="sess-duration-group">
-          <div class="sess-dur-label">Reckoning</div>
-          <div class="sess-dur-btns" id="sess-rec-btns">
-            <button class="sess-dur-btn" data-val="short"  onclick="sessSetRec('short')">5m</button>
-            <button class="sess-dur-btn active" data-val="normal" onclick="sessSetRec('normal')">17m</button>
-            <button class="sess-dur-btn" data-val="long"   onclick="sessSetRec('long')">20m</button>
-          </div>
-        </div>
-      </div>
-
-      <label class="sess-lightday-row">
-        <input type="checkbox" id="sess-lightday-cb" onchange="sessToggleLightDay(this)">
-        <span class="sess-lightday-label">☽ Light Day — shorter rites, no penalty</span>
-      </label>
+      <div class="sess-strike-tagline">Ready to begin?</div>
 
       <button class="sess-btn-strike" id="sess-strike-btn" onclick="sessStrike()">
         <span>✦</span> Strike
       </button>
 
-      <button class="sess-btn-ghost" onclick="_showStep(1)" style="margin-top:8px;font-size:11px">
+      <button class="sess-btn-ghost" onclick="sessStepNext(); _showStep(1)" style="margin-top:8px;font-size:11px">
         ← Back
       </button>
     </div>
